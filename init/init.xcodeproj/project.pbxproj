@@ -12,11 +12,6 @@
 		C02BE9381DD2CE4200367E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9361DD2CE4200367E4A /* Main.storyboard */; };
 		C02BE93A1DD2CE4200367E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9391DD2CE4200367E4A /* Assets.xcassets */; };
 		C02BE93D1DD2CE4200367E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE93B1DD2CE4200367E4A /* LaunchScreen.storyboard */; };
-		C02BE9451DD2D97C00367E4A /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9441DD2D97C00367E4A /* Registration.storyboard */; };
-		C02BE9471DD2DAF600367E4A /* MissionList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9461DD2DAF600367E4A /* MissionList.storyboard */; };
-		C02BE9491DD2DB2700367E4A /* MissionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9481DD2DB2700367E4A /* MissionDetail.storyboard */; };
-		C02BE94B1DD2DB3900367E4A /* MissionAdd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE94A1DD2DB3900367E4A /* MissionAdd.storyboard */; };
-		C02BE94D1DD2DB4C00367E4A /* MissonEdit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE94C1DD2DB4C00367E4A /* MissonEdit.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,11 +22,6 @@
 		C02BE9391DD2CE4200367E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C02BE93C1DD2CE4200367E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C02BE93E1DD2CE4200367E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C02BE9441DD2D97C00367E4A /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
-		C02BE9461DD2DAF600367E4A /* MissionList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionList.storyboard; sourceTree = "<group>"; };
-		C02BE9481DD2DB2700367E4A /* MissionDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionDetail.storyboard; sourceTree = "<group>"; };
-		C02BE94A1DD2DB3900367E4A /* MissionAdd.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionAdd.storyboard; sourceTree = "<group>"; };
-		C02BE94C1DD2DB4C00367E4A /* MissonEdit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissonEdit.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +57,6 @@
 				C02BE9321DD2CE4200367E4A /* AppDelegate.swift */,
 				C02BE9341DD2CE4200367E4A /* ViewController.swift */,
 				C02BE9361DD2CE4200367E4A /* Main.storyboard */,
-				C02BE9441DD2D97C00367E4A /* Registration.storyboard */,
-				C02BE9461DD2DAF600367E4A /* MissionList.storyboard */,
-				C02BE9481DD2DB2700367E4A /* MissionDetail.storyboard */,
-				C02BE94A1DD2DB3900367E4A /* MissionAdd.storyboard */,
-				C02BE94C1DD2DB4C00367E4A /* MissonEdit.storyboard */,
 				C02BE9391DD2CE4200367E4A /* Assets.xcassets */,
 				C02BE93B1DD2CE4200367E4A /* LaunchScreen.storyboard */,
 				C02BE93E1DD2CE4200367E4A /* Info.plist */,
@@ -140,13 +125,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C02BE93D1DD2CE4200367E4A /* LaunchScreen.storyboard in Resources */,
-				C02BE9451DD2D97C00367E4A /* Registration.storyboard in Resources */,
-				C02BE9491DD2DB2700367E4A /* MissionDetail.storyboard in Resources */,
-				C02BE94D1DD2DB4C00367E4A /* MissonEdit.storyboard in Resources */,
 				C02BE93A1DD2CE4200367E4A /* Assets.xcassets in Resources */,
 				C02BE9381DD2CE4200367E4A /* Main.storyboard in Resources */,
-				C02BE94B1DD2DB3900367E4A /* MissionAdd.storyboard in Resources */,
-				C02BE9471DD2DAF600367E4A /* MissionList.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +300,7 @@
 				C02BE9431DD2CE4200367E4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
