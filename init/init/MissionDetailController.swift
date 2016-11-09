@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MissionDetailController.swift
 //  init
 //
 //  Created by Atsuo on 2016/11/09.
@@ -8,23 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var displayName: UITextField!
-    @IBOutlet weak var IDName: UITextField!
+class MissionDetailController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func regisButton(_ sender: UIButton) {
-    }
-
-
+    
 }
-

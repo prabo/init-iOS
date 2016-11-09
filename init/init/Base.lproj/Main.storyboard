@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Register Controller-->
         <scene sceneID="HDH-ZT-Ban">
             <objects>
-                <viewController id="ZAh-od-025" customClass="ViewController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Register" id="ZAh-od-025" customClass="RegisterController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QcT-BF-99V"/>
                         <viewControllerLayoutGuide type="bottom" id="6mx-Kg-4ru"/>
@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KpE-l5-fIt">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KpE-l5-fIt" userLabel="display Name">
                                 <rect key="frame" x="58" y="151" width="259" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -35,6 +35,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="表示名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilI-Ik-qcy">
+                                <rect key="frame" x="58" y="122" width="63" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrW-H4-49A">
                                 <rect key="frame" x="58" y="289" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -50,24 +57,91 @@
                                     <action selector="regisButton:" destination="ZAh-od-025" eventType="touchUpInside" id="l6r-K7-8Az"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="表示名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilI-Ik-qcy">
-                                <rect key="frame" x="58" y="122" width="63" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="IDName" destination="RoM-8w-bnM" id="91c-90-hrO"/>
-                        <outlet property="displayName" destination="KpE-l5-fIt" id="OE6-cc-vtV"/>
+                        <outlet property="DisplayName" destination="KpE-l5-fIt" id="kgs-pb-qrU"/>
+                        <outlet property="IDName" destination="RoM-8w-bnM" id="IoK-uR-T8y"/>
+                        <outlet property="displayName" destination="KpE-l5-fIt" id="S1Y-p8-WbC"/>
+                        <outlet property="registButton" destination="YoN-45-fPv" id="QCq-IJ-u6C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O1K-QF-qnr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+            <point key="canvasLocation" x="-988" y="-259"/>
+        </scene>
+        <!--Mission List Controller-->
+        <scene sceneID="Dsd-is-DyD">
+            <objects>
+                <viewController storyboardIdentifier="MissonList" id="M01-5h-bEp" customClass="MissionListController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4pL-6i-z7f"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ycb-1Q-yPc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QIE-C1-V8g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8lh-bN-vfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-15" y="-497"/>
+        </scene>
+        <!--Mission Add Controller-->
+        <scene sceneID="dgd-JP-qBk">
+            <objects>
+                <viewController id="eTz-6a-Ogi" customClass="MissionAddController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FlM-bM-TRK"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Op-aS-a0s"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="miO-GE-kWP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ORd-4M-yoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-15" y="227"/>
+        </scene>
+        <!--Mission Edit Controller-->
+        <scene sceneID="5QN-3Q-5cw">
+            <objects>
+                <viewController id="KeU-ja-ejO" customClass="MissionEditController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zvi-gq-i1W"/>
+                        <viewControllerLayoutGuide type="bottom" id="OzB-XT-qjT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b4O-2D-Dwx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bsy-Vt-MSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="836" y="226"/>
+        </scene>
+        <!--Mission Detail Controller-->
+        <scene sceneID="XgO-mO-Whc">
+            <objects>
+                <viewController id="kcq-Nj-kF1" customClass="MissionDetailController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bEZ-wt-DXf"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZVl-EQ-mXX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z6g-oa-Dby">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjT-Eo-5Fe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="836" y="-497"/>
         </scene>
     </scenes>
 </document>
