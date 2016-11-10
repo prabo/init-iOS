@@ -19,5 +19,10 @@ class MissionDetailController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func completeButton(_ sender: UIButton) {
+    }
+
+    @IBAction func editButton(_ sender: UIButton) {
+    }
     
 }
