@@ -15,6 +15,8 @@
 		C03756181DD2F15F00A89FFB /* MissionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03756171DD2F15F00A89FFB /* MissionListController.swift */; };
 		C0B3D20D1DD489CB00A1FEB3 /* MissionListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */; };
 		C0B3D2101DD48EAD00A1FEB3 /* MissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */; };
+		C0B3D2121DD4987E00A1FEB3 /* MissionEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D2111DD4987E00A1FEB3 /* MissionEditTableViewCell.swift */; };
+		C0B3D2141DD498C000A1FEB3 /* MissionEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D2131DD498C000A1FEB3 /* MissionEditTableViewController.swift */; };
 		C0D457211DD2FE4100B33924 /* MissionAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D457201DD2FE4100B33924 /* MissionAddController.swift */; };
 		C0D457231DD2FEEB00B33924 /* MissionEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D457221DD2FEEB00B33924 /* MissionEditController.swift */; };
 		C0D457251DD3000700B33924 /* MissionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D457241DD3000700B33924 /* MissionDetailController.swift */; };
@@ -31,6 +33,8 @@
 		C03756171DD2F15F00A89FFB /* MissionListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListController.swift; sourceTree = "<group>"; };
 		C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewController.swift; sourceTree = "<group>"; };
 		C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
+		C0B3D2111DD4987E00A1FEB3 /* MissionEditTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionEditTableViewCell.swift; sourceTree = "<group>"; };
+		C0B3D2131DD498C000A1FEB3 /* MissionEditTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionEditTableViewController.swift; sourceTree = "<group>"; };
 		C0D457201DD2FE4100B33924 /* MissionAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionAddController.swift; sourceTree = "<group>"; };
 		C0D457221DD2FEEB00B33924 /* MissionEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionEditController.swift; sourceTree = "<group>"; };
 		C0D457241DD3000700B33924 /* MissionDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDetailController.swift; sourceTree = "<group>"; };
@@ -67,7 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				C0B3D20E1DD48E7F00A1FEB3 /* Cell */,
-				C0B3D20B1DD4898300A1FEB3 /* tabkeController */,
+				C0B3D20B1DD4898300A1FEB3 /* tableController */,
 				C03756161DD2F0B100A89FFB /* ViewController */,
 				C02BE9321DD2CE4200367E4A /* AppDelegate.swift */,
 				C02BE9361DD2CE4200367E4A /* Main.storyboard */,
@@ -90,18 +94,20 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
-		C0B3D20B1DD4898300A1FEB3 /* tabkeController */ = {
+		C0B3D20B1DD4898300A1FEB3 /* tableController */ = {
 			isa = PBXGroup;
 			children = (
 				C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */,
+				C0B3D2131DD498C000A1FEB3 /* MissionEditTableViewController.swift */,
 			);
-			name = tabkeController;
+			name = tableController;
 			sourceTree = "<group>";
 		};
 		C0B3D20E1DD48E7F00A1FEB3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
+				C0B3D2111DD4987E00A1FEB3 /* MissionEditTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -179,9 +185,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0B3D2121DD4987E00A1FEB3 /* MissionEditTableViewCell.swift in Sources */,
 				C02BE9351DD2CE4200367E4A /* RegisterController.swift in Sources */,
 				C02BE9331DD2CE4200367E4A /* AppDelegate.swift in Sources */,
 				C0B3D2101DD48EAD00A1FEB3 /* MissionListTableViewCell.swift in Sources */,
+				C0B3D2141DD498C000A1FEB3 /* MissionEditTableViewController.swift in Sources */,
 				C03756181DD2F15F00A89FFB /* MissionListController.swift in Sources */,
 				C0D457251DD3000700B33924 /* MissionDetailController.swift in Sources */,
 				C0B3D20D1DD489CB00A1FEB3 /* MissionListTableViewController.swift in Sources */,
