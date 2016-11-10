@@ -117,6 +117,7 @@
                                 <connections>
                                     <outlet property="missionCompleatedStatus" destination="HJj-dQ-e6C" id="Crt-js-hEo"/>
                                     <outlet property="missionNameLabel" destination="Vcx-eR-FkF" id="eOa-pV-T6P"/>
+                                    <segue destination="kcq-Nj-kF1" kind="show" id="EDz-iA-B4Y"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -178,12 +179,22 @@
                     <view key="view" contentMode="scaleToFill" id="z6g-oa-Dby">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzh-x4-o9j">
+                                <rect key="frame" x="16" y="72" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aHB-Gv-KbP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjT-Eo-5Fe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1775.2" y="-497.00149925037488"/>
+            <point key="canvasLocation" x="1844" y="-503.29835082458777"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aAc-eI-9L3">
