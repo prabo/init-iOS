@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K44-Fi-7Dw" id="sEm-Dx-KuG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="残留" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-eR-FkF">
@@ -117,6 +117,7 @@
                                 <connections>
                                     <outlet property="missionCompleatedStatus" destination="HJj-dQ-e6C" id="Crt-js-hEo"/>
                                     <outlet property="missionNameLabel" destination="Vcx-eR-FkF" id="eOa-pV-T6P"/>
+                                    <segue destination="kRa-ph-97H" kind="show" id="PyI-Ys-9U8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -130,6 +131,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j53-LV-pay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="836" y="-503.29835082458777"/>
+        </scene>
+        <!--Mission Edit Table View Controller-->
+        <scene sceneID="ERJ-Gw-r6h">
+            <objects>
+                <tableViewController id="kRa-ph-97H" customClass="MissionEditTableViewController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" id="8xe-Bv-ady">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="missionEditCell" rowHeight="48" id="YkW-gx-LVi" customClass="MissionEditTableViewCell" customModule="init" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="48"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="missionEditCell" tableViewCell="YkW-gx-LVi" id="M6A-sR-KQT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="mUf-tk-AD5">
+                                            <rect key="frame" x="331" y="2" width="36" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iap-dI-teq">
+                                            <rect key="frame" x="19" y="5" width="155" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="isConpleated" destination="mUf-tk-AD5" id="Vbj-v3-Fdf"/>
+                                    <outlet property="missionEditLabel" destination="Iap-dI-teq" id="E1n-0f-rIo"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kRa-ph-97H" id="wOm-9w-yQN"/>
+                            <outlet property="delegate" destination="kRa-ph-97H" id="D8w-8p-gTU"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l3O-MB-r87" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1805.5999999999999" y="-503.29835082458777"/>
         </scene>
         <!--Mission Add Controller-->
         <scene sceneID="dgd-JP-qBk">
@@ -167,24 +213,6 @@
             </objects>
             <point key="canvasLocation" x="836" y="226"/>
         </scene>
-        <!--Mission Detail Controller-->
-        <scene sceneID="XgO-mO-Whc">
-            <objects>
-                <viewController id="kcq-Nj-kF1" customClass="MissionDetailController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bEZ-wt-DXf"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZVl-EQ-mXX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="z6g-oa-Dby">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bjT-Eo-5Fe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1775.2" y="-497.00149925037488"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="aAc-eI-9L3">
             <objects>
@@ -204,4 +232,7 @@
             <point key="canvasLocation" x="-15" y="-503"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="check" width="360" height="360"/>
+    </resources>
 </document>
