@@ -20,6 +20,7 @@ class MissionDetailController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func completeButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func editButton(_ sender: UIButton) {

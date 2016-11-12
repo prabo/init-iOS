@@ -11,7 +11,6 @@ import UIKit
 class MissionListTableViewController: UITableViewController {
 
     var missionList: [String]=["残留","コーヒー","炊飯器","3Dprinter","github"]
-    var missionCompleaterdStatus: [String]=["3/4","2/4","1/4","1/4","2/4",]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +44,6 @@ class MissionListTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.missionNameLabel.text=missionList[indexPath.row]
-        cell.missionCompleatedStatus.text=missionCompleaterdStatus[indexPath.row]
         return cell
     }
 
