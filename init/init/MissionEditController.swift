@@ -10,6 +10,8 @@ import UIKit
 
 class MissionEditController: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,5 +21,8 @@ class MissionEditController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func ChangeButton(_ sender: UIButton) {
+    }
+    @IBOutlet weak var DeleteButton: UIButton!
     
 }
