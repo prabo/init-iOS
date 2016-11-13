@@ -22,15 +22,12 @@ class MissionEditController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func changeButton(_ sender: UIButton) {
-        let backVC = self.storyboard?.instantiateViewController(withIdentifier: "Detail")
-        backVC?.modalTransitionStyle = .flipHorizontal
-        present(backVC!,animated:true,completion:nil)
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func deleteButton(_ sender: UIButton) {
-        let backVC = self.storyboard?.instantiateViewController(withIdentifier: "Detail")
-        backVC?.modalTransitionStyle = .flipHorizontal
-        present(backVC!,animated:true,completion:nil)
+        self.navigationController?.popViewController(animated: true)
     }
+
 
 
     
