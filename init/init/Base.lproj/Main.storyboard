@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K44-Fi-7Dw" id="sEm-Dx-KuG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="残留" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-eR-FkF">
@@ -188,6 +188,7 @@
                                 <state key="normal" title="Delete"/>
                                 <connections>
                                     <action selector="deleteButton:" destination="KeU-ja-ejO" eventType="touchUpInside" id="sz2-RL-94s"/>
+                                    <segue destination="KcX-UF-92d" kind="unwind" unwindAction="backDetailWithSegue:" id="qff-35-DUY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZN-Zj-YNs">
@@ -197,6 +198,7 @@
                                 <state key="normal" title="Change"/>
                                 <connections>
                                     <action selector="changeButton:" destination="KeU-ja-ejO" eventType="touchUpInside" id="NcK-2r-iBO"/>
+                                    <segue destination="KcX-UF-92d" kind="unwind" unwindAction="backDetailWithSegue:" id="mvZ-zY-izG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -209,6 +211,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bsy-Vt-MSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KcX-UF-92d" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1844" y="226"/>
         </scene>
@@ -259,7 +262,7 @@
                                 <state key="normal" title="edit"/>
                                 <connections>
                                     <action selector="editButton:" destination="kcq-Nj-kF1" eventType="touchUpInside" id="M9L-Fg-DL3"/>
-                                    <segue destination="KeU-ja-ejO" kind="presentation" id="KnP-GO-ae6"/>
+                                    <segue destination="KeU-ja-ejO" kind="presentation" id="w3L-lf-QDf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -312,6 +315,6 @@
         <image name="check" width="360" height="360"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KnP-GO-ae6"/>
+        <segue reference="1ti-C3-fHM"/>
     </inferredMetricsTieBreakers>
 </document>

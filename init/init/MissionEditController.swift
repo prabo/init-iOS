@@ -25,6 +25,9 @@ class MissionEditController: UIViewController {
     }
     @IBAction func deleteButton(_ sender: UIButton) {
     }
+    @IBAction func backDetail(segue: UIStoryboardSegue){
+        
+    }
 
     
 }
