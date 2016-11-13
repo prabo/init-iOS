@@ -18,5 +18,8 @@ class MissionAddController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func registerButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }
