@@ -21,8 +21,10 @@ class MissionEditController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func ChangeButton(_ sender: UIButton) {
+    @IBAction func changeButton(_ sender: UIButton) {
     }
-    @IBOutlet weak var DeleteButton: UIButton!
+    @IBAction func deleteButton(_ sender: UIButton) {
+    }
+
     
 }
