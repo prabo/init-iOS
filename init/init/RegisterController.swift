@@ -23,5 +23,10 @@ class RegisterController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBOutlet weak var registButton: UIButton!
+    @IBAction func registerButton(_ sender: UIButton) {
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"ListNabi")
+        nextVC?.modalTransitionStyle = .flipHorizontal
+        present(nextVC!,animated: true,completion: nil)
     }
+
+}

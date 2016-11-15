@@ -22,6 +22,10 @@ class MissionDetailController: UIViewController {
     @IBAction func completeButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func notCompleteButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+
 
     @IBAction func editButton(_ sender: UIButton) {
     }
