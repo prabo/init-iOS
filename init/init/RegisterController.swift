@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class RegisterController: UIViewController {
 
-    @IBOutlet weak var displayName: UITextField!
-    @IBOutlet weak var IDName: UITextField!
+    @IBOutlet weak var nameTextField: UITextField!
+    var loginInfomation: [String:String?] = [:]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +24,37 @@ class RegisterController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+    }
+    
+    func postLoginID(){
+        let parameters: Parameters = [
+            "username": nameTextField,
+            "password":"aaaaaaaa"
+        ]
+        Alamofire.request("https://init-api.elzup.com/v1/users",method:.post,parameters:parameters)
+            .responseJSON { response in
+                guard let object = response.result.value else {
+                    return
+                }
+                let json = JSON(object)
+                self.loginInfomation = [
+                    "id": String(describing: json["id"].int),
+                    "username": json["username"].string,
+                    "token_type": json["token_type"].string,
+                    "access_token": json["access_token"].string
+                ]
+                print(self.loginInfomation)
+        }
+        
     }
 
     @IBAction func registerButton(_ sender: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"ListNabi")
-        nextVC?.modalTransitionStyle = .flipHorizontal
-        present(nextVC!,animated: true,completion: nil)
+//        let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"ListNabi")
+//        nextVC?.modalTransitionStyle = .flipHorizontal
+//        present(nextVC!,animated: true,completion: nil)
+        
+        postLoginID()
     }
 
 }
