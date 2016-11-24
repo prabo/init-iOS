@@ -94,6 +94,7 @@
 		C02BE9311DD2CE4200367E4A /* init */ = {
 			isa = PBXGroup;
 			children = (
+				C03280B71DE7470600B55D5B /* model */,
 				C0B3D20E1DD48E7F00A1FEB3 /* Cell */,
 				C0B3D20B1DD4898300A1FEB3 /* tableController */,
 				C03756161DD2F0B100A89FFB /* ViewController */,
@@ -104,6 +105,13 @@
 				C02BE93E1DD2CE4200367E4A /* Info.plist */,
 			);
 			path = init;
+			sourceTree = "<group>";
+		};
+		C03280B71DE7470600B55D5B /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		C03756161DD2F0B100A89FFB /* ViewController */ = {
