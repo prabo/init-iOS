@@ -50,9 +50,9 @@ class RegisterController: UIViewController {
     }
 
     @IBAction func registerButton(_ sender: UIButton) {
-//        let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"ListNabi")
-//        nextVC?.modalTransitionStyle = .flipHorizontal
-//        present(nextVC!,animated: true,completion: nil)
+        let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"ListNabi")
+        nextVC?.modalTransitionStyle = .flipHorizontal
+        present(nextVC!,animated: true,completion: nil)
         
         postLoginID()
     }

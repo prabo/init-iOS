@@ -13,6 +13,7 @@
 		C02BE9381DD2CE4200367E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9361DD2CE4200367E4A /* Main.storyboard */; };
 		C02BE93A1DD2CE4200367E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9391DD2CE4200367E4A /* Assets.xcassets */; };
 		C02BE93D1DD2CE4200367E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE93B1DD2CE4200367E4A /* LaunchScreen.storyboard */; };
+		C03280B91DE749C600B55D5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03280B81DE749C600B55D5B /* User.swift */; };
 		C03756181DD2F15F00A89FFB /* MissionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03756171DD2F15F00A89FFB /* MissionListController.swift */; };
 		C0B3D20D1DD489CB00A1FEB3 /* MissionListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */; };
 		C0B3D2101DD48EAD00A1FEB3 /* MissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */; };
@@ -34,6 +35,7 @@
 		C02BE9391DD2CE4200367E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C02BE93C1DD2CE4200367E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C02BE93E1DD2CE4200367E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C03280B81DE749C600B55D5B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03756171DD2F15F00A89FFB /* MissionListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListController.swift; sourceTree = "<group>"; };
 		C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewController.swift; sourceTree = "<group>"; };
 		C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		C03280B71DE7470600B55D5B /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C03280B81DE749C600B55D5B /* User.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				C0B3D20D1DD489CB00A1FEB3 /* MissionListTableViewController.swift in Sources */,
 				C0D457231DD2FEEB00B33924 /* MissionEditController.swift in Sources */,
 				C0D457211DD2FE4100B33924 /* MissionAddController.swift in Sources */,
+				C03280B91DE749C600B55D5B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
