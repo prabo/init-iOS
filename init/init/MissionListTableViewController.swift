@@ -8,12 +8,16 @@
 //
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class MissionListTableViewController: UITableViewController {
 
-    var missionList: [String]=["残留","コーヒー","炊飯器","3Dprinter","github"]
+    //var missionList: [String]=["残留","コーヒー","炊飯器","3Dprinter","github"]
+    var missionLists: [String:String?] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        getMissionLists()
 
     }
 
@@ -27,16 +31,38 @@ class MissionListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return missionList.count
+        return missionLists.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "missionCell", for: indexPath) as! MissionListTableViewCell
 
         // Configure the cell...
-        cell.missionNameLabel.text=missionList[indexPath.row]
+//        cell.missionNameLabel.text=missionList[indexPath.row]
+        let missionListsValue = Array(missionLists.values)
+        cell.missionNameLabel.text=missionListsValue[indexPath.row]
         return cell
     }
+    func getMissionLists(){
+        Alamofire.request("https://init-api.elzup.com/v1/missions")
+            .responseJSON { response in
+                guard let object = response.result.value else {
+                    return
+                }
+                let json = JSON(object)
+                self.missionLists = [
+                    "error": json["error"].string
+                ]
+                print(self.missionLists)
+        }
+    }
+    
+    @IBAction func addButton(_ sender: UIButton) {
+    }
+    @IBAction func reloadButton(_ sender: UIButton) {
+    }
+
+    
 }
 
 

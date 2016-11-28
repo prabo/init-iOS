@@ -14,7 +14,6 @@ class RegisterController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     var loginInfomation: [String:String?] = [:]
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +27,7 @@ class RegisterController: UIViewController {
     }
     
     func postLoginID(){
+        var user:User?
         let parameters: Parameters = [
             "username": nameTextField,
             "password":"aaaaaaaa"

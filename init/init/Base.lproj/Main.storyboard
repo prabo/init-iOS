@@ -72,14 +72,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
                                     <state key="normal" title="reload"/>
                                     <connections>
-                                        <action selector="reload:" destination="U94-u4-hpp" eventType="touchUpInside" id="rkd-Aq-t4A"/>
+                                        <action selector="reloadButton:" destination="U94-u4-hpp" eventType="touchUpInside" id="hiG-Kt-fau"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMM-R1-d7K">
                                     <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
                                     <state key="normal" title="add"/>
                                     <connections>
-                                        <action selector="add:" destination="U94-u4-hpp" eventType="touchUpInside" id="VVe-mT-rgb"/>
+                                        <action selector="addButton:" destination="U94-u4-hpp" eventType="touchUpInside" id="NQJ-Hh-1PY"/>
                                         <segue destination="eTz-6a-Ogi" kind="show" id="OIS-8L-9oG"/>
                                     </connections>
                                 </button>
@@ -94,7 +94,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="残留" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-eR-FkF">
-                                            <rect key="frame" x="16" y="11" width="41" height="21.5"/>
+                                            <rect key="frame" x="16" y="11" width="41" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -111,7 +111,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="missionNameLabel" destination="Vcx-eR-FkF" id="eOa-pV-T6P"/>
+                                    <outlet property="check" destination="wWk-A6-him" id="0uh-zF-EQj"/>
+                                    <outlet property="missionNameLabel" destination="Vcx-eR-FkF" id="PgS-my-vcO"/>
                                     <segue destination="kcq-Nj-kF1" kind="show" id="EDz-iA-B4Y"/>
                                 </connections>
                             </tableViewCell>
