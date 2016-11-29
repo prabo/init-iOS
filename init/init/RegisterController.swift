@@ -17,6 +17,8 @@ class RegisterController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+ 
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -25,12 +27,21 @@ class RegisterController: UIViewController {
         // Dispose of any resources that can be recreated.
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserDefaultsHelper.isLogin() {
+            // to login
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"ListNabi")
+            nextVC?.modalTransitionStyle = .flipHorizontal
+            self.present(nextVC!,animated: true,completion: nil)
+            return
+        }
+    }
     
     func postLoginID(){
-        var user:User?
         let parameters: Parameters = [
             "username": nameTextField,
-            "password":"aaaaaaaa"
+            "password": "hogehoge"
         ]
         Alamofire.request("https://init-api.elzup.com/v1/users",method:.post,parameters:parameters)
             .responseJSON { response in
@@ -44,16 +55,23 @@ class RegisterController: UIViewController {
                     "token_type": json["token_type"].string,
                     "access_token": json["access_token"].string
                 ]
+                
+                let userDefaults = UserDefaults.init()
+                userDefaults.set(self.loginInfomation["id"]!, forKey: "id")
+                userDefaults.set(self.loginInfomation["username"]!, forKey: "username")
+                userDefaults.set(parameters["password"], forKey: "password")
+                userDefaults.set(self.loginInfomation["access_token"]!, forKey: "access_token")
+                userDefaults.synchronize()
                 print(self.loginInfomation)
+                let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"ListNabi")
+                nextVC?.modalTransitionStyle = .flipHorizontal
+                self.present(nextVC!,animated: true,completion: nil)
         }
         
     }
 
+    
     @IBAction func registerButton(_ sender: UIButton) {
-        let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"ListNabi")
-        nextVC?.modalTransitionStyle = .flipHorizontal
-        present(nextVC!,animated: true,completion: nil)
-        
         postLoginID()
     }
 

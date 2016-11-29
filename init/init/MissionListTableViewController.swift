@@ -14,10 +14,19 @@ class MissionListTableViewController: UITableViewController {
 
     //var missionList: [String]=["残留","コーヒー","炊飯器","3Dprinter","github"]
     var missionLists: [String:String?] = [:]
+    var missionListsValue = Array<String?>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !UserDefaultsHelper.isLogin() {
+            // to login
+            let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"Register")
+            nextVC?.modalTransitionStyle = .flipHorizontal
+            self.present(nextVC!,animated: true,completion: nil)
+            return
+        }
         getMissionLists()
+        
 
     }
 
@@ -39,11 +48,12 @@ class MissionListTableViewController: UITableViewController {
 
         // Configure the cell...
 //        cell.missionNameLabel.text=missionList[indexPath.row]
-        let missionListsValue = Array(missionLists.values)
-        cell.missionNameLabel.text=missionListsValue[indexPath.row]
+        cell.missionNameLabel.text = missionListsValue[indexPath.row]
         return cell
     }
     func getMissionLists(){
+        
+        
         Alamofire.request("https://init-api.elzup.com/v1/missions")
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -51,11 +61,18 @@ class MissionListTableViewController: UITableViewController {
                 }
                 let json = JSON(object)
                 self.missionLists = [
-                    "error": json["error"].string
+                    "error": json["error"].string,
+                    "a":"b"
                 ]
-                print(self.missionLists)
+                
+                self.missionListsValue = Array(self.missionLists.values)
+                self.tableView.reloadData()
+                print("aaaa")
+                print(self.missionListsValue)
         }
     }
+    
+    
     
     @IBAction func addButton(_ sender: UIButton) {
     }
