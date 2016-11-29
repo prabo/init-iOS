@@ -13,6 +13,10 @@ class UserDefaultsHelper{
         let ud = UserDefaults.init()
         return ud.string(forKey: "access_token") != nil
     }
+    static func getToken() -> String{
+        let ud = UserDefaults.init()
+        return ud.string(forKey: "access_token") ?? ""
+    }
 
 }
 

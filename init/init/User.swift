@@ -1,14 +1,15 @@
 //
 //	RootClass.swift
 //
-//	Create by Atsuo on 28/11/2016
+//	Create by Atsuo on 29/11/2016
 //	Copyright © 2016. All rights reserved.
 //	Model file generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
 
 import Foundation
+import SwiftyJSON
 
 
-class User : NSObject{
+class User : NSObject, NSCoding{
     
     var accessToken : String!
     var id : Int!
@@ -17,13 +18,16 @@ class User : NSObject{
     
     
     /**
-     * Instantiate the instance using the passed dictionary values to set the properties values
+     * Instantiate the instance using the passed json values to set the properties values
      */
-    init(fromDictionary dictionary: NSDictionary){
-        accessToken = dictionary["access_token"] as? String
-        id = dictionary["id"] as? Int
-        tokenType = dictionary["token_type"] as? String
-        username = dictionary["username"] as? String
+    init(fromJson json: JSON!){
+        if json.isEmpty{
+            return
+        }
+        accessToken = json["access_token"].stringValue
+        id = json["id"].intValue
+        tokenType = json["token_type"].stringValue
+        username = json["username"].stringValue
     }
     
     /**
@@ -31,7 +35,7 @@ class User : NSObject{
      */
     func toDictionary() -> NSDictionary
     {
-        var dictionary = NSMutableDictionary()
+        let dictionary = NSMutableDictionary()
         if accessToken != nil{
             dictionary["access_token"] = accessToken
         }
@@ -55,8 +59,8 @@ class User : NSObject{
     {
         accessToken = aDecoder.decodeObject(forKey: "access_token") as? String
         id = aDecoder.decodeObject(forKey: "id") as? Int
-        tokenType = aDecoder.decodeObject(forKey:"token_type") as? String
-        username = aDecoder.decodeObject(forKey:"username") as? String
+        tokenType = aDecoder.decodeObject(forKey: "token_type") as? String
+        username = aDecoder.decodeObject(forKey: "username") as? String
         
     }
     
@@ -64,7 +68,7 @@ class User : NSObject{
      * NSCoding required method.
      * Encodes mode properties into the decoder
      */
-    @objc func encodeWithCoder(aCoder: NSCoder)
+    func encode(with aCoder: NSCoder)
     {
         if accessToken != nil{
             aCoder.encode(accessToken, forKey: "access_token")
