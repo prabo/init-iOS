@@ -68,7 +68,7 @@ class MissionListTableViewController: UITableViewController {
                     "error": json["error"].string,
                     "a":"b"
                 ]
-                
+                debugPrint(response)
                 self.missionListsValue = Array(self.missionLists.values)
                 self.tableView.reloadData()
                 print("aaaa")
