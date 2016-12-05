@@ -38,13 +38,13 @@ class MissionEditTableViewController: UITableViewController {
         return missionEditLabelList.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "missionEditCell", for: indexPath) as! MissionEditTableViewCell
-
-        // Configure the cell...
-        cell.missionEditLabel.text=missionEditLabelList[indexPath.row]
-        return cell
-    }
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "missionEditCell", for: indexPath) as! MissionEditTableViewCell
+//
+//        // Configure the cell...
+//        cell.missionEditLabel.text=missionEditLabelList[indexPath.row]
+//        return
+//    }
 
     /*
     // Override to support conditional editing of the table view.
