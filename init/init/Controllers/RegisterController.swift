@@ -68,9 +68,15 @@ class RegisterController: UIViewController {
                 userDefaults.set(self.loginInfomation["access_token"]!, forKey: "access_token")
                 userDefaults.synchronize()
                 print(self.loginInfomation)
-                let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"ListNabi")
-                nextVC?.modalTransitionStyle = .flipHorizontal
-                self.present(nextVC!,animated: true,completion: nil)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let nextVC = storyboard.instantiateInitialViewController() else {
+                    print("Failed to instantiate view controller")
+                    return
+                }
+                nextVC.modalTransitionStyle = .flipHorizontal
+                self.present(nextVC,animated: true,completion: nil)
+                return
         }
         
     }

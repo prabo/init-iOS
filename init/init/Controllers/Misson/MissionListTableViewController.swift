@@ -20,9 +20,13 @@ class MissionListTableViewController: UITableViewController {
         super.viewDidLoad()
         if !UserDefaultsHelper.isLogin() {
             // to login
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"Register")
-            nextVC?.modalTransitionStyle = .flipHorizontal
-            self.present(nextVC!,animated: true,completion: nil)
+            let storyboard = UIStoryboard(name: "RegisterViewController", bundle: nil)
+            guard let nextVC = storyboard.instantiateInitialViewController() else {
+                print("Failed to instantiate view controller")
+                return
+            }
+            nextVC.modalTransitionStyle = .flipHorizontal
+            self.present(nextVC,animated: true,completion: nil)
             return
         }
         getMissionLists()
