@@ -29,11 +29,16 @@ class RegisterController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         if UserDefaultsHelper.isLogin() {
             // to login
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier:"ListNabi")
-            nextVC?.modalTransitionStyle = .flipHorizontal
-            self.present(nextVC!,animated: true,completion: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let nextVC = storyboard.instantiateInitialViewController() else {
+                print("Failed to instantiate view controller")
+                return
+            }
+            nextVC.modalTransitionStyle = .flipHorizontal
+            self.present(nextVC,animated: true,completion: nil)
             return
         }
     }
