@@ -78,10 +78,10 @@
 		C02BE9261DD2CE4200367E4A = {
 			isa = PBXGroup;
 			children = (
-				C02BE9311DD2CE4200367E4A /* init */,
-				C02BE9301DD2CE4200367E4A /* Products */,
-				0EDCF44BA97E0983F131F4FC /* Pods */,
 				15FD6BE5231B67FB7092C9FD /* Frameworks */,
+				0EDCF44BA97E0983F131F4FC /* Pods */,
+				C02BE9301DD2CE4200367E4A /* Products */,
+				C02BE9311DD2CE4200367E4A /* init */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,15 +96,15 @@
 		C02BE9311DD2CE4200367E4A /* init */ = {
 			isa = PBXGroup;
 			children = (
-				C03280B71DE7470600B55D5B /* model */,
 				C0B3D20E1DD48E7F00A1FEB3 /* Cell */,
-				C0B3D20B1DD4898300A1FEB3 /* tableController */,
 				C03756161DD2F0B100A89FFB /* ViewController */,
+				C03280B71DE7470600B55D5B /* model */,
+				C0B3D20B1DD4898300A1FEB3 /* tableController */,
 				C02BE9321DD2CE4200367E4A /* AppDelegate.swift */,
-				C02BE9361DD2CE4200367E4A /* Main.storyboard */,
 				C02BE9391DD2CE4200367E4A /* Assets.xcassets */,
-				C02BE93B1DD2CE4200367E4A /* LaunchScreen.storyboard */,
 				C02BE93E1DD2CE4200367E4A /* Info.plist */,
+				C02BE93B1DD2CE4200367E4A /* LaunchScreen.storyboard */,
+				C02BE9361DD2CE4200367E4A /* Main.storyboard */,
 			);
 			path = init;
 			sourceTree = "<group>";
@@ -112,23 +112,25 @@
 		C03280B71DE7470600B55D5B /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C0C1AE9C1DED4CF8001D261A /* Error.swift */,
 				C03280B81DE749C600B55D5B /* User.swift */,
 				C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */,
-				C0C1AE9C1DED4CF8001D261A /* Error.swift */,
 			);
 			name = model;
+			path = model;
 			sourceTree = "<group>";
 		};
 		C03756161DD2F0B100A89FFB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C02BE9341DD2CE4200367E4A /* RegisterController.swift */,
-				C03756171DD2F15F00A89FFB /* MissionListController.swift */,
-				C0D457241DD3000700B33924 /* MissionDetailController.swift */,
 				C0D457201DD2FE4100B33924 /* MissionAddController.swift */,
+				C0D457241DD3000700B33924 /* MissionDetailController.swift */,
 				C0D457221DD2FEEB00B33924 /* MissionEditController.swift */,
+				C03756171DD2F15F00A89FFB /* MissionListController.swift */,
+				C02BE9341DD2CE4200367E4A /* RegisterController.swift */,
 			);
 			name = ViewController;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		C0B3D20B1DD4898300A1FEB3 /* tableController */ = {
@@ -137,6 +139,7 @@
 				C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */,
 			);
 			name = tableController;
+			path = tableController;
 			sourceTree = "<group>";
 		};
 		C0B3D20E1DD48E7F00A1FEB3 /* Cell */ = {
@@ -145,6 +148,7 @@
 				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
 			);
 			name = Cell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +298,7 @@
 				C02BE9371DD2CE4200367E4A /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		C02BE93B1DD2CE4200367E4A /* LaunchScreen.storyboard */ = {
@@ -302,6 +307,7 @@
 				C02BE93C1DD2CE4200367E4A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
