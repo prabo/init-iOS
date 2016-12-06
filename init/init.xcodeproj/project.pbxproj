@@ -30,15 +30,15 @@
 		B6EA76EEF2876C52EDB80EC2 /* Pods-init.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-init.release.xcconfig"; path = "Pods/Target Support Files/Pods-init/Pods-init.release.xcconfig"; sourceTree = "<group>"; };
 		C02BE92F1DD2CE4200367E4A /* init.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = init.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C02BE9321DD2CE4200367E4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C02BE9341DD2CE4200367E4A /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		C02BE9341DD2CE4200367E4A /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterController.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		C02BE9371DD2CE4200367E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C02BE9391DD2CE4200367E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C02BE93C1DD2CE4200367E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C02BE93E1DD2CE4200367E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C03280B81DE749C600B55D5B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03756171DD2F15F00A89FFB /* MissionListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListController.swift; sourceTree = "<group>"; };
-		C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewController.swift; sourceTree = "<group>"; };
-		C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
+		C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissionListTableViewController.swift; path = MissionListTableViewController.swift; sourceTree = "<group>"; };
+		C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissionListTableViewCell.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
 		C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		C0C1AE9C1DED4CF8001D261A /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		C0D457201DD2FE4100B33924 /* MissionAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionAddController.swift; sourceTree = "<group>"; };
@@ -96,14 +96,11 @@
 		C02BE9311DD2CE4200367E4A /* init */ = {
 			isa = PBXGroup;
 			children = (
-				C04265CB1DF6C63500698FA3 /* XIBs */,
-				C04265CA1DF6C62A00698FA3 /* Views */,
-				C04265C91DF6C61A00698FA3 /* Storyboards */,
 				C04265C81DF6C5FC00698FA3 /* Controllers */,
-				C0B3D20E1DD48E7F00A1FEB3 /* Cell */,
-				C03756161DD2F0B100A89FFB /* ViewController */,
 				C03280B71DE7470600B55D5B /* Models */,
-				C0B3D20B1DD4898300A1FEB3 /* tableController */,
+				C04265C91DF6C61A00698FA3 /* Storyboards */,
+				C04265CA1DF6C62A00698FA3 /* Views */,
+				C04265CB1DF6C63500698FA3 /* XIBs */,
 				C02BE9321DD2CE4200367E4A /* AppDelegate.swift */,
 				C02BE9391DD2CE4200367E4A /* Assets.xcassets */,
 				C02BE93E1DD2CE4200367E4A /* Info.plist */,
@@ -121,26 +118,17 @@
 				C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */,
 			);
 			name = Models;
-			path = model;
-			sourceTree = "<group>";
-		};
-		C03756161DD2F0B100A89FFB /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C0D457201DD2FE4100B33924 /* MissionAddController.swift */,
-				C0D457241DD3000700B33924 /* MissionDetailController.swift */,
-				C0D457221DD2FEEB00B33924 /* MissionEditController.swift */,
-				C03756171DD2F15F00A89FFB /* MissionListController.swift */,
-				C02BE9341DD2CE4200367E4A /* RegisterController.swift */,
-			);
-			path = ViewController;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C04265C81DF6C5FC00698FA3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C04265CC1DF6C76500698FA3 /* Misson */,
+				C02BE9341DD2CE4200367E4A /* RegisterController.swift */,
 			);
 			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		C04265C91DF6C61A00698FA3 /* Storyboards */ = {
@@ -148,13 +136,16 @@
 			children = (
 			);
 			name = Storyboards;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		C04265CA1DF6C62A00698FA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
 			);
 			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C04265CB1DF6C63500698FA3 /* XIBs */ = {
@@ -162,22 +153,20 @@
 			children = (
 			);
 			name = XIBs;
+			path = XIBs;
 			sourceTree = "<group>";
 		};
-		C0B3D20B1DD4898300A1FEB3 /* tableController */ = {
+		C04265CC1DF6C76500698FA3 /* Misson */ = {
 			isa = PBXGroup;
 			children = (
+				C0D457201DD2FE4100B33924 /* MissionAddController.swift */,
+				C0D457241DD3000700B33924 /* MissionDetailController.swift */,
+				C0D457221DD2FEEB00B33924 /* MissionEditController.swift */,
+				C03756171DD2F15F00A89FFB /* MissionListController.swift */,
 				C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */,
 			);
-			path = tableController;
-			sourceTree = "<group>";
-		};
-		C0B3D20E1DD48E7F00A1FEB3 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
-			);
-			path = Cell;
+			name = Misson;
+			path = Misson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
