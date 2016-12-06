@@ -96,9 +96,13 @@
 		C02BE9311DD2CE4200367E4A /* init */ = {
 			isa = PBXGroup;
 			children = (
+				C04265CB1DF6C63500698FA3 /* XIBs */,
+				C04265CA1DF6C62A00698FA3 /* Views */,
+				C04265C91DF6C61A00698FA3 /* Storyboards */,
+				C04265C81DF6C5FC00698FA3 /* Controllers */,
 				C0B3D20E1DD48E7F00A1FEB3 /* Cell */,
 				C03756161DD2F0B100A89FFB /* ViewController */,
-				C03280B71DE7470600B55D5B /* model */,
+				C03280B71DE7470600B55D5B /* Models */,
 				C0B3D20B1DD4898300A1FEB3 /* tableController */,
 				C02BE9321DD2CE4200367E4A /* AppDelegate.swift */,
 				C02BE9391DD2CE4200367E4A /* Assets.xcassets */,
@@ -109,14 +113,14 @@
 			path = init;
 			sourceTree = "<group>";
 		};
-		C03280B71DE7470600B55D5B /* model */ = {
+		C03280B71DE7470600B55D5B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C0C1AE9C1DED4CF8001D261A /* Error.swift */,
 				C03280B81DE749C600B55D5B /* User.swift */,
 				C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */,
 			);
-			name = model;
+			name = Models;
 			path = model;
 			sourceTree = "<group>";
 		};
@@ -129,8 +133,35 @@
 				C03756171DD2F15F00A89FFB /* MissionListController.swift */,
 				C02BE9341DD2CE4200367E4A /* RegisterController.swift */,
 			);
-			name = ViewController;
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C04265C81DF6C5FC00698FA3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C04265C91DF6C61A00698FA3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		C04265CA1DF6C62A00698FA3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C04265CB1DF6C63500698FA3 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = XIBs;
 			sourceTree = "<group>";
 		};
 		C0B3D20B1DD4898300A1FEB3 /* tableController */ = {
@@ -138,7 +169,6 @@
 			children = (
 				C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */,
 			);
-			name = tableController;
 			path = tableController;
 			sourceTree = "<group>";
 		};
@@ -147,7 +177,6 @@
 			children = (
 				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
 			);
-			name = Cell;
 			path = Cell;
 			sourceTree = "<group>";
 		};
