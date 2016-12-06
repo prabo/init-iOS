@@ -13,6 +13,7 @@
 		C02BE9381DD2CE4200367E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9361DD2CE4200367E4A /* Main.storyboard */; };
 		C02BE93A1DD2CE4200367E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9391DD2CE4200367E4A /* Assets.xcassets */; };
 		C02BE93D1DD2CE4200367E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE93B1DD2CE4200367E4A /* LaunchScreen.storyboard */; };
+		C02D71991DF6CA410025E9E1 /* RegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */; };
 		C03280B91DE749C600B55D5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03280B81DE749C600B55D5B /* User.swift */; };
 		C03756181DD2F15F00A89FFB /* MissionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03756171DD2F15F00A89FFB /* MissionListController.swift */; };
 		C0B3D20D1DD489CB00A1FEB3 /* MissionListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */; };
@@ -35,6 +36,7 @@
 		C02BE9391DD2CE4200367E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C02BE93C1DD2CE4200367E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C02BE93E1DD2CE4200367E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RegisterViewController.storyboard; path = init/RegisterViewController.storyboard; sourceTree = SOURCE_ROOT; };
 		C03280B81DE749C600B55D5B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03756171DD2F15F00A89FFB /* MissionListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListController.swift; sourceTree = "<group>"; };
 		C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewController.swift; sourceTree = "<group>"; };
@@ -96,10 +98,11 @@
 		C02BE9311DD2CE4200367E4A /* init */ = {
 			isa = PBXGroup;
 			children = (
-				C0B3D20E1DD48E7F00A1FEB3 /* Cell */,
-				C03756161DD2F0B100A89FFB /* ViewController */,
-				C03280B71DE7470600B55D5B /* model */,
-				C0B3D20B1DD4898300A1FEB3 /* tableController */,
+				C04265C81DF6C5FC00698FA3 /* Controllers */,
+				C03280B71DE7470600B55D5B /* Models */,
+				C04265C91DF6C61A00698FA3 /* Storyboards */,
+				C04265CA1DF6C62A00698FA3 /* Views */,
+				C04265CB1DF6C63500698FA3 /* XIBs */,
 				C02BE9321DD2CE4200367E4A /* AppDelegate.swift */,
 				C02BE9391DD2CE4200367E4A /* Assets.xcassets */,
 				C02BE93E1DD2CE4200367E4A /* Info.plist */,
@@ -109,46 +112,58 @@
 			path = init;
 			sourceTree = "<group>";
 		};
-		C03280B71DE7470600B55D5B /* model */ = {
+		C03280B71DE7470600B55D5B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C0C1AE9C1DED4CF8001D261A /* Error.swift */,
 				C03280B81DE749C600B55D5B /* User.swift */,
 				C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */,
 			);
-			name = model;
-			path = model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		C03756161DD2F0B100A89FFB /* ViewController */ = {
+		C04265C81DF6C5FC00698FA3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C04265CC1DF6C76500698FA3 /* Misson */,
+				C02BE9341DD2CE4200367E4A /* RegisterController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C04265C91DF6C61A00698FA3 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C04265CA1DF6C62A00698FA3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C04265CB1DF6C63500698FA3 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
+		C04265CC1DF6C76500698FA3 /* Misson */ = {
 			isa = PBXGroup;
 			children = (
 				C0D457201DD2FE4100B33924 /* MissionAddController.swift */,
 				C0D457241DD3000700B33924 /* MissionDetailController.swift */,
 				C0D457221DD2FEEB00B33924 /* MissionEditController.swift */,
 				C03756171DD2F15F00A89FFB /* MissionListController.swift */,
-				C02BE9341DD2CE4200367E4A /* RegisterController.swift */,
-			);
-			name = ViewController;
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		C0B3D20B1DD4898300A1FEB3 /* tableController */ = {
-			isa = PBXGroup;
-			children = (
 				C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */,
 			);
-			name = tableController;
-			path = tableController;
-			sourceTree = "<group>";
-		};
-		C0B3D20E1DD48E7F00A1FEB3 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
-			);
-			name = Cell;
-			path = Cell;
+			path = Misson;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C02D71991DF6CA410025E9E1 /* RegisterViewController.storyboard in Resources */,
 				C02BE93D1DD2CE4200367E4A /* LaunchScreen.storyboard in Resources */,
 				C02BE93A1DD2CE4200367E4A /* Assets.xcassets in Resources */,
 				C02BE9381DD2CE4200367E4A /* Main.storyboard in Resources */,
