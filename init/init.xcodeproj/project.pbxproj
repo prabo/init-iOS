@@ -40,15 +40,15 @@
 		C02BE9391DD2CE4200367E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C02BE93C1DD2CE4200367E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C02BE93E1DD2CE4200367E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RegisterViewController.storyboard; path = init/RegisterViewController.storyboard; sourceTree = SOURCE_ROOT; };
+		C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RegisterViewController.storyboard; path = RegisterViewController.storyboard; sourceTree = "<group>"; };
 		C03280B81DE749C600B55D5B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03756171DD2F15F00A89FFB /* MissionListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListController.swift; sourceTree = "<group>"; };
 		C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewController.swift; sourceTree = "<group>"; };
 		C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
 		C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		C0C1AE9C1DED4CF8001D261A /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		C0CCF5D01DF866570076DEA8 /* MissionListTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MissionListTableViewController.storyboard; path = init/MissionListTableViewController.storyboard; sourceTree = SOURCE_ROOT; };
-		C0CCF5D31DF86A650076DEA8 /* MissionDetailController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MissionDetailController.storyboard; path = init/MissionDetailController.storyboard; sourceTree = SOURCE_ROOT; };
+		C0CCF5D01DF866570076DEA8 /* MissionListTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MissionListTableViewController.storyboard; path = MissionListTableViewController.storyboard; sourceTree = "<group>"; };
+		C0CCF5D31DF86A650076DEA8 /* MissionDetailController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MissionDetailController.storyboard; path = MissionDetailController.storyboard; sourceTree = "<group>"; };
 		C0CCF5D91DF871E60076DEA8 /* MissionAddController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionAddController.storyboard; sourceTree = "<group>"; };
 		C0CCF5DB1DF875E70076DEA8 /* MissionEditController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionEditController.storyboard; sourceTree = "<group>"; };
 		C0D457201DD2FE4100B33924 /* MissionAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionAddController.swift; sourceTree = "<group>"; };
@@ -142,11 +142,11 @@
 		C04265C91DF6C61A00698FA3 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */,
-				C0CCF5D01DF866570076DEA8 /* MissionListTableViewController.storyboard */,
-				C0CCF5D31DF86A650076DEA8 /* MissionDetailController.storyboard */,
 				C0CCF5D91DF871E60076DEA8 /* MissionAddController.storyboard */,
+				C0CCF5D31DF86A650076DEA8 /* MissionDetailController.storyboard */,
 				C0CCF5DB1DF875E70076DEA8 /* MissionEditController.storyboard */,
+				C0CCF5D01DF866570076DEA8 /* MissionListTableViewController.storyboard */,
+				C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
