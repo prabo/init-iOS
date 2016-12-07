@@ -11,10 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 class MissionListTableViewController: UITableViewController {
-
-    //var missionList: [String]=["残留","コーヒー","炊飯器","3Dprinter","github"]
+    
     var missions: [[String:String]] = []
-    //var missionListsValue = Array<String?>()
+    var missionsTitle :String
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +55,18 @@ class MissionListTableViewController: UITableViewController {
             cell.missionNameLabel.text = "title error"
             return cell
         }
-        cell.missionNameLabel.text = title
-        // cell.missionNameLabel.text = missions[indexPath.row]["title"]
+        self.missionsTitle = title
+        cell.missionNameLabel.text = self.missionsTitle
         return cell
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
+        let secondViewController = storyboard.instantiateInitialViewController() as! MissionDetailController
+        
+        secondViewController.title = self.missionsTitle
+        navigationController?.pushViewController(secondViewController, animated: true)
+    }
+    
     func getMissionLists(){
         
         let headers: HTTPHeaders = [
@@ -92,7 +99,7 @@ class MissionListTableViewController: UITableViewController {
     
     
     @IBAction func addButton(_ sender: UIButton) {
-    }
+   }
     @IBAction func reloadButton(_ sender: UIButton) {
     }
 
