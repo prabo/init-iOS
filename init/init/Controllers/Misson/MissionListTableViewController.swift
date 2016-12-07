@@ -13,7 +13,7 @@ import SwiftyJSON
 class MissionListTableViewController: UITableViewController {
     
     var missions: [[String:String]] = []
-    var missionsTitle :String
+    var missionsTitle :String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,8 +99,12 @@ class MissionListTableViewController: UITableViewController {
     
     
     @IBAction func addButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "MissionAddController", bundle: nil)
+        let secondViewController = storyboard.instantiateInitialViewController() as! MissionAddController
+        navigationController?.pushViewController(secondViewController, animated: true)
    }
     @IBAction func reloadButton(_ sender: UIButton) {
+        getMissionLists()
     }
 
     
