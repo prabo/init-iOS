@@ -35,6 +35,9 @@ class MissionDetailController: UIViewController {
 
 
     @IBAction func editButton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "MissionEditController", bundle: nil)
+        let secondViewController = storyboard.instantiateInitialViewController() as! MissionEditController
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
     
 }
