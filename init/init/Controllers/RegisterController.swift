@@ -32,7 +32,7 @@ class RegisterController: UIViewController {
         
         if UserDefaultsHelper.isLogin() {
             // to login
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
             guard let nextVC = storyboard.instantiateInitialViewController() else {
                 print("Failed to instantiate view controller")
                 return
@@ -69,7 +69,7 @@ class RegisterController: UIViewController {
                 userDefaults.synchronize()
                 print(self.loginInfomation)
                 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
                 guard let nextVC = storyboard.instantiateInitialViewController() else {
                     print("Failed to instantiate view controller")
                     return

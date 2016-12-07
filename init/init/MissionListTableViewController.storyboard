@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0R0-It-3WO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="lPz-rt-G7k">
+            <objects>
+                <navigationController id="0R0-It-3WO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pol-OX-pv2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1Z0-78-Skw" kind="relationship" relationship="rootViewController" id="069-J8-v86"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FFY-Xt-kQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791" y="-949"/>
+        </scene>
+        <!--CPS Lab-->
+        <scene sceneID="JM7-kd-Mcl">
+            <objects>
+                <tableViewController storyboardIdentifier="List" id="1Z0-78-Skw" customClass="MissionListTableViewController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UFb-CR-aiV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <stackView key="tableFooterView" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" id="a5Z-aN-upY">
+                            <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNo-oz-7l6" userLabel="reload">
+                                    <rect key="frame" x="0.0" y="0.0" width="188" height="44"/>
+                                    <state key="normal" title="reload"/>
+                                    <connections>
+                                        <action selector="reloadButton:" destination="1Z0-78-Skw" eventType="touchUpInside" id="Hqt-SF-I4J"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kh-yb-P8a">
+                                    <rect key="frame" x="188" y="0.0" width="187" height="44"/>
+                                    <state key="normal" title="add"/>
+                                    <connections>
+                                        <action selector="addButton:" destination="1Z0-78-Skw" eventType="touchUpInside" id="DOR-z8-gcp"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="missionCell" id="bBB-3A-ZaQ" customClass="MissionListTableViewCell" customModule="init" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bBB-3A-ZaQ" id="hBf-pK-exh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="残留" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hdu-U9-GCq">
+                                            <rect key="frame" x="16" y="11" width="41" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="p8C-qw-ssT">
+                                            <rect key="frame" x="326" y="0.0" width="41" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Hdu-U9-GCq" secondAttribute="bottom" constant="3" id="jGe-dm-0h2"/>
+                                        <constraint firstItem="Hdu-U9-GCq" firstAttribute="leading" secondItem="hBf-pK-exh" secondAttribute="leadingMargin" constant="8" id="mdr-Vo-EGv"/>
+                                        <constraint firstItem="Hdu-U9-GCq" firstAttribute="top" secondItem="hBf-pK-exh" secondAttribute="topMargin" constant="3" id="wpa-uO-fCg"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="check" destination="p8C-qw-ssT" id="K7F-tW-c5g"/>
+                                    <outlet property="missionNameLabel" destination="Hdu-U9-GCq" id="IGC-Ul-iK8"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1Z0-78-Skw" id="yuJ-Rc-j77"/>
+                            <outlet property="delegate" destination="1Z0-78-Skw" id="kEO-tO-vPp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="CPS Lab" id="PBP-1k-s3u"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uMd-FN-4bD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="270" y="-949"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="check" width="360" height="360"/>
+    </resources>
+</document>
