@@ -13,7 +13,6 @@ import SwiftyJSON
 class MissionListTableViewController: UITableViewController {
     
     var missions: [[String:String]] = []
-    var missionsTitle :String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,15 +54,17 @@ class MissionListTableViewController: UITableViewController {
             cell.missionNameLabel.text = "title error"
             return cell
         }
-        self.missionsTitle = title
-        cell.missionNameLabel.text = self.missionsTitle
+        cell.missionNameLabel.text = title
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
         let secondViewController = storyboard.instantiateInitialViewController() as! MissionDetailController
-        
-        secondViewController.title = self.missionsTitle
+        guard let title = missions[indexPath.row]["title"] else {
+            return
+        }
+        secondViewController.title = "詳細"
+        secondViewController.text = title
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     
