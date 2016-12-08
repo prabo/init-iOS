@@ -10,16 +10,16 @@ import UIKit
 
 class MissionDetailController: UIViewController {
     
-    var text: String?
+    var mission: Mission?
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        guard let text = text else {
+        guard let m = mission else {
             return
         }
-        titleLabel.text = "\(text)"
+        titleLabel.text = m.title
     }
     
     override func didReceiveMemoryWarning() {
