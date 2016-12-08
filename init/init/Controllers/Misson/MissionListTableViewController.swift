@@ -81,9 +81,10 @@ class MissionListTableViewController: UITableViewController {
                     return
                 }
                 let json = JSON(object)
+                self.missions.removeAll()
                 json.forEach { (_, json) in
                     let missionList : [String:String] = [
-                        "id":String(describing: json["id"].int),
+                        "id":String(describing: json["id"].intValue),
                         "title": json["title"].string ?? "no title",
                         "description": json["description"].string ?? "no description",
                         "author_id": json["author_id"].string ?? "no author_id",
@@ -92,7 +93,7 @@ class MissionListTableViewController: UITableViewController {
                     self.missions.append(missionList)
                 }
                 self.tableView.reloadData()
-                print("aaaa")
+                print("self.missions")
                 print(self.missions)
         }
     }
