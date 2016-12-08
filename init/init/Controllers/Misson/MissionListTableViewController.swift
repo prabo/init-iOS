@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class MissionListTableViewController: UITableViewController {
     
-    var missions: [[String:String]] = []
+    var missions: [Mission] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,23 +48,15 @@ class MissionListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "missionCell", for: indexPath) as! MissionListTableViewCell
 
-        // Configure the cell...
-//        cell.missionNameLabel.text=missionList[indexPath.row]
-        guard let title = missions[indexPath.row]["title"] else {
-            cell.missionNameLabel.text = "title error"
-            return cell
-        }
-        cell.missionNameLabel.text = title
+        cell.missionNameLabel.text = missions[indexPath.row].title
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
         let secondViewController = storyboard.instantiateInitialViewController() as! MissionDetailController
-        guard let title = missions[indexPath.row]["title"] else {
-            return
-        }
+        let mission = missions[indexPath.row]
         secondViewController.title = "詳細"
-        secondViewController.text = title
+        secondViewController.mission = mission
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     
@@ -83,14 +75,7 @@ class MissionListTableViewController: UITableViewController {
                 let json = JSON(object)
                 self.missions.removeAll()
                 json.forEach { (_, json) in
-                    let missionList : [String:String] = [
-                        "id":String(describing: json["id"].intValue),
-                        "title": json["title"].string ?? "no title",
-                        "description": json["description"].string ?? "no description",
-                        "author_id": json["author_id"].string ?? "no author_id",
-                        "is_completed": json["is_completed"].string ?? "no is_completed",
-                        ]
-                    self.missions.append(missionList)
+                    self.missions.append(Mission(json: json))
                 }
                 self.tableView.reloadData()
                 print("self.missions")
