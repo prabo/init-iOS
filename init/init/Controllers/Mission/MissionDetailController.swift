@@ -12,6 +12,7 @@ class MissionDetailController: UIViewController {
     
     var mission: Mission?
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class MissionDetailController: UIViewController {
             return
         }
         titleLabel.text = m.title
+        descriptionLabel.text = m.description
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,6 +40,8 @@ class MissionDetailController: UIViewController {
         let storyboard = UIStoryboard(name: "MissionEditController", bundle: nil)
         let secondViewController = storyboard.instantiateInitialViewController() as! MissionEditController
         navigationController?.pushViewController(secondViewController, animated: true)
+    
     }
+    
     
 }
