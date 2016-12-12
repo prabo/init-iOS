@@ -16,6 +16,7 @@ class MissionListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if !UserDefaultsHelper.isLogin() {
             // to login
             let storyboard = UIStoryboard(name: "RegisterViewController", bundle: nil)
@@ -27,9 +28,10 @@ class MissionListTableViewController: UITableViewController {
             self.present(nextVC,animated: true,completion: nil)
             return
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         getMissionLists()
-        
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,6 +51,9 @@ class MissionListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "missionCell", for: indexPath) as! MissionListTableViewCell
 
         cell.missionNameLabel.text = missions[indexPath.row].title
+        
+        cell.checkImage.contentMode = .scaleAspectFit
+        cell.checkImage.image = UIImage(named: "check.png")
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
