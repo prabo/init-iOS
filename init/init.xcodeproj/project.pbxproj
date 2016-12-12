@@ -16,6 +16,7 @@
 		C02D71991DF6CA410025E9E1 /* RegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */; };
 		C03280B91DE749C600B55D5B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03280B81DE749C600B55D5B /* User.swift */; };
 		C03756181DD2F15F00A89FFB /* MissionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03756171DD2F15F00A89FFB /* MissionListController.swift */; };
+		C05F0D6C1DFED89000FAF8FC /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = C05F0D6B1DFED89000FAF8FC /* check.png */; };
 		C0B3D20D1DD489CB00A1FEB3 /* MissionListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */; };
 		C0B3D2101DD48EAD00A1FEB3 /* MissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */; };
 		C0C1AE971DED3561001D261A /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */; };
@@ -44,6 +45,7 @@
 		C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterViewController.storyboard; sourceTree = "<group>"; };
 		C03280B81DE749C600B55D5B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C03756171DD2F15F00A89FFB /* MissionListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListController.swift; sourceTree = "<group>"; };
+		C05F0D6B1DFED89000FAF8FC /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewController.swift; sourceTree = "<group>"; };
 		C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
 		C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		C02BE9311DD2CE4200367E4A /* init */ = {
 			isa = PBXGroup;
 			children = (
+				C05F0D6A1DFED83E00FAF8FC /* Pictures */,
 				C04265C81DF6C5FC00698FA3 /* Controllers */,
 				C03280B71DE7470600B55D5B /* Models */,
 				C04265C91DF6C61A00698FA3 /* Storyboards */,
@@ -178,8 +181,15 @@
 				C03756171DD2F15F00A89FFB /* MissionListController.swift */,
 				C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */,
 			);
-			name = Mission;
 			path = Mission;
+			sourceTree = "<group>";
+		};
+		C05F0D6A1DFED83E00FAF8FC /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				C05F0D6B1DFED89000FAF8FC /* check.png */,
+			);
+			name = Pictures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05F0D6C1DFED89000FAF8FC /* check.png in Resources */,
 				C02D71991DF6CA410025E9E1 /* RegisterViewController.storyboard in Resources */,
 				C02BE93D1DD2CE4200367E4A /* LaunchScreen.storyboard in Resources */,
 				C0CCF5D41DF86A650076DEA8 /* MissionDetailController.storyboard in Resources */,
