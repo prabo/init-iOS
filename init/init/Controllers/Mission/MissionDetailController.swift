@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class MissionDetailController: UIViewController {
     
@@ -28,10 +30,57 @@ class MissionDetailController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func complete(){
+        guard let m = mission else {
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            "Authorization":UserDefaultsHelper.getToken(),
+            "Accept": "application/json"
+        ]
+        let str = m.id.description
+        
+        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str+"/complete",method:.post,headers:headers)
+            .responseJSON { response in
+                guard let object = response.result.value else {
+                    return
+                }
+                let json = JSON(object)
+                print(json)
+                print(str)
+        }
+    }
+    func notComplete(){
+        guard let m = mission else {
+            return
+        }
+        
+        let headers: HTTPHeaders = [
+            "Authorization":UserDefaultsHelper.getToken(),
+            "Accept": "application/json"
+        ]
+        let str = m.id.description
+        
+        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str+"/uncomplete",method:.post,headers:headers)
+            .responseJSON { response in
+                guard let object = response.result.value else {
+                    return
+                }
+                let json = JSON(object)
+                print(json)
+                print(str)
+        }
+    }
+    
+    
     @IBAction func completeButton(_ sender: UIButton) {
+        complete()
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func notCompleteButton(_ sender: UIButton) {
+        notComplete()
         self.navigationController?.popViewController(animated: true)
     }
 
