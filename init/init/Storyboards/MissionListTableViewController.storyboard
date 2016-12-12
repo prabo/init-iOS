@@ -39,14 +39,14 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNo-oz-7l6" userLabel="reload">
-                                    <rect key="frame" x="0.0" y="0.0" width="188" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="44"/>
                                     <state key="normal" title="reload"/>
                                     <connections>
                                         <action selector="reloadButton:" destination="1Z0-78-Skw" eventType="touchUpInside" id="Hqt-SF-I4J"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kh-yb-P8a">
-                                    <rect key="frame" x="188" y="0.0" width="187" height="44"/>
+                                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="44"/>
                                     <state key="normal" title="add"/>
                                     <connections>
                                         <action selector="addButton:" destination="1Z0-78-Skw" eventType="touchUpInside" id="DOR-z8-gcp"/>
@@ -68,10 +68,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="p8C-qw-ssT">
-                                            <rect key="frame" x="326" y="0.0" width="41" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="Hdu-U9-GCq" secondAttribute="bottom" constant="3" id="jGe-dm-0h2"/>
@@ -80,7 +76,6 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="check" destination="p8C-qw-ssT" id="K7F-tW-c5g"/>
                                     <outlet property="missionNameLabel" destination="Hdu-U9-GCq" id="IGC-Ul-iK8"/>
                                 </connections>
                             </tableViewCell>
@@ -97,7 +92,4 @@
             <point key="canvasLocation" x="270" y="-949"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="check" width="360" height="360"/>
-    </resources>
 </document>
