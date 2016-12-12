@@ -17,19 +17,15 @@ class RegisterController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
- 
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         if UserDefaultsHelper.isLogin() {
             // to login
             let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
@@ -38,14 +34,12 @@ class RegisterController: UIViewController {
                 return
             }
             nextVC.modalTransitionStyle = .flipHorizontal
-            self.present(nextVC,animated: true,completion: nil)
+            self.present(nextVC, animated: true, completion: nil)
             return
         }
     }
-    
-    func postLoginID(parameters:Parameters){
-        
-        Alamofire.request("https://init-api.elzup.com/v1/users",method:.post,parameters:parameters)
+    func postLoginID(parameters: Parameters) {
+        Alamofire.request("https://init-api.elzup.com/v1/users", method:.post, parameters:parameters)
             .responseJSON { response in
                 guard let object = response.result.value else {
                     return
@@ -57,7 +51,6 @@ class RegisterController: UIViewController {
                     "token_type": json["token_type"].stringValue,
                     "access_token": json["access_token"].stringValue
                 ]
-                
                 let userDefaults = UserDefaults.init()
                 userDefaults.set(self.loginInfomation["id"]!, forKey: "id")
                 userDefaults.set(self.loginInfomation["username"]!, forKey: "username")
@@ -66,20 +59,17 @@ class RegisterController: UIViewController {
                 userDefaults.synchronize()
                 print("self.loginInfomation")
                 print(self.loginInfomation)
-                
                 let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
                 guard let nextVC = storyboard.instantiateInitialViewController() else {
                     print("Failed to instantiate view controller")
                     return
                 }
                 nextVC.modalTransitionStyle = .flipHorizontal
-                self.present(nextVC,animated: true,completion: nil)
+                self.present(nextVC, animated: true, completion: nil)
                 return
         }
-        
     }
 
-    
     @IBAction func registerButton(_ sender: UIButton) {
         guard let username = nameTextField.text else {
             return

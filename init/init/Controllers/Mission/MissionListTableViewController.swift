@@ -11,12 +11,12 @@ import Alamofire
 import SwiftyJSON
 
 class MissionListTableViewController: UITableViewController {
-    
+
     var missions: [Mission] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if !UserDefaultsHelper.isLogin() {
             // to login
             let storyboard = UIStoryboard(name: "RegisterViewController", bundle: nil)
@@ -25,11 +25,11 @@ class MissionListTableViewController: UITableViewController {
                 return
             }
             nextVC.modalTransitionStyle = .flipHorizontal
-            self.present(nextVC,animated: true,completion: nil)
+            self.present(nextVC, animated: true, completion: nil)
             return
         }
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         getMissionLists()
     }
@@ -37,7 +37,6 @@ class MissionListTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -48,31 +47,38 @@ class MissionListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "missionCell", for: indexPath) as! MissionListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "missionCell", for: indexPath)
+        guard let missionCell = cell as? MissionListTableViewCell else {
+            return cell
+        }
+        missionCell.missionNameLabel.text = missions[indexPath.row].title
 
-        cell.missionNameLabel.text = missions[indexPath.row].title
-        
-        cell.checkImage.contentMode = .scaleAspectFit
-        cell.checkImage.image = UIImage(named: "check.png")
-        return cell
+        missionCell.checkImage.contentMode = .scaleAspectFit
+        missionCell.checkImage.image = UIImage(named: "check.png")
+        return missionCell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
-        let secondViewController = storyboard.instantiateInitialViewController() as! MissionDetailController
+        //changePoint start (make missionDetailController)
+        let missionDetailController = storyboard.instantiateInitialViewController()
+        guard let secondViewController = missionDetailController as? MissionDetailController else {
+            return
+        }
+        //changePoint end
         let mission = missions[indexPath.row]
         secondViewController.title = "詳細"
         secondViewController.mission = mission
         navigationController?.pushViewController(secondViewController, animated: true)
     }
-    
-    func getMissionLists(){
-        
+
+    func getMissionLists() {
+
         let headers: HTTPHeaders = [
             "Authorization":UserDefaultsHelper.getToken(),
             "Accept": "application/json"
         ]
-        
-        Alamofire.request("https://init-api.elzup.com/v1/missions",headers:headers)
+
+        Alamofire.request("https://init-api.elzup.com/v1/missions", headers:headers)
             .responseJSON { response in
                 guard let object = response.result.value else {
                     return
@@ -87,17 +93,17 @@ class MissionListTableViewController: UITableViewController {
                 print(self.missions)
         }
     }
-    
-    
-    
+
     @IBAction func addButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "MissionAddController", bundle: nil)
-        let secondViewController = storyboard.instantiateInitialViewController() as! MissionAddController
+        let missionAddController = storyboard.instantiateInitialViewController()
+        guard let secondViewController = missionAddController as? MissionAddController else {
+            return
+        }
         navigationController?.pushViewController(secondViewController, animated: true)
    }
     @IBAction func reloadButton(_ sender: UIButton) {
         getMissionLists()
     }
 
-    
 }

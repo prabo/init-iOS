@@ -11,11 +11,11 @@ import Alamofire
 import SwiftyJSON
 
 class MissionDetailController: UIViewController {
-    
+
     var mission: Mission?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,24 +25,24 @@ class MissionDetailController: UIViewController {
         titleLabel.text = m.title
         descriptionLabel.text = m.description
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func complete(){
+
+    func complete() {
         guard let m = mission else {
             return
         }
-        
+
         let headers: HTTPHeaders = [
             "Authorization":UserDefaultsHelper.getToken(),
             "Accept": "application/json"
         ]
         let str = m.id.description
-        
-        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str+"/complete",method:.post,headers:headers)
+
+        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str+"/complete", method:.post, headers:headers)
             .responseJSON { response in
                 guard let object = response.result.value else {
                     return
@@ -52,18 +52,18 @@ class MissionDetailController: UIViewController {
                 print(str)
         }
     }
-    func notComplete(){
+    func notComplete() {
         guard let m = mission else {
             return
         }
-        
+
         let headers: HTTPHeaders = [
             "Authorization":UserDefaultsHelper.getToken(),
             "Accept": "application/json"
         ]
         let str = m.id.description
-        
-        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str+"/uncomplete",method:.post,headers:headers)
+
+        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str+"/uncomplete", method:.post, headers:headers)
             .responseJSON { response in
                 guard let object = response.result.value else {
                     return
@@ -73,24 +73,24 @@ class MissionDetailController: UIViewController {
                 print(str)
         }
     }
-    
-    
+
     @IBAction func completeButton(_ sender: UIButton) {
         complete()
-        self.navigationController?.popViewController(animated: true)
+        _=self.navigationController?.popViewController(animated: true)
     }
     @IBAction func notCompleteButton(_ sender: UIButton) {
         notComplete()
-        self.navigationController?.popViewController(animated: true)
+        _=self.navigationController?.popViewController(animated: true)
     }
-
 
     @IBAction func editButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "MissionEditController", bundle: nil)
-        let secondViewController = storyboard.instantiateInitialViewController() as! MissionEditController
+        let missionEditController = storyboard.instantiateInitialViewController()
+        guard let secondViewController = missionEditController as? MissionEditController else {
+            return
+        }
         navigationController?.pushViewController(secondViewController, animated: true)
-    
+
     }
-    
-    
+
 }
