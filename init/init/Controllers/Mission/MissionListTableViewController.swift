@@ -52,19 +52,22 @@ class MissionListTableViewController: UITableViewController {
             return cell
         }
         missionCell.missionNameLabel.text = missions[indexPath.row].title
-
+        let isCompleted = missions[indexPath.row].isCompleted
         missionCell.checkImage.contentMode = .scaleAspectFit
         missionCell.checkImage.image = UIImage(named: "check.png")
+        if isCompleted {
+        missionCell.checkImage.isHidden = false
+        } else {
+            missionCell.checkImage.isHidden = true
+        }
         return missionCell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
-        //changePoint start (make missionDetailController)
         let missionDetailController = storyboard.instantiateInitialViewController()
         guard let secondViewController = missionDetailController as? MissionDetailController else {
             return
         }
-        //changePoint end
         let mission = missions[indexPath.row]
         secondViewController.title = "詳細"
         secondViewController.mission = mission
@@ -89,8 +92,6 @@ class MissionListTableViewController: UITableViewController {
                     self.missions.append(Mission(json: json))
                 }
                 self.tableView.reloadData()
-                print("self.missions")
-                print(self.missions)
         }
     }
 

@@ -65,12 +65,6 @@ class MissionDetailController: UIViewController {
 
         Alamofire.request("https://init-api.elzup.com/v1/missions/"+str+"/uncomplete", method:.post, headers:headers)
             .responseJSON { response in
-                guard let object = response.result.value else {
-                    return
-                }
-                let json = JSON(object)
-                print(json)
-                print(str)
         }
     }
 
