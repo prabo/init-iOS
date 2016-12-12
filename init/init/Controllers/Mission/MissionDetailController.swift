@@ -19,16 +19,22 @@ class MissionDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        guard let m = mission else {
-            return
-        }
-        titleLabel.text = m.title
-        descriptionLabel.text = m.description
+        loadMission()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        loadMission()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func loadMission() {
+        guard let m = mission else {
+            return
+        }
+        titleLabel.text = m.title
+        descriptionLabel.text = m.description
     }
 
     func complete() {
@@ -77,8 +83,7 @@ class MissionDetailController: UIViewController {
         guard let secondViewController = missionEditController as? MissionEditController else {
             return
         }
+        secondViewController.mission = self.mission
         navigationController?.pushViewController(secondViewController, animated: true)
-
     }
-
 }
