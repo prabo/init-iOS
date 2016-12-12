@@ -5,7 +5,8 @@
 * Xcode 8.0
 * Swift 3.0
 * CocoaPods
-  * Alamofire
+  * Alamofire ~>4.0
+  * SwiftyJSON
 
 ##アプリケーション要件
 
