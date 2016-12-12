@@ -77,8 +77,7 @@ class MissionDetailController: UIViewController {
         guard let secondViewController = missionEditController as? MissionEditController else {
             return
         }
+        secondViewController.mission = self.mission
         navigationController?.pushViewController(secondViewController, animated: true)
-
     }
-
 }

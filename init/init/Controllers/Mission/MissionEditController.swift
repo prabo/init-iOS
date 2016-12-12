@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class MissionEditController: UIViewController {
+    var mission: Mission?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     override func viewDidLoad() {
@@ -19,6 +22,22 @@ class MissionEditController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func changeMission() {
+    }
+    func deleteMission() {
+        guard let m = mission else {
+            return print("mission is nill")
+        }
+        let headers: HTTPHeaders = [
+            "Authorization":UserDefaultsHelper.getToken(),
+            "Accept": "application/json"
+        ]
+        let str = m.id.description
+        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str,
+                          method: .delete, headers:headers)
+            .responseJSON { response in
+        }
+    }
     @IBAction func changeButton(_ sender: UIButton) {
         _=self.navigationController?.popViewController(animated: true)
     }
@@ -26,6 +45,7 @@ class MissionEditController: UIViewController {
         _=self.navigationController?.popViewController(animated: true)
     }
     @IBAction func deleteButton(_ sender: UIButton) {
+        deleteMission()
         _=navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
 }
