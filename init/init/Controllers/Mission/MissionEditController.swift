@@ -22,6 +22,9 @@ class MissionEditController: UIViewController {
     @IBAction func changeButton(_ sender: UIButton) {
         _=self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func notChangeButton(_ sender: UIButton) {
+        _=self.navigationController?.popViewController(animated: true)
+    }
     @IBAction func deleteButton(_ sender: UIButton) {
         _=navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
