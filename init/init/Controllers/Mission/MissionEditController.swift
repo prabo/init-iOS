@@ -43,6 +43,12 @@ class MissionEditController: UIViewController {
         Alamofire.request("https://init-api.elzup.com/v1/missions/"+str,
                           method: .put, parameters:parameters, headers:headers)
             .responseJSON { response in
+                guard let object = response.result.value else {
+                    return
+                }
+                let json = JSON(object)
+                m.title = json["title"].stringValue
+                m.description = json["description"].stringValue
         }
     }
     func deleteMission() {
@@ -61,6 +67,12 @@ class MissionEditController: UIViewController {
     }
     @IBAction func changeButton(_ sender: UIButton) {
         changeMission()
+        let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
+        let missionDetailController = storyboard.instantiateInitialViewController()
+        guard let secondViewController = missionDetailController as? MissionDetailController else {
+            return
+        }
+        secondViewController.mission = self.mission
         _=self.navigationController?.popViewController(animated: true)
     }
     @IBAction func notChangeButton(_ sender: UIButton) {
