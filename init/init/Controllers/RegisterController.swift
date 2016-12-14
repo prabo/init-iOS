@@ -11,7 +11,6 @@ import Alamofire
 import SwiftyJSON
 
 class RegisterController: UIViewController {
-
     @IBOutlet weak var nameTextField: UITextField!
     var loginInfomation: [String:String] = [:]
 
@@ -59,15 +58,23 @@ class RegisterController: UIViewController {
                 userDefaults.synchronize()
                 print("self.loginInfomation")
                 print(self.loginInfomation)
-                let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
-                guard let nextVC = storyboard.instantiateInitialViewController() else {
-                    print("Failed to instantiate view controller")
-                    return
-                }
-                nextVC.modalTransitionStyle = .flipHorizontal
-                self.present(nextVC, animated: true, completion: nil)
-                return
+//                let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
+//                guard let nextVC = storyboard.instantiateInitialViewController() else {
+//                    print("Failed to instantiate view controller")
+//                    return
+//                }
+//                nextVC.modalTransitionStyle = .flipHorizontal
+//                self.present(nextVC, animated: true, completion: nil)
+//                return
         }
+    }
+    func nextStoryboad () {
+        let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
+        let missionListTableViewController = storyboard.instantiateInitialViewController()
+        guard let secondViewController = missionListTableViewController as? MissionListTableViewController else {
+            return
+        }
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
 
     @IBAction func registerButton(_ sender: UIButton) {
@@ -79,6 +86,7 @@ class RegisterController: UIViewController {
             "password": "hogehoge"
         ]
         postLoginID(parameters:parameters)
+        nextStoryboad()
     }
 
 }

@@ -28,6 +28,8 @@ class MissionListTableViewController: UITableViewController {
             self.present(nextVC, animated: true, completion: nil)
             return
         }
+        let userDefaults = UserDefaults.init()
+        print(userDefaults.string(forKey: "username")!)
     }
 
     override func viewDidAppear(_ animated: Bool) {
