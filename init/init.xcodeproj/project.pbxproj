@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		183FC8571C51C6ACCC0EB551 /* Pods_init.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116D3D2399A2EF71E71E6499 /* Pods_init.framework */; };
 		C00032971E019AFE0024E1D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00032961E019AFE0024E1D2 /* User.swift */; };
+		C00032991E01AFE70024E1D2 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = C00032981E01AFE70024E1D2 /* enemy.png */; };
 		C02BE9331DD2CE4200367E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BE9321DD2CE4200367E4A /* AppDelegate.swift */; };
 		C02BE9351DD2CE4200367E4A /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BE9341DD2CE4200367E4A /* RegisterController.swift */; };
 		C02BE9381DD2CE4200367E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9361DD2CE4200367E4A /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		76DAEF626C3BEA6EF4C6EEBD /* Pods-init.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-init.debug.xcconfig"; path = "Pods/Target Support Files/Pods-init/Pods-init.debug.xcconfig"; sourceTree = "<group>"; };
 		B6EA76EEF2876C52EDB80EC2 /* Pods-init.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-init.release.xcconfig"; path = "Pods/Target Support Files/Pods-init/Pods-init.release.xcconfig"; sourceTree = "<group>"; };
 		C00032961E019AFE0024E1D2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C00032981E01AFE70024E1D2 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
 		C02BE92F1DD2CE4200367E4A /* init.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = init.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C02BE9321DD2CE4200367E4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C02BE9341DD2CE4200367E4A /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		C05F0D6A1DFED83E00FAF8FC /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				C00032981E01AFE70024E1D2 /* enemy.png */,
 				C05F0D6B1DFED89000FAF8FC /* check.png */,
 			);
 			name = Pictures;
@@ -255,6 +258,7 @@
 			files = (
 				C05F0D6C1DFED89000FAF8FC /* check.png in Resources */,
 				C02D71991DF6CA410025E9E1 /* RegisterViewController.storyboard in Resources */,
+				C00032991E01AFE70024E1D2 /* enemy.png in Resources */,
 				C02BE93D1DD2CE4200367E4A /* LaunchScreen.storyboard in Resources */,
 				C0CCF5D41DF86A650076DEA8 /* MissionDetailController.storyboard in Resources */,
 				C0CCF5DA1DF871E60076DEA8 /* MissionAddController.storyboard in Resources */,

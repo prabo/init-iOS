@@ -68,8 +68,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zv6-90-8BS">
+                                            <rect key="frame" x="204" y="0.0" width="59" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7St-Ce-lSy">
-                                            <rect key="frame" x="278" y="-1" width="89" height="44"/>
+                                            <rect key="frame" x="303" y="-7" width="72" height="58"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -82,6 +86,7 @@
                                 <connections>
                                     <outlet property="checkImage" destination="7St-Ce-lSy" id="S2E-s9-oE4"/>
                                     <outlet property="missionNameLabel" destination="Hdu-U9-GCq" id="IGC-Ul-iK8"/>
+                                    <outlet property="ownerImage" destination="Zv6-90-8BS" id="ie0-Vl-lXE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -94,7 +99,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uMd-FN-4bD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="269.5" y="-949.5"/>
+            <point key="canvasLocation" x="268" y="-950.37481259370327"/>
         </scene>
     </scenes>
 </document>

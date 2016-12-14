@@ -58,25 +58,19 @@ class RegisterController: UIViewController {
                 userDefaults.synchronize()
                 print("self.loginInfomation")
                 print(self.loginInfomation)
-//                let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
-//                guard let nextVC = storyboard.instantiateInitialViewController() else {
-//                    print("Failed to instantiate view controller")
-//                    return
-//                }
-//                nextVC.modalTransitionStyle = .flipHorizontal
-//                self.present(nextVC, animated: true, completion: nil)
-//                return
+                self.nextStoryboad()
+                return
         }
     }
     func nextStoryboad () {
         let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
-        let missionListTableViewController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionListTableViewController as? MissionListTableViewController else {
+        guard let nextVC = storyboard.instantiateInitialViewController() else {
+            print("Failed to instantiate view controller")
             return
         }
-        navigationController?.pushViewController(secondViewController, animated: true)
+        nextVC.modalTransitionStyle = .flipHorizontal
+        self.present(nextVC, animated: true, completion: nil)
     }
-
     @IBAction func registerButton(_ sender: UIButton) {
         guard let username = nameTextField.text else {
             return
@@ -86,7 +80,6 @@ class RegisterController: UIViewController {
             "password": "hogehoge"
         ]
         postLoginID(parameters:parameters)
-        nextStoryboad()
     }
 
 }

@@ -53,15 +53,30 @@ class MissionListTableViewController: UITableViewController {
         guard let missionCell = cell as? MissionListTableViewCell else {
             return cell
         }
+        let userDefaults = UserDefaults.init()
         missionCell.missionNameLabel.text = missions[indexPath.row].title
-        let isCompleted = missions[indexPath.row].isCompleted
         missionCell.checkImage.contentMode = .scaleAspectFit
+        missionCell.ownerImage.contentMode = .scaleAspectFit
         missionCell.checkImage.image = UIImage(named: "check.png")
+        missionCell.ownerImage.image = UIImage(named: "enemy.png")
+        let isCompleted = missions[indexPath.row].isCompleted
         if isCompleted {
         missionCell.checkImage.isHidden = false
         } else {
             missionCell.checkImage.isHidden = true
         }
+        let ownerIdValue = missions[indexPath.row].authorId
+        let userId = userDefaults.string(forKey: "id")
+        print(ownerIdValue)
+        print(userId)
+//        if  ownerIdValue == userId {
+//            missionCell.ownerImage.isHidden = false
+//            print("owner")
+//        }
+//        if  ownerIdValue != userId {
+//            missionCell.ownerImage.isHidden = true
+//            print("not owner")
+//        }
         return missionCell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

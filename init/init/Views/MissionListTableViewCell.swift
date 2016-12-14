@@ -11,6 +11,7 @@ import UIKit
 class MissionListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var checkImage: UIImageView!
+    @IBOutlet weak var ownerImage: UIImageView!
     @IBOutlet weak var missionNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
