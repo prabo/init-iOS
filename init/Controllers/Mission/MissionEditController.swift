@@ -10,18 +10,26 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class MissionEditController: UIViewController {
+class MissionEditController: UIViewController, UITextFieldDelegate {
     var mission: Mission?
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleTextField.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
         guard let m = mission else {
             return
         }
         titleTextField.text = m.title
         descriptionTextView.text = m.description
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    @IBAction func tapScreen(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

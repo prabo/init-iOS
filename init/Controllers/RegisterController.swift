@@ -10,15 +10,19 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class RegisterController: UIViewController {
+class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     var loginInfomation: [String:String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        nameTextField.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
