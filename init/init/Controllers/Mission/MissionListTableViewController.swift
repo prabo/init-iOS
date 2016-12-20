@@ -67,16 +67,14 @@ class MissionListTableViewController: UITableViewController {
         }
         let ownerIdValue = missions[indexPath.row].authorId
         let userId = userDefaults.string(forKey: "id")
-        print(ownerIdValue)
-        print(userId)
-//        if  ownerIdValue == userId {
-//            missionCell.ownerImage.isHidden = false
-//            print("owner")
-//        }
-//        if  ownerIdValue != userId {
-//            missionCell.ownerImage.isHidden = true
-//            print("not owner")
-//        }
+        if  ownerIdValue == userId {
+            missionCell.ownerImage.isHidden = false
+            print("owner")
+        }
+        if  ownerIdValue != userId {
+            missionCell.ownerImage.isHidden = true
+            print("not owner")
+        }
         return missionCell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
