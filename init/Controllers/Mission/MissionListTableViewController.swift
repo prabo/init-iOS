@@ -113,18 +113,14 @@ extension MissionListTableViewController {
             return cell
         }
         let array = showOnlyIncompleted ? incompletedMissions : missions
+        let mission = array[indexPath.row]
         missionCell.missionNameLabel.text = array[indexPath.row].title
         missionCell.checkImage.contentMode = .scaleAspectFit
         missionCell.ownerImage.contentMode = .scaleAspectFit
         missionCell.checkImage.image = UIImage(named: "check.png")
         missionCell.ownerImage.image = UIImage(named: "enemy.png")
-        let isCompleted = array[indexPath.row].isCompleted
-        if isCompleted {
-            missionCell.checkImage.isHidden = false
-        } else {
-            missionCell.checkImage.isHidden = true
-        }
-        let ownerIdValue = array[indexPath.row].authorId
+        missionCell.checkImage.isHidden = !mission.isCompleted
+        let ownerIdValue = mission.authorId
         let userId = UserDefaults.standard.string(forKey: "id")
         if  ownerIdValue == userId {
             missionCell.ownerImage.isHidden = false
