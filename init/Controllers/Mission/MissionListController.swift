@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MissionListController: UIViewController {
+final class MissionListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

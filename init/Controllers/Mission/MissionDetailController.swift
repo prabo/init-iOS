@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class MissionDetailController: UIViewController {
+final class MissionDetailController: UIViewController {
 
     var mission: Mission?
     @IBOutlet weak var titleLabel: UILabel!

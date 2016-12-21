@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class MissionEditController: UIViewController, UITextFieldDelegate {
+final class MissionEditController: UIViewController, UITextFieldDelegate {
     var mission: Mission?
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!

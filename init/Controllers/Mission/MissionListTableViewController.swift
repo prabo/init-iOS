@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class MissionListTableViewController: UITableViewController {
+final class MissionListTableViewController: UITableViewController {
 
     var missions: [Mission] = []
     var incompletedMissions: [Mission] = []

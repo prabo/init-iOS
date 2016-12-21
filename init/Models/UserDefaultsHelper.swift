@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserDefaultsHelper {
+final class UserDefaultsHelper {
     static func isLogin() -> Bool {
         let ud = UserDefaults.init()
         return ud.string(forKey: "access_token") != nil

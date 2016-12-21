@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class RegisterController: UIViewController, UITextFieldDelegate {
+final class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
     var loginInfomation: [String:String] = [:]
 
