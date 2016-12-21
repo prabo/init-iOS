@@ -15,7 +15,7 @@ class User {
     var username: String
     var tokenType: String
     var accessToken: String
-    
+
     required init(json: JSON) {
         self.id = json["id"].intValue
         self.username = json["username"].stringValue
