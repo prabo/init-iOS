@@ -13,6 +13,8 @@ import SwiftyJSON
 class MissionListTableViewController: UITableViewController {
 
     var missions: [Mission] = []
+    var incompletedMissions: [Mission] = []
+    var showOnlyCompleted = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,7 +128,16 @@ class MissionListTableViewController: UITableViewController {
     }
 
     func toggleFilter() {
-        print("toggleFilter")
+        createIncompletedMissionsArray()
+    }
+
+    private func createIncompletedMissionsArray() {
+        incompletedMissions = []
+        missions.forEach({
+            if !$0.isCompleted {
+                incompletedMissions.append($0)
+            }
+        })
     }
 
 }
