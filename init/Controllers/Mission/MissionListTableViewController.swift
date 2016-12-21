@@ -14,7 +14,7 @@ class MissionListTableViewController: UITableViewController {
 
     var missions: [Mission] = []
     var incompletedMissions: [Mission] = []
-    var showOnlyCompleted = false
+    var showOnlyIncompleted = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class MissionListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return missions.count
+        return showOnlyIncompleted ? incompletedMissions.count : missions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,18 +59,19 @@ class MissionListTableViewController: UITableViewController {
             return cell
         }
         let userDefaults = UserDefaults.init()
-        missionCell.missionNameLabel.text = missions[indexPath.row].title
+        let array = showOnlyIncompleted ? incompletedMissions : missions
+        missionCell.missionNameLabel.text = array[indexPath.row].title
         missionCell.checkImage.contentMode = .scaleAspectFit
         missionCell.ownerImage.contentMode = .scaleAspectFit
         missionCell.checkImage.image = UIImage(named: "check.png")
         missionCell.ownerImage.image = UIImage(named: "enemy.png")
-        let isCompleted = missions[indexPath.row].isCompleted
+        let isCompleted = array[indexPath.row].isCompleted
         if isCompleted {
         missionCell.checkImage.isHidden = false
         } else {
             missionCell.checkImage.isHidden = true
         }
-        let ownerIdValue = missions[indexPath.row].authorId
+        let ownerIdValue = array[indexPath.row].authorId
         let userId = userDefaults.string(forKey: "id")
         if  ownerIdValue == userId {
             missionCell.ownerImage.isHidden = false
@@ -88,7 +89,8 @@ class MissionListTableViewController: UITableViewController {
         guard let secondViewController = missionDetailController as? MissionDetailController else {
             return
         }
-        let mission = missions[indexPath.row]
+        let array = showOnlyIncompleted ? incompletedMissions : missions
+        let mission = array[indexPath.row]
         secondViewController.title = "詳細"
         secondViewController.mission = mission
         navigationController?.pushViewController(secondViewController, animated: true)
@@ -129,6 +131,8 @@ class MissionListTableViewController: UITableViewController {
 
     func toggleFilter() {
         createIncompletedMissionsArray()
+        showOnlyIncompleted = showOnlyIncompleted ? false : true
+        tableView.reloadData()
     }
 
     private func createIncompletedMissionsArray() {
