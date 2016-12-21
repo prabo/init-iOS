@@ -15,6 +15,9 @@ final class MissionDetailController: UIViewController {
     var mission: Mission?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

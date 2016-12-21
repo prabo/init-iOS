@@ -76,6 +76,7 @@ final class MissionListTableViewController: UITableViewController {
                     self.missions.append(Mission(json: json))
                 }
                 self.tableView.reloadData()
+        self.missions.forEach { print($0.isCompleted) }
         }
     }
 
@@ -124,11 +125,9 @@ extension MissionListTableViewController {
         let userId = UserDefaults.standard.string(forKey: "id")
         if  ownerIdValue == userId {
             missionCell.ownerImage.isHidden = false
-            print("owner")
         }
         if  ownerIdValue != userId {
             missionCell.ownerImage.isHidden = true
-            print("not owner")
         }
         return missionCell
     }
