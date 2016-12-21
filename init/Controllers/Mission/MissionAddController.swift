@@ -22,7 +22,7 @@ class MissionAddController: UIViewController {
         return true
     }
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
