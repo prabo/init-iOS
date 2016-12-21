@@ -30,6 +30,9 @@ class MissionListTableViewController: UITableViewController {
         }
         let userDefaults = UserDefaults.init()
         print(userDefaults.string(forKey: "username")!)
+
+        let filterButton: UIBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(toggleFilter))
+        navigationItem.rightBarButtonItem = filterButton
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -120,6 +123,10 @@ class MissionListTableViewController: UITableViewController {
    }
     @IBAction func reloadButton(_ sender: UIButton) {
         getMissionLists()
+    }
+
+    func toggleFilter() {
+        print("toggleFilter")
     }
 
 }
