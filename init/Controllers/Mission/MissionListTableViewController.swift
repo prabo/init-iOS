@@ -80,7 +80,6 @@ final class MissionListTableViewController: UITableViewController {
                     self.missions.append(Mission(json: json))
                 }
                 self.tableView.reloadData()
-        self.missions.forEach { print($0.isCompleted) }
         }
     }
 
