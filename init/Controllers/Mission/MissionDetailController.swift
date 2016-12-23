@@ -23,6 +23,8 @@ final class MissionDetailController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         loadMission()
+
+        addEditButtonToNavigationBar()
     }
     override func viewDidAppear(_ animated: Bool) {
         loadMission()
@@ -80,7 +82,7 @@ final class MissionDetailController: UIViewController {
         _=self.navigationController?.popViewController(animated: true)
     }
 
-    @IBAction func editButton(_ sender: UIButton) {
+    func handleEditButton() {
         let storyboard = UIStoryboard(name: "MissionEditController", bundle: nil)
         let missionEditController = storyboard.instantiateInitialViewController()
         guard let secondViewController = missionEditController as? MissionEditController else {
@@ -88,5 +90,10 @@ final class MissionDetailController: UIViewController {
         }
         secondViewController.mission = self.mission
         navigationController?.pushViewController(secondViewController, animated: true)
+    }
+
+    private func addEditButtonToNavigationBar() {
+        let editButton: UIBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(handleEditButton))
+        navigationItem.rightBarButtonItem = editButton
     }
 }
