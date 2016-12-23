@@ -80,7 +80,7 @@ final class MissionDetailController: UIViewController {
         _=self.navigationController?.popViewController(animated: true)
     }
 
-    @IBAction func editButton(_ sender: UIButton) {
+    func handleEditButton() {
         let storyboard = UIStoryboard(name: "MissionEditController", bundle: nil)
         let missionEditController = storyboard.instantiateInitialViewController()
         guard let secondViewController = missionEditController as? MissionEditController else {
