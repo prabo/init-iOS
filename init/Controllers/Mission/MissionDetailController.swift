@@ -93,6 +93,7 @@ final class MissionDetailController: UIViewController {
     }
 
     private func addEditButtonToNavigationBar() {
-
+        let editButton: UIBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(handleEditButton))
+        navigationItem.rightBarButtonItem = editButton
     }
 }
