@@ -48,6 +48,10 @@ final class MissionListTableViewController: UITableViewController {
 
         let filterButton: UIBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(toggleFilter))
         navigationItem.rightBarButtonItem = filterButton
+        
+        
+        let username = userDefaults.string(forKey: "username")!
+        self.navigationItem.title = username
     }
 
     override func viewDidAppear(_ animated: Bool) {
