@@ -56,6 +56,7 @@ final class MissionAddController: UIViewController {
     }
 
     private func addRegisterButtonToNavigationBar() {
-
+        let button: UIBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(handleRegisterButton))
+        navigationItem.rightBarButtonItem = button
     }
 }
