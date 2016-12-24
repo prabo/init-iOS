@@ -54,4 +54,8 @@ final class MissionAddController: UIViewController {
         }
         navigationController.popViewController(animated: true)
     }
+
+    private func addRegisterButtonToNavigationBar() {
+
+    }
 }
