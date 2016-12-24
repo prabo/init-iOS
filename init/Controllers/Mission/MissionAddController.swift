@@ -49,6 +49,9 @@ final class MissionAddController: UIViewController {
 
     func handleRegisterButton() {
         registerMission()
-        _ = navigationController?.popViewController(animated: true)
+        guard let navigationController = navigationController else {
+            return
+        }
+        navigationController.popViewController(animated: true)
     }
 }
