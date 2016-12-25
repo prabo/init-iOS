@@ -10,6 +10,8 @@
 		183FC8571C51C6ACCC0EB551 /* Pods_init.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116D3D2399A2EF71E71E6499 /* Pods_init.framework */; };
 		C00032971E019AFE0024E1D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00032961E019AFE0024E1D2 /* User.swift */; };
 		C00032991E01AFE70024E1D2 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = C00032981E01AFE70024E1D2 /* enemy.png */; };
+		C00692931E0FD67D008D881B /* MissionCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00692921E0FD67D008D881B /* MissionCategoryTableViewController.swift */; };
+		C00692951E0FD68B008D881B /* MissionCategoryTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00692941E0FD68B008D881B /* MissionCategoryTableViewController.storyboard */; };
 		C02BE9331DD2CE4200367E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BE9321DD2CE4200367E4A /* AppDelegate.swift */; };
 		C02BE9351DD2CE4200367E4A /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BE9341DD2CE4200367E4A /* RegisterController.swift */; };
 		C02BE9381DD2CE4200367E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9361DD2CE4200367E4A /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 		B6EA76EEF2876C52EDB80EC2 /* Pods-init.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-init.release.xcconfig"; path = "Pods/Target Support Files/Pods-init/Pods-init.release.xcconfig"; sourceTree = "<group>"; };
 		C00032961E019AFE0024E1D2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C00032981E01AFE70024E1D2 /* enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy.png; sourceTree = "<group>"; };
+		C00692921E0FD67D008D881B /* MissionCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionCategoryTableViewController.swift; sourceTree = "<group>"; };
+		C00692941E0FD68B008D881B /* MissionCategoryTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionCategoryTableViewController.storyboard; sourceTree = "<group>"; };
 		C02BE92F1DD2CE4200367E4A /* init.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = init.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C02BE9321DD2CE4200367E4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C02BE9341DD2CE4200367E4A /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				C0CCF5DB1DF875E70076DEA8 /* MissionEditController.storyboard */,
 				C0CCF5D01DF866570076DEA8 /* MissionListTableViewController.storyboard */,
 				C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */,
+				C00692941E0FD68B008D881B /* MissionCategoryTableViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				C0D457241DD3000700B33924 /* MissionDetailController.swift */,
 				C0D457221DD2FEEB00B33924 /* MissionEditController.swift */,
 				C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */,
+				C00692921E0FD67D008D881B /* MissionCategoryTableViewController.swift */,
 			);
 			path = Mission;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C05F0D6C1DFED89000FAF8FC /* check.png in Resources */,
+				C00692951E0FD68B008D881B /* MissionCategoryTableViewController.storyboard in Resources */,
 				C02D71991DF6CA410025E9E1 /* RegisterViewController.storyboard in Resources */,
 				C00032991E01AFE70024E1D2 /* enemy.png in Resources */,
 				C02BE93D1DD2CE4200367E4A /* LaunchScreen.storyboard in Resources */,
@@ -341,6 +348,7 @@
 				C0D457251DD3000700B33924 /* MissionDetailController.swift in Sources */,
 				C0CCF5DE1DF9AE250076DEA8 /* Mission.swift in Sources */,
 				C0B3D20D1DD489CB00A1FEB3 /* MissionListTableViewController.swift in Sources */,
+				C00692931E0FD67D008D881B /* MissionCategoryTableViewController.swift in Sources */,
 				C0D457231DD2FEEB00B33924 /* MissionEditController.swift in Sources */,
 				C0D457211DD2FE4100B33924 /* MissionAddController.swift in Sources */,
 				C00032971E019AFE0024E1D2 /* User.swift in Sources */,
