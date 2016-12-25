@@ -83,9 +83,6 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
         secondViewController.mission = self.mission
         _=self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func notChangeButton(_ sender: UIButton) {
-        _=self.navigationController?.popViewController(animated: true)
-    }
     @IBAction func deleteButton(_ sender: UIButton) {
         deleteMission()
         _=navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
