@@ -11,32 +11,41 @@ import SwiftyJSON
 
 final class MissionAddController: UIViewController {
     var mission: Mission?
+
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view, typically from a nib.
+        addRegisterButtonToNavigationBar()
     }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     func registerMission() {
         let parameters: Parameters = [
-           "title":titleTextField.text!,
-           "description":descriptionTextView.text!
+           "title": titleTextField.text!,
+           "description": descriptionTextView.text!
         ]
         let headers: HTTPHeaders = [
-            "Authorization":UserDefaultsHelper.getToken(),
+            "Authorization": UserDefaultsHelper.getToken(),
             "Accept": "application/json"
         ]
+
         Alamofire.request("https://init-api.elzup.com/v1/missions", method: .post, parameters:parameters, headers:headers)
             .responseJSON { response in
                 guard let object = response.result.value else {
@@ -46,8 +55,18 @@ final class MissionAddController: UIViewController {
                 print(json)
         }
     }
-    @IBAction func registerButton(_ sender: UIButton) {
+
+    func handleRegisterButton() {
         registerMission()
-        _=self.navigationController?.popViewController(animated: true)
+
+        guard let navigationController = navigationController else {
+            return
+        }
+        navigationController.popViewController(animated: true)
+    }
+
+    private func addRegisterButtonToNavigationBar() {
+        let button: UIBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(handleRegisterButton))
+        navigationItem.rightBarButtonItem = button
     }
 }
