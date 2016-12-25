@@ -16,7 +16,6 @@
 		C02BE93A1DD2CE4200367E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C02BE9391DD2CE4200367E4A /* Assets.xcassets */; };
 		C02BE93D1DD2CE4200367E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02BE93B1DD2CE4200367E4A /* LaunchScreen.storyboard */; };
 		C02D71991DF6CA410025E9E1 /* RegisterViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */; };
-		C03756181DD2F15F00A89FFB /* MissionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03756171DD2F15F00A89FFB /* MissionListController.swift */; };
 		C05F0D6C1DFED89000FAF8FC /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = C05F0D6B1DFED89000FAF8FC /* check.png */; };
 		C0B3D20D1DD489CB00A1FEB3 /* MissionListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */; };
 		C0B3D2101DD48EAD00A1FEB3 /* MissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */; };
@@ -45,7 +44,6 @@
 		C02BE93C1DD2CE4200367E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C02BE93E1DD2CE4200367E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RegisterViewController.storyboard; sourceTree = "<group>"; };
-		C03756171DD2F15F00A89FFB /* MissionListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListController.swift; sourceTree = "<group>"; };
 		C05F0D6B1DFED89000FAF8FC /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewController.swift; sourceTree = "<group>"; };
 		C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				C0D457201DD2FE4100B33924 /* MissionAddController.swift */,
 				C0D457241DD3000700B33924 /* MissionDetailController.swift */,
 				C0D457221DD2FEEB00B33924 /* MissionEditController.swift */,
-				C03756171DD2F15F00A89FFB /* MissionListController.swift */,
 				C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */,
 			);
 			path = Mission;
@@ -340,7 +337,6 @@
 				C02BE9351DD2CE4200367E4A /* RegisterController.swift in Sources */,
 				C02BE9331DD2CE4200367E4A /* AppDelegate.swift in Sources */,
 				C0B3D2101DD48EAD00A1FEB3 /* MissionListTableViewCell.swift in Sources */,
-				C03756181DD2F15F00A89FFB /* MissionListController.swift in Sources */,
 				C0C1AE971DED3561001D261A /* UserDefaultsHelper.swift in Sources */,
 				C0D457251DD3000700B33924 /* MissionDetailController.swift in Sources */,
 				C0CCF5DE1DF9AE250076DEA8 /* Mission.swift in Sources */,
