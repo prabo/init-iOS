@@ -73,7 +73,7 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
             .responseJSON { response in
         }
     }
-    @IBAction func changeButton(_ sender: UIButton) {
+    func handleChange() {
         changeMission()
         let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
         let missionDetailController = storyboard.instantiateInitialViewController()
