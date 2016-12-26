@@ -11,9 +11,12 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionEditController: UIViewController, UITextFieldDelegate {
+
     var mission: Mission?
+
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         titleTextField.delegate = self
@@ -23,19 +26,24 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
         }
         titleTextField.text = m.title
         descriptionTextView.text = m.description
+
         addChangeButtonToNavigationBar()
     }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+
     @IBAction func tapScreen(sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     func changeMission() {
         guard let m = mission else {
             return print("mission is nill")
@@ -60,6 +68,7 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
                 m.description = json["description"].stringValue
         }
     }
+
     func deleteMission() {
         guard let m = mission else {
             return print("mission is nill")
@@ -88,10 +97,12 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
             return
         }
         secondViewController.mission = self.mission
-        _=self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
+
     @IBAction func deleteButton(_ sender: UIButton) {
         deleteMission()
-        _=navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+        _ = navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
+
 }
