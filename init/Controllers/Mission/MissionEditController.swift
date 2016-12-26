@@ -11,9 +11,21 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionEditController: UIViewController, UITextFieldDelegate {
+
     var mission: Mission?
+
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+
+    @IBAction func tapScreen(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+
+    @IBAction func deleteButton(_ sender: UIButton) {
+        deleteMission()
+        _ = navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         titleTextField.delegate = self
@@ -23,18 +35,20 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
         }
         titleTextField.text = m.title
         descriptionTextView.text = m.description
+
+        addChangeButtonToNavigationBar()
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    @IBAction func tapScreen(sender: UITapGestureRecognizer) {
-        self.view.endEditing(true)
-    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     func changeMission() {
         guard let m = mission else {
             return print("mission is nill")
@@ -59,6 +73,7 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
                 m.description = json["description"].stringValue
         }
     }
+
     func deleteMission() {
         guard let m = mission else {
             return print("mission is nill")
@@ -73,7 +88,8 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
             .responseJSON { response in
         }
     }
-    @IBAction func changeButton(_ sender: UIButton) {
+
+    func handleChange() {
         changeMission()
         let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
         let missionDetailController = storyboard.instantiateInitialViewController()
@@ -81,10 +97,12 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
             return
         }
         secondViewController.mission = self.mission
-        _=self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func deleteButton(_ sender: UIButton) {
-        deleteMission()
-        _=navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+
+    private func addChangeButtonToNavigationBar() {
+        let button: UIBarButtonItem = UIBarButtonItem(title: "Change", style: .plain, target: self, action: #selector(handleChange))
+        navigationItem.rightBarButtonItem = button
     }
+
 }
