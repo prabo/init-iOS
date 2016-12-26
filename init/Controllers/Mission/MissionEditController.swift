@@ -23,6 +23,7 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
         }
         titleTextField.text = m.title
         descriptionTextView.text = m.description
+        addChangeButtonToNavigationBar()
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -73,6 +74,12 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
             .responseJSON { response in
         }
     }
+
+    private func addChangeButtonToNavigationBar() {
+        let button: UIBarButtonItem = UIBarButtonItem(title: "Change", style: .plain, target: self, action: #selector(handleChange))
+        navigationItem.rightBarButtonItem = button
+    }
+
     func handleChange() {
         changeMission()
         let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
