@@ -30,6 +30,10 @@
 		C0D457211DD2FE4100B33924 /* MissionAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D457201DD2FE4100B33924 /* MissionAddController.swift */; };
 		C0D457231DD2FEEB00B33924 /* MissionEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D457221DD2FEEB00B33924 /* MissionEditController.swift */; };
 		C0D457251DD3000700B33924 /* MissionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D457241DD3000700B33924 /* MissionDetailController.swift */; };
+		F360A2811E122FD30032ACE0 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360A27D1E122FD30032ACE0 /* NibLoadableView.swift */; };
+		F360A2821E122FD30032ACE0 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360A27E1E122FD30032ACE0 /* ReusableView.swift */; };
+		F360A2831E122FD30032ACE0 /* UITableView+dequeueReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360A27F1E122FD30032ACE0 /* UITableView+dequeueReusableCell.swift */; };
+		F360A2841E122FD30032ACE0 /* UITableView+register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360A2801E122FD30032ACE0 /* UITableView+register.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,10 @@
 		C0D457201DD2FE4100B33924 /* MissionAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionAddController.swift; sourceTree = "<group>"; };
 		C0D457221DD2FEEB00B33924 /* MissionEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionEditController.swift; sourceTree = "<group>"; };
 		C0D457241DD3000700B33924 /* MissionDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDetailController.swift; sourceTree = "<group>"; };
+		F360A27D1E122FD30032ACE0 /* NibLoadableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		F360A27E1E122FD30032ACE0 /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		F360A27F1E122FD30032ACE0 /* UITableView+dequeueReusableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+dequeueReusableCell.swift"; sourceTree = "<group>"; };
+		F360A2801E122FD30032ACE0 /* UITableView+register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+register.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +139,10 @@
 			isa = PBXGroup;
 			children = (
 				C0CCF5DD1DF9AE250076DEA8 /* Mission.swift */,
+				F360A27D1E122FD30032ACE0 /* NibLoadableView.swift */,
+				F360A27E1E122FD30032ACE0 /* ReusableView.swift */,
+				F360A27F1E122FD30032ACE0 /* UITableView+dequeueReusableCell.swift */,
+				F360A2801E122FD30032ACE0 /* UITableView+register.swift */,
 				C00032961E019AFE0024E1D2 /* User.swift */,
 				C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */,
 			);
@@ -192,7 +204,6 @@
 				C05F0D6B1DFED89000FAF8FC /* check.png */,
 				C00032981E01AFE70024E1D2 /* enemy.png */,
 			);
-			name = Pictures;
 			path = Pictures;
 			sourceTree = "<group>";
 		};
@@ -342,17 +353,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F360A2811E122FD30032ACE0 /* NibLoadableView.swift in Sources */,
 				C02BE9351DD2CE4200367E4A /* RegisterController.swift in Sources */,
 				C02BE9331DD2CE4200367E4A /* AppDelegate.swift in Sources */,
 				C0B3D2101DD48EAD00A1FEB3 /* MissionListTableViewCell.swift in Sources */,
 				C0C1AE971DED3561001D261A /* UserDefaultsHelper.swift in Sources */,
 				C0D457251DD3000700B33924 /* MissionDetailController.swift in Sources */,
 				C0CCF5DE1DF9AE250076DEA8 /* Mission.swift in Sources */,
+				F360A2821E122FD30032ACE0 /* ReusableView.swift in Sources */,
 				C0B3D20D1DD489CB00A1FEB3 /* MissionListTableViewController.swift in Sources */,
 				C00692931E0FD67D008D881B /* MissionCategoryTableViewController.swift in Sources */,
 				C0D457231DD2FEEB00B33924 /* MissionEditController.swift in Sources */,
 				C0D457211DD2FE4100B33924 /* MissionAddController.swift in Sources */,
 				C00032971E019AFE0024E1D2 /* User.swift in Sources */,
+				F360A2831E122FD30032ACE0 /* UITableView+dequeueReusableCell.swift in Sources */,
+				F360A2841E122FD30032ACE0 /* UITableView+register.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

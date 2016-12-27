@@ -112,7 +112,7 @@ extension MissionListTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "missionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as MissionListTableViewCell
         guard let missionCell = cell as? MissionListTableViewCell else {
             return cell
         }
