@@ -112,9 +112,9 @@
 		C02BE9311DD2CE4200367E4A /* init */ = {
 			isa = PBXGroup;
 			children = (
-				C05F0D6A1DFED83E00FAF8FC /* Pictures */,
 				C04265C81DF6C5FC00698FA3 /* Controllers */,
 				C03280B71DE7470600B55D5B /* Models */,
+				C05F0D6A1DFED83E00FAF8FC /* Pictures */,
 				C04265C91DF6C61A00698FA3 /* Storyboards */,
 				C04265CA1DF6C62A00698FA3 /* Views */,
 				C04265CB1DF6C63500698FA3 /* XIBs */,
@@ -131,8 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				C0CCF5DD1DF9AE250076DEA8 /* Mission.swift */,
-				C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */,
 				C00032961E019AFE0024E1D2 /* User.swift */,
+				C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,11 +150,11 @@
 			isa = PBXGroup;
 			children = (
 				C0CCF5D91DF871E60076DEA8 /* MissionAddController.storyboard */,
+				C00692941E0FD68B008D881B /* MissionCategoryTableViewController.storyboard */,
 				C0CCF5D31DF86A650076DEA8 /* MissionDetailController.storyboard */,
 				C0CCF5DB1DF875E70076DEA8 /* MissionEditController.storyboard */,
 				C0CCF5D01DF866570076DEA8 /* MissionListTableViewController.storyboard */,
 				C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */,
-				C00692941E0FD68B008D881B /* MissionCategoryTableViewController.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -178,10 +178,10 @@
 			isa = PBXGroup;
 			children = (
 				C0D457201DD2FE4100B33924 /* MissionAddController.swift */,
+				C00692921E0FD67D008D881B /* MissionCategoryTableViewController.swift */,
 				C0D457241DD3000700B33924 /* MissionDetailController.swift */,
 				C0D457221DD2FEEB00B33924 /* MissionEditController.swift */,
 				C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */,
-				C00692921E0FD67D008D881B /* MissionCategoryTableViewController.swift */,
 			);
 			path = Mission;
 			sourceTree = "<group>";
@@ -189,10 +189,11 @@
 		C05F0D6A1DFED83E00FAF8FC /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
-				C00032981E01AFE70024E1D2 /* enemy.png */,
 				C05F0D6B1DFED89000FAF8FC /* check.png */,
+				C00032981E01AFE70024E1D2 /* enemy.png */,
 			);
 			name = Pictures;
+			path = Pictures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
