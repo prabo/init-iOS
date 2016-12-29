@@ -61,7 +61,8 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
     func registerMission() {
         let parameters: Parameters = [
            "title": titleTextField.text!,
-           "description": descriptionTextView.text!
+           "description": descriptionTextView.text!,
+           "category_id":5
         ]
         let headers: HTTPHeaders = [
             "Authorization": UserDefaultsHelper.getToken(),
