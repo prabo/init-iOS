@@ -67,3 +67,5 @@ fastlane/screenshots
 fastlane/test_output
 
 Pods/
+# .DS_Store banished!
+.DS_Store
