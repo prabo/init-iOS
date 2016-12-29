@@ -18,6 +18,7 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
     @IBOutlet weak var categoryPickerView: UIPickerView!
     
     var categoryArray: [JSON] = []
+    var categoryID: String = ""
     
 
     override func viewDidLoad() {
@@ -62,7 +63,7 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
         let parameters: Parameters = [
            "title": titleTextField.text!,
            "description": descriptionTextView.text!,
-           "category_id":5
+           "category_id": self.categoryID
         ]
         let headers: HTTPHeaders = [
             "Authorization": UserDefaultsHelper.getToken(),
@@ -105,6 +106,7 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
     
     //選択時
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryID = categoryArray[row]["id"].stringValue
         print("値: \(categoryArray[row]["name"].stringValue)")
     }
 
