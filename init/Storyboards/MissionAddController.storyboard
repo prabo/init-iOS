@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vq8-ik-XUW">
-                                <rect key="frame" x="16" y="176" width="343" height="315"/>
+                                <rect key="frame" x="16" y="176" width="343" height="267"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,6 +49,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="07G-H3-GZV">
+                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lOD-b7-5H3" id="3Gi-3o-HsQ"/>
+                                    <outlet property="delegate" destination="lOD-b7-5H3" id="wvc-VN-NMI"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -57,6 +65,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="categoryPickerView" destination="07G-H3-GZV" id="BFm-kA-hBm"/>
                         <outlet property="descriptionTextView" destination="Vq8-ik-XUW" id="EvW-JU-MJI"/>
                         <outlet property="titleTextField" destination="enX-Ue-tuj" id="Nyj-Yo-VwN"/>
                     </connections>

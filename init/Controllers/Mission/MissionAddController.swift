@@ -9,11 +9,16 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-final class MissionAddController: UIViewController {
+final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
     var mission: Mission?
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
+    
+    @IBOutlet weak var categoryPickerView: UIPickerView!
+    
+    var categoryArry: [String] = ["1","2","3"]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +69,27 @@ final class MissionAddController: UIViewController {
         }
         navigationController.popViewController(animated: true)
     }
+    
+    //表示列
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //表示個数
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryArry.count
+    }
+    
+    //表示内容
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryArry[row]
+    }
+    
+    //選択時
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("値: \(categoryArry[row])")
+    }
+
 
     private func addRegisterButtonToNavigationBar() {
         let button: UIBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(handleRegisterButton))
