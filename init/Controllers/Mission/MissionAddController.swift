@@ -42,6 +42,7 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
                 }
                 print(self.categoryArray)
                 self.categoryPickerView.reloadAllComponents()
+                self.categoryID = self.categoryArray[0]["id"].stringValue
         }
     }
 
