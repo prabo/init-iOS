@@ -17,7 +17,7 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
     
     @IBOutlet weak var categoryPickerView: UIPickerView!
     
-    var categoryArry: [String] = ["1","2","3"]
+    var categoryArray: [JSON] = []
     
 
     override func viewDidLoad() {
@@ -25,6 +25,23 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
 
         // Do any additional setup after loading the view, typically from a nib.
         addRegisterButtonToNavigationBar()
+        
+        let headers: HTTPHeaders = [
+            "Authorization": UserDefaultsHelper.getToken(),
+            "Accept": "application/json"
+        ]
+        Alamofire.request("https://init-api.elzup.com/v1/categories", headers:headers)
+            .responseJSON { response in
+                guard let object = response.result.value else {
+                    return
+                }
+                let json = JSON(object)
+                json.forEach { (_, json) in
+                    self.categoryArray.append(json)
+                }
+                print(self.categoryArray)
+                self.categoryPickerView.reloadAllComponents()
+        }
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -77,17 +94,17 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
     
     //表示個数
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categoryArry.count
+        return categoryArray.count
     }
     
     //表示内容
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryArry[row]
+        return categoryArray[row]["name"].stringValue
     }
     
     //選択時
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("値: \(categoryArry[row])")
+        print("値: \(categoryArray[row]["name"].stringValue)")
     }
 
 
