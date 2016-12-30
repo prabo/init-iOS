@@ -40,15 +40,21 @@
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Vj-tO-mkP" userLabel="reroad">
                                     <rect key="frame" x="0.0" y="0.0" width="345" height="44"/>
                                     <state key="normal" title="reroad"/>
+                                    <connections>
+                                        <action selector="reroadButton:" destination="qL4-tR-ofK" eventType="touchUpInside" id="Nnl-Lx-VJC"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0J-ej-rXT" userLabel="add">
                                     <rect key="frame" x="345" y="0.0" width="30" height="44"/>
                                     <state key="normal" title="add"/>
+                                    <connections>
+                                        <action selector="addButton:" destination="qL4-tR-ofK" eventType="touchUpInside" id="RrF-gp-Nkc"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yoZ-VA-ug5" customClass="MissionCategoryTableViewCell" customModule="init" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="yoZ-VA-ug5" customClass="MissionCategoryTableViewCell" customModule="init" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yoZ-VA-ug5" id="Zog-uN-Br4">
