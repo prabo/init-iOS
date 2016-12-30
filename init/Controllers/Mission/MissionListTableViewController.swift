@@ -11,7 +11,8 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionListTableViewController: UITableViewController {
-
+    
+    var category :Category?
     var missions: [Mission] = []
     var incompletedMissions: [Mission] = []
     var showOnlyIncompleted = false
@@ -31,7 +32,6 @@ final class MissionListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let userDefaults = UserDefaults.init()
         print(userDefaults.string(forKey: "username")!)
 

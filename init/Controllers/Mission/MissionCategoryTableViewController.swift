@@ -90,11 +90,8 @@ extension MissionCategoryTableViewController {
         guard let secondViewController = missionListController as? MissionListTableViewController else {
             return
         }
-        //ここでListViewにデータを移す処理を書く
-//        let array = showOnlyIncompleted ? incompletedMissions : missions
-//        let mission = array[indexPath.row]
-//        secondViewController.title = "詳細"
-//        secondViewController.mission = mission
+        let category = categorys[indexPath.row]
+        secondViewController.category = category
         navigationController?.pushViewController(secondViewController, animated: true)
     }
 }
