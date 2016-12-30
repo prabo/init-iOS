@@ -31,7 +31,7 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         super.viewDidAppear(animated)
         if UserDefaultsHelper.isLogin() {
             // to login
-            let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
+            let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
             guard let nextVC = storyboard.instantiateInitialViewController() else {
                 print("Failed to instantiate view controller")
                 return
@@ -67,7 +67,7 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         }
     }
     func nextStoryboad () {
-        let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
+        let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
         guard let nextVC = storyboard.instantiateInitialViewController() else {
             print("Failed to instantiate view controller")
             return
