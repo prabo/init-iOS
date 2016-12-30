@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionCategoryTableViewController: UITableViewController {
-    var categorys : [JSON] = []
+    var categorys : [Category] = []
     
     @IBAction func addButton(_ sender: UIButton) {
     }
@@ -57,7 +57,7 @@ final class MissionCategoryTableViewController: UITableViewController {
                 let json = JSON(object)
                 self.categorys.removeAll()
                 json.forEach { (_, json) in
-                    self.categorys.append(json)
+                    self.categorys.append(Category(json: json))
                 }
                 self.tableView.reloadData()
         }
@@ -80,7 +80,7 @@ extension MissionCategoryTableViewController {
         guard let categoryCell = cell as? MissionCategoryTableViewCell else {
             return cell
         }
-        categoryCell.categoryLabel.text = categorys[indexPath.row]["name"].stringValue
+        categoryCell.categoryLabel.text = categorys[indexPath.row].categoryName
         return categoryCell
     }
     
