@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="c8U-G5-fMb">
+            <objects>
+                <navigationController id="tRB-U0-sOh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vNp-uT-HU0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qL4-tR-ofK" kind="relationship" relationship="rootViewController" id="a01-Pd-i1g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gcu-5O-W6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="99"/>
+        </scene>
         <!--Mission Category Table View Controller-->
         <scene sceneID="6jh-cf-h4B">
             <objects>
@@ -18,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yoZ-VA-ug5">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yoZ-VA-ug5" customClass="MissionCategoryTableViewCell" customModule="init" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yoZ-VA-ug5" id="Zog-uN-Br4">
@@ -32,6 +48,7 @@
                             <outlet property="delegate" destination="qL4-tR-ofK" id="zO8-Rk-x8z"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="L09-eQ-coW"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oEB-gu-afc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
