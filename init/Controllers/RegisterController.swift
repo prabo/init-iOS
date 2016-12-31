@@ -47,6 +47,17 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 let json = JSON(object)
+                if json["error"].exists() {
+                    let message = json["error"].stringValue
+                    let alert = UIAlertController(title: "登録エラー", message: message, preferredStyle: .alert)
+
+                    let okAction = UIAlertAction(title: "OK", style: .default) { action in
+                        print("Action OK!!")
+                    }
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
                 let loginInfomation = [
                     "id": String(describing: json["id"].intValue),
                     "username": json["username"].stringValue,
