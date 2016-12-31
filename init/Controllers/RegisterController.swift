@@ -12,7 +12,6 @@ import SwiftyJSON
 
 final class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
-    var loginInfomation: [String:String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,20 +47,16 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
                     return
                 }
                 let json = JSON(object)
-                self.loginInfomation = [
+                let loginInfomation = [
                     "id": String(describing: json["id"].intValue),
                     "username": json["username"].stringValue,
+                    "password": parameters["password"] as! String,
                     "token_type": json["token_type"].stringValue,
                     "access_token": json["access_token"].stringValue
                 ]
-                let userDefaults = UserDefaults.init()
-                userDefaults.set(self.loginInfomation["id"]!, forKey: "id")
-                userDefaults.set(self.loginInfomation["username"]!, forKey: "username")
-                userDefaults.set(parameters["password"], forKey: "password")
-                userDefaults.set(self.loginInfomation["access_token"]!, forKey: "access_token")
-                userDefaults.synchronize()
-                print("self.loginInfomation")
-                print(self.loginInfomation)
+                UserDefaultsHelper.saveUser(info: loginInfomation)
+                print("loginInfomation")
+                print(loginInfomation)
                 self.nextStoryboad()
                 return
         }
