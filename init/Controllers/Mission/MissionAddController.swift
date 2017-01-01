@@ -73,10 +73,6 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
 
         Alamofire.request("https://init-api.elzup.com/v1/missions", method: .post, parameters:parameters, headers:headers)
             .responseJSON { response in
-                guard let object = response.result.value else {
-                    return
-                }
-                let json = JSON(object)
         }
     }
 
