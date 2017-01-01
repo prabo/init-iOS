@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 import Foundation
 
-final class User {
+final class Session {
     var id: Int
     var username: String
     var tokenType: String

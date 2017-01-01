@@ -40,9 +40,21 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
             return
         }
     }
-    func postLoginID(parameters: Parameters) {
-        Alamofire.request("https://init-api.elzup.com/v1/users", method:.post, parameters:parameters)
-            .responseJSON { response in
+    func nextStoryboad () {
+        let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
+        guard let nextVC = storyboard.instantiateInitialViewController() else {
+            print("Failed to instantiate view controller")
+            return
+        }
+        nextVC.modalTransitionStyle = .flipHorizontal
+        self.present(nextVC, animated: true, completion: nil)
+    }
+    @IBAction func registerButton(_ sender: UIButton) {
+        guard let username = nameTextField.text else {
+            return
+        }
+        let password = "hogehoge"
+        PraboApiService.sharedInstance.createUser(username, password) { response in
                 guard let object = response.result.value else {
                     return
                 }
@@ -68,8 +80,9 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
                 UserDefaultsHelper.saveUser(info: loginInfomation)
                 self.nextStoryboad()
                 return
-        }
+    
     }
+
     func nextStoryboad () {
         let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
         guard let nextVC = storyboard.instantiateInitialViewController() else {
