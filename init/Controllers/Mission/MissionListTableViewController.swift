@@ -34,8 +34,6 @@ final class MissionListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let userDefaults = UserDefaults.init()
-        print(userDefaults.string(forKey: "username")!)
-        
         let username = userDefaults.string(forKey: "username")!
         self.navigationItem.title = username
 

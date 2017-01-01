@@ -66,8 +66,6 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
                     "access_token": json["access_token"].stringValue
                 ]
                 UserDefaultsHelper.saveUser(info: loginInfomation)
-                print("loginInfomation")
-                print(loginInfomation)
                 self.nextStoryboad()
                 return
         }

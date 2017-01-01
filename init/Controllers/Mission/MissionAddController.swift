@@ -77,7 +77,6 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
                     return
                 }
                 let json = JSON(object)
-                print(json)
         }
     }
 
@@ -108,7 +107,6 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
     //選択時
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         categoryID = categoryArray[row].categoryID
-        print("値: \(categoryArray[row].categoryName)")
     }
 
 
