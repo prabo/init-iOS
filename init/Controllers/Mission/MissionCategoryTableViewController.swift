@@ -24,6 +24,7 @@ final class MissionCategoryTableViewController: UITableViewController {
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     @IBAction func reroadButton(_ sender: UIButton) {
+        getCategoryLists()
     }
 
     override func viewDidLoad() {
