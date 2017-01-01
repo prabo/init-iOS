@@ -10,6 +10,7 @@
 		183FC8571C51C6ACCC0EB551 /* Pods_init.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116D3D2399A2EF71E71E6499 /* Pods_init.framework */; };
 		30DEFB799C8486F9E0AC42AD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEF932BC2F6B07CDC29334 /* Router.swift */; };
 		45022D081E17EE9F00D6D970 /* PraboAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45022D071E17EE9F00D6D970 /* PraboAPI.swift */; };
+		45022D0D1E191A7100D6D970 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45022D0C1E191A7100D6D970 /* DictionaryExtension.swift */; };
 		C00032971E019AFE0024E1D2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00032961E019AFE0024E1D2 /* User.swift */; };
 		C00032991E01AFE70024E1D2 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = C00032981E01AFE70024E1D2 /* enemy.png */; };
 		C00692931E0FD67D008D881B /* MissionCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00692921E0FD67D008D881B /* MissionCategoryTableViewController.swift */; };
@@ -42,6 +43,7 @@
 		116D3D2399A2EF71E71E6499 /* Pods_init.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_init.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		30DEF932BC2F6B07CDC29334 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		45022D071E17EE9F00D6D970 /* PraboAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PraboAPI.swift; sourceTree = "<group>"; };
+		45022D0C1E191A7100D6D970 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		76DAEF626C3BEA6EF4C6EEBD /* Pods-init.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-init.debug.xcconfig"; path = "Pods/Target Support Files/Pods-init/Pods-init.debug.xcconfig"; sourceTree = "<group>"; };
 		B6EA76EEF2876C52EDB80EC2 /* Pods-init.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-init.release.xcconfig"; path = "Pods/Target Support Files/Pods-init/Pods-init.release.xcconfig"; sourceTree = "<group>"; };
 		C00032961E019AFE0024E1D2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -103,6 +105,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		45022D0B1E191A4F00D6D970 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				45022D0C1E191A7100D6D970 /* DictionaryExtension.swift */,
+			);
+			name = Utils;
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C02BE9261DD2CE4200367E4A = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +139,7 @@
 				C03280B71DE7470600B55D5B /* Models */,
 				C05F0D6A1DFED83E00FAF8FC /* Pictures */,
 				C04265C91DF6C61A00698FA3 /* Storyboards */,
+				45022D0B1E191A4F00D6D970 /* Utils */,
 				C04265CA1DF6C62A00698FA3 /* Views */,
 				C04265CB1DF6C63500698FA3 /* XIBs */,
 				C02BE9321DD2CE4200367E4A /* AppDelegate.swift */,
@@ -145,9 +157,9 @@
 				C0CCF5DD1DF9AE250076DEA8 /* Mission.swift */,
 				C0FFDE2E1E1658890019EDDE /* Category.swift */,
 				45022D071E17EE9F00D6D970 /* PraboAPI.swift */,
+				30DEF932BC2F6B07CDC29334 /* Router.swift */,
 				C00032961E019AFE0024E1D2 /* User.swift */,
 				C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */,
-				30DEF932BC2F6B07CDC29334 /* Router.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,8 +190,8 @@
 		C04265CA1DF6C62A00698FA3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
 				C0211B961E16418A007C16F7 /* MissionCategoryTableViewCell.swift */,
+				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -369,6 +381,7 @@
 				C0D457251DD3000700B33924 /* MissionDetailController.swift in Sources */,
 				C0CCF5DE1DF9AE250076DEA8 /* Mission.swift in Sources */,
 				C0B3D20D1DD489CB00A1FEB3 /* MissionListTableViewController.swift in Sources */,
+				45022D0D1E191A7100D6D970 /* DictionaryExtension.swift in Sources */,
 				C00692931E0FD67D008D881B /* MissionCategoryTableViewController.swift in Sources */,
 				C0FFDE2F1E1658890019EDDE /* Category.swift in Sources */,
 				45022D081E17EE9F00D6D970 /* PraboAPI.swift in Sources */,
