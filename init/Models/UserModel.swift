@@ -13,6 +13,11 @@ final class UserModel: JsonInitializable {
             self.createdMissions = MissionModel.collection(json: json[""])
         }
     }
+    
+    init(id: Int, username: String) {
+        self.id = id
+        self.username = username
+    }
 
     static func collection(json: JSON) -> [UserModel] {
         return json.arrayValue.map { UserModel(json: $0) }

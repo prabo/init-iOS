@@ -36,9 +36,6 @@ final class MissionListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        PraboAPI.shareInstance.getUser(userId: 64).subscribe(onNext: { result in
-            print(result)
-        })
         if !UserDefaultsHelper.isLogin() {
             // to login
             let storyboard = UIStoryboard(name: "RegisterViewController", bundle: nil)
@@ -143,9 +140,7 @@ extension MissionListTableViewController {
         missionCell.checkImage.image = UIImage(named: "check.png")
         missionCell.ownerImage.image = UIImage(named: "enemy.png")
         missionCell.checkImage.isHidden = !mission.isCompleted
-        let ownerIdValue = mission.author.id
-        let userId = UserDefaults.standard.string(forKey: "id")
-        missionCell.ownerImage.isHidden = UserDefaultsHelper.getToken()
+        missionCell.ownerImage.isHidden = mission.author.id == UserDefaultsHelper.getLoginUser().id
         return missionCell
     }
 

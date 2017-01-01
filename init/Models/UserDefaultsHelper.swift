@@ -23,6 +23,13 @@ final class UserDefaultsHelper {
         ud.removeObject(forKey: self.ACCESS_TOKEN_KEY)
     }
     
+    static func getLoginUser() -> UserModel {
+        let ud = UserDefaults.init()
+        let id = ud.integer(forKey: "id") 
+        let usernmae = ud.string(forKey: "usernmae") ?? ""
+        return UserModel(id: id, username: usernmae)
+    }
+    
     static func saveUser(info: [String: Any]) {
         let userDefaults = UserDefaults.init()
         userDefaults.set(info["id"]!, forKey: "id")
