@@ -7,29 +7,60 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
-class MissionCategoryAddController: UIViewController {
-
+final class MissionCategoryAddController: UIViewController {
+    var mission: Mission?
+    
+    @IBOutlet weak var titleTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        addRegisterButtonToNavigationBar()
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func tapScreen(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func registerCategory() {
+        let parameters: Parameters = [
+            "title": titleTextField.text!
+        ]
+        let headers: HTTPHeaders = [
+            "Authorization": UserDefaultsHelper.getToken(),
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request("https://init-api.elzup.com/v1/categories", method: .post, parameters:parameters, headers:headers)
+            .responseJSON { response in
+        }
     }
-    */
-
+    
+    func handleRegisterButton() {
+        registerCategory()
+        
+        guard let navigationController = navigationController else {
+            return
+        }
+        navigationController.popViewController(animated: true)
+    }
+    
+    private func addRegisterButtonToNavigationBar() {
+        let button: UIBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(handleRegisterButton))
+        navigationItem.rightBarButtonItem = button
+    }
 }
