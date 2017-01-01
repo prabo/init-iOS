@@ -11,8 +11,10 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionListTableViewController: UITableViewController {
-
+    
+    var category :Category?
     var missions: [Mission] = []
+    var categoryMissions :[Mission] = []
     var incompletedMissions: [Mission] = []
     var showOnlyIncompleted = false
 
@@ -31,31 +33,20 @@ final class MissionListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if !UserDefaultsHelper.isLogin() {
-            // to login
-            let storyboard = UIStoryboard(name: "RegisterViewController", bundle: nil)
-            guard let nextVC = storyboard.instantiateInitialViewController() else {
-                print("Failed to instantiate view controller")
-                return
-            }
-            nextVC.modalTransitionStyle = .flipHorizontal
-            self.present(nextVC, animated: true, completion: nil)
-            return
-        }
         let userDefaults = UserDefaults.init()
         print(userDefaults.string(forKey: "username")!)
-
-        let filterButton: UIBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(toggleFilter))
-        navigationItem.rightBarButtonItem = filterButton
-        
         
         let username = userDefaults.string(forKey: "username")!
         self.navigationItem.title = username
+
+        let filterButton: UIBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(toggleFilter))
+        navigationItem.rightBarButtonItem = filterButton
     }
 
     override func viewDidAppear(_ animated: Bool) {
         getMissionLists()
+        createCategoryMissionsArray()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,6 +78,18 @@ final class MissionListTableViewController: UITableViewController {
         createIncompletedMissionsArray()
         showOnlyIncompleted = showOnlyIncompleted ? false : true
         tableView.reloadData()
+    }
+    
+    func createCategoryMissionsArray(){
+        guard let c = category else {
+            return
+        }
+        categoryMissions = []
+        missions.forEach({
+            if $0.categoryID == c.categoryID {
+                categoryMissions.append($0)
+            }
+        })
     }
 
     private func createIncompletedMissionsArray() {

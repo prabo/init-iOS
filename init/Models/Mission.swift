@@ -15,7 +15,7 @@ final class Mission {
     var authorId: String
     var isCompleted: Bool
     //category
-    var categoryID: Int
+    var categoryID: String
     var categoryName: String
     //author
     var authorID: Int
@@ -27,7 +27,7 @@ final class Mission {
         self.description = json["description"].stringValue
         self.authorId = json["author_id"].stringValue
         self.isCompleted = json["is_completed"].boolValue
-        self.categoryID = json["category"]["id"].intValue
+        self.categoryID = json["category"]["id"].stringValue
         self.categoryName = json["category"]["name"].stringValue
         self.authorID = json["author"]["id"].intValue
         self.authorUsername = json["author"]["username"].stringValue

@@ -17,7 +17,7 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
     
     @IBOutlet weak var categoryPickerView: UIPickerView!
     
-    var categoryArray: [JSON] = []
+    var categoryArray: [Category] = []
     var categoryID: String = ""
     
 
@@ -38,11 +38,11 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
                 }
                 let json = JSON(object)
                 json.forEach { (_, json) in
-                    self.categoryArray.append(json)
+                    self.categoryArray.append(Category(json:json))
                 }
                 print(self.categoryArray)
                 self.categoryPickerView.reloadAllComponents()
-                self.categoryID = self.categoryArray[0]["id"].stringValue
+                self.categoryID = self.categoryArray[0].categoryID
         }
     }
 
@@ -102,13 +102,13 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
     
     //表示内容
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryArray[row]["name"].stringValue
+        return categoryArray[row].categoryName
     }
     
     //選択時
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryID = categoryArray[row]["id"].stringValue
-        print("値: \(categoryArray[row]["name"].stringValue)")
+        categoryID = categoryArray[row].categoryID
+        print("値: \(categoryArray[row].categoryName)")
     }
 
 
