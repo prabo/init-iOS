@@ -143,14 +143,9 @@ extension MissionListTableViewController {
         missionCell.checkImage.image = UIImage(named: "check.png")
         missionCell.ownerImage.image = UIImage(named: "enemy.png")
         missionCell.checkImage.isHidden = !mission.isCompleted
-        let ownerIdValue = mission.authorId
+        let ownerIdValue = mission.author.id
         let userId = UserDefaults.standard.string(forKey: "id")
-        if  ownerIdValue == userId {
-            missionCell.ownerImage.isHidden = false
-        }
-        if  ownerIdValue != userId {
-            missionCell.ownerImage.isHidden = true
-        }
+        missionCell.ownerImage.isHidden = UserDefaultsHelper.getToken()
         return missionCell
     }
 
