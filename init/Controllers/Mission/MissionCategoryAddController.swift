@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionCategoryAddController: UIViewController {
-    var mission: Mission?
+    var mission: MissionModel?
     
     @IBOutlet weak var titleTextField: UITextField!
     

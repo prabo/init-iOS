@@ -1,19 +1,6 @@
 import Foundation
 import Alamofire
 
-public protocol APIParamsConvertible {
-    var APIParams: Dictionary<String, AnyObject> { get }
-}
-
-class UserParams: APIParamsConvertible {
-    var username: String = ""
-    var password: String = ""
-
-    var APIParams: [String: AnyObject] {
-        return [String: AnyObject]()
-    }
-}
-
 
 class Router {
     static let base_url = "https://init-api.elzup.com/v1"
@@ -30,7 +17,7 @@ extension Router {
     enum User: RouterPath {
 
         case Get(Int)
-        case Post(UserParams)
+        case Post
 
         var method: HTTPMethod {
             switch self {

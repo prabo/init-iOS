@@ -30,12 +30,12 @@ final class UserDefaultsHelper {
         return UserModel(id: id, username: usernmae)
     }
     
-    static func saveUser(info: [String: Any]) {
+    static func saveUser(session: SessionModel, password: String) {
         let userDefaults = UserDefaults.init()
-        userDefaults.set(info["id"]!, forKey: "id")
-        userDefaults.set(info["username"]!, forKey: "username")
-        userDefaults.set(info["password"], forKey: "password")
-        userDefaults.set(info["access_token"]!, forKey: "access_token")
+        userDefaults.set(session.id, forKey: "id")
+        userDefaults.set(session.username, forKey: "username")
+        userDefaults.set(password, forKey: "password")
+        userDefaults.set(session.accessToken, forKey: "access_token")
         userDefaults.synchronize()
     }
     

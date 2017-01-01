@@ -12,10 +12,8 @@ import SwiftyJSON
 
 final class MissionListTableViewController: UITableViewController {
     var category :Category?
-    var missions: [Mission] = []
-    var categoryMissions :[Mission] = []
-    var incompletedMissions: [Mission] = []
     var missions: [MissionModel] = []
+    var categoryMissions :[MissionModel] = []
     var incompletedMissions: [MissionModel] = []
 
     var showOnlyIncompleted = false

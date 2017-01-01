@@ -47,4 +47,21 @@ extension PraboAPI {
             return Disposables.create()
         }
     }
+
+    func createUser(username: String, password: String) -> Observable<ResultModel<SessionModel>> {
+        let params = [
+            username: username,
+            password: password,
+        ]
+        
+        return Observable.create { observer -> Disposable in
+            self.request(router: Router.User.Post, parameters: params as [String : AnyObject])
+                .subscribe(
+                    onNext: { json in
+                        observer.onNext(ResultModel<SessionModel>(json: json))
+                }
+            )
+            return Disposables.create()
+        }
+    }
 }
