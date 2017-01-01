@@ -38,7 +38,7 @@ final class MissionCategoryAddController: UIViewController {
     
     func registerCategory() {
         let parameters: Parameters = [
-            "title": titleTextField.text!
+            "name": titleTextField.text!
         ]
         let headers: HTTPHeaders = [
             "Authorization": UserDefaultsHelper.getToken(),
