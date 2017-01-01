@@ -24,8 +24,6 @@ final class UserDefaultsHelper {
     }
     
     static func saveUser(info: [String: Any]) {
-        let ud = UserDefaults.init()
-        ud.removeObject(forKey: self.ACCESS_TOKEN_KEY)
         let userDefaults = UserDefaults.init()
         userDefaults.set(info["id"]!, forKey: "id")
         userDefaults.set(info["username"]!, forKey: "username")
