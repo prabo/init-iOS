@@ -11,11 +11,13 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionListTableViewController: UITableViewController {
-    
     var category :Category?
     var missions: [Mission] = []
     var categoryMissions :[Mission] = []
     var incompletedMissions: [Mission] = []
+    var missions: [MissionModel] = []
+    var incompletedMissions: [MissionModel] = []
+
     var showOnlyIncompleted = false
 
     @IBAction func addButton(_ sender: UIButton) {
@@ -82,7 +84,7 @@ final class MissionListTableViewController: UITableViewController {
                 let json = JSON(object)
                 self.missions.removeAll()
                 json.forEach { (_, json) in
-                    self.missions.append(Mission(json: json))
+                    self.missions.append(MissionModel(json: json))
                 }
                 self.tableView.reloadData()
         }

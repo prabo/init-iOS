@@ -36,7 +36,7 @@ class PraboAPI {
 }
 
 extension PraboAPI {
-    func getUser(userId: Int) -> Observable<Session> {
+    func getUser(userId: Int) -> Observable<SessionModel> {
         return Observable.create { observer -> Disposable in
             self.request(router: Router.User.Get(userId))
                 .subscribe(

@@ -8,9 +8,8 @@
 
 import Foundation
 import SwiftyJSON
-import Foundation
 
-final class Session {
+final class SessionModel {
     var id: Int
     var username: String
     var tokenType: String

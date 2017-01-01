@@ -2,15 +2,15 @@ import Foundation
 import SwiftyJSON
 
 final class UserModel {
-    dynamic var id: Int = -1
-    dynamic var username: String = ""
-    dynamic var createdMissions: [Mission]?
+    var id: Int = -1
+    var username: String = ""
+    var createdMissions: [MissionModel] = []
     
     convenience required init(object: JSON) {
         self.init()
-        self.id = json["id"].intValue
-        self.username = json["username"].stringValue
-        if let missionsJson = json["created_missions"].arrayValue {
+        self.id = object["id"].intValue
+        self.username = object["username"].stringValue
+        if object["created_missions"].exists() {
             // self.createdMissions = missionsJson.each
         }
     }
