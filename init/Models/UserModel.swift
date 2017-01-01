@@ -1,21 +1,20 @@
 import Foundation
 import SwiftyJSON
 
-final class UserModel {
+final class UserModel: JsonInitializable {
     var id: Int = -1
     var username: String = ""
     var createdMissions: [MissionModel] = []
     
-    convenience required init(object: JSON) {
-        self.init()
-        self.id = object["id"].intValue
-        self.username = object["username"].stringValue
-        if object["created_missions"].exists() {
+    required init(json: JSON) {
+        self.id = json["id"].intValue
+        self.username = json["username"].stringValue
+        if json["created_missions"].exists() {
             // self.createdMissions = missionsJson.each
         }
     }
     
-    static func collection(object: JSON) -> [UserModel] {
-        return object.arrayValue.map { UserModel(object: $0) }
+    static func collection(json: JSON) -> [UserModel] {
+        return json.arrayValue.map { UserModel(json: $0) }
     }
 }

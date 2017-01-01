@@ -36,8 +36,8 @@ final class MissionListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        PraboAPI.shareInstance.getUser(userId: 64).subscribe(onNext: { session in
-            print(session)
+        PraboAPI.shareInstance.getUser(userId: 64).subscribe(onNext: { result in
+            print(result)
         })
         if !UserDefaultsHelper.isLogin() {
             // to login

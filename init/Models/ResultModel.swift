@@ -1,18 +1,23 @@
 import Foundation
+import SwiftyJSON
 
-class ResultModel<ModelType> {
-    var data: ModelType?
+protocol JsonInitializable {
+    init(json: JSON)
+}
+
+class ResultModel<T: JsonInitializable> {
+    var data: T?
     var error: ErrorModel?
-    required init(object: JSON) {
-        if object["error"].exists() {
-            self.error = ErrorModel(object)
+    required init(json: JSON) {
+        if json["error"].exists() {
+            self.error = ErrorModel(json: json)
             return
         }
-        self.data = ModelType(object)
+        self.data = T(json: json)
     }
 
-    func isErorr() {
-        return self.error != null
+    func isErorr() -> Bool {
+        return self.error != nil
     }
 }
 

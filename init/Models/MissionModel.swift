@@ -8,7 +8,7 @@
 import SwiftyJSON
 import Foundation
 
-final class MissionModel {
+final class MissionModel: JsonInitializable {
     var id: Int
     var title: String
     var description: String

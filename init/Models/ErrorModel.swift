@@ -1,10 +1,11 @@
 import Foundation
+import SwiftyJSON
 
 final class ErrorModel {
     var message = ""
 
-    required init(object: JSON) {
-        self.message = object["error"]
+    required init(json: JSON) {
+        self.message = json["error"].stringValue
     }
 }
 

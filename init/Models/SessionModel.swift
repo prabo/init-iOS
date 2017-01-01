@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-final class SessionModel {
+final class SessionModel: JsonInitializable {
     var id: Int
     var username: String
     var tokenType: String
