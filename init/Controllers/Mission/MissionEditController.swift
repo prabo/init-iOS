@@ -23,7 +23,7 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
 
     @IBAction func deleteButton(_ sender: UIButton) {
         deleteMission()
-        _ = navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+        _ = navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)
     }
 
     override func viewDidLoad() {
