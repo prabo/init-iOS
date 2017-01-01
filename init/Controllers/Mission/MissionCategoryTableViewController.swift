@@ -11,11 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionCategoryTableViewController: UITableViewController {
-<<<<<<< HEAD
-    var categorys : [JSON] = []
-=======
+
     var categorys : [Category] = []
->>>>>>> @{-1}
+
     
     @IBAction func addButton(_ sender: UIButton) {
     }
@@ -24,20 +22,6 @@ final class MissionCategoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-=======
-        if !UserDefaultsHelper.isLogin() {
-            // to login
-            let storyboard = UIStoryboard(name: "RegisterViewController", bundle: nil)
-            guard let nextVC = storyboard.instantiateInitialViewController() else {
-                print("Failed to instantiate view controller")
-                return
-            }
-            nextVC.modalTransitionStyle = .flipHorizontal
-            self.present(nextVC, animated: true, completion: nil)
-            return
-        }
->>>>>>> @{-1}
         getCategoryLists()
     }
 
@@ -64,11 +48,7 @@ final class MissionCategoryTableViewController: UITableViewController {
                 let json = JSON(object)
                 self.categorys.removeAll()
                 json.forEach { (_, json) in
-<<<<<<< HEAD
-                    self.categorys.append(json)
-=======
-                    self.categorys.append(Category(json: json))
->>>>>>> @{-1}
+                self.categorys.append(Category(json: json))
                 }
                 self.tableView.reloadData()
         }
@@ -91,11 +71,7 @@ extension MissionCategoryTableViewController {
         guard let categoryCell = cell as? MissionCategoryTableViewCell else {
             return cell
         }
-<<<<<<< HEAD
-        categoryCell.categoryLabel.text = categorys[indexPath.row]["name"].stringValue
-=======
         categoryCell.categoryLabel.text = categorys[indexPath.row].categoryName
->>>>>>> @{-1}
         return categoryCell
     }
     
@@ -105,16 +81,8 @@ extension MissionCategoryTableViewController {
         guard let secondViewController = missionListController as? MissionListTableViewController else {
             return
         }
-<<<<<<< HEAD
-        //ここでListViewにデータを移す処理を書く
-//        let array = showOnlyIncompleted ? incompletedMissions : missions
-//        let mission = array[indexPath.row]
-//        secondViewController.title = "詳細"
-//        secondViewController.mission = mission
-=======
         let category = categorys[indexPath.row]
         secondViewController.category = category
->>>>>>> @{-1}
         navigationController?.pushViewController(secondViewController, animated: true)
     }
 }
