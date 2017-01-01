@@ -32,6 +32,8 @@
 		C0D457231DD2FEEB00B33924 /* MissionEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D457221DD2FEEB00B33924 /* MissionEditController.swift */; };
 		C0D457251DD3000700B33924 /* MissionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D457241DD3000700B33924 /* MissionDetailController.swift */; };
 		C0FFDE2F1E1658890019EDDE /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFDE2E1E1658890019EDDE /* Category.swift */; };
+		C0FFDE331E194CF20019EDDE /* MissionCategoryAddController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0FFDE321E194CF20019EDDE /* MissionCategoryAddController.storyboard */; };
+		C0FFDE351E194D8D0019EDDE /* MissionCategoryAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FFDE341E194D8D0019EDDE /* MissionCategoryAddController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		C0D457221DD2FEEB00B33924 /* MissionEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionEditController.swift; sourceTree = "<group>"; };
 		C0D457241DD3000700B33924 /* MissionDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDetailController.swift; sourceTree = "<group>"; };
 		C0FFDE2E1E1658890019EDDE /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		C0FFDE321E194CF20019EDDE /* MissionCategoryAddController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionCategoryAddController.storyboard; sourceTree = "<group>"; };
+		C0FFDE341E194D8D0019EDDE /* MissionCategoryAddController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionCategoryAddController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,10 +159,11 @@
 			isa = PBXGroup;
 			children = (
 				C0CCF5D91DF871E60076DEA8 /* MissionAddController.storyboard */,
-				C00692941E0FD68B008D881B /* MissionCategoryTableViewController.storyboard */,
 				C0CCF5D31DF86A650076DEA8 /* MissionDetailController.storyboard */,
 				C0CCF5DB1DF875E70076DEA8 /* MissionEditController.storyboard */,
 				C0CCF5D01DF866570076DEA8 /* MissionListTableViewController.storyboard */,
+				C00692941E0FD68B008D881B /* MissionCategoryTableViewController.storyboard */,
+				C0FFDE321E194CF20019EDDE /* MissionCategoryAddController.storyboard */,
 				C02D71981DF6CA410025E9E1 /* RegisterViewController.storyboard */,
 			);
 			path = Storyboards;
@@ -184,10 +189,11 @@
 			isa = PBXGroup;
 			children = (
 				C0D457201DD2FE4100B33924 /* MissionAddController.swift */,
-				C00692921E0FD67D008D881B /* MissionCategoryTableViewController.swift */,
 				C0D457241DD3000700B33924 /* MissionDetailController.swift */,
 				C0D457221DD2FEEB00B33924 /* MissionEditController.swift */,
 				C0B3D20C1DD489CB00A1FEB3 /* MissionListTableViewController.swift */,
+				C00692921E0FD67D008D881B /* MissionCategoryTableViewController.swift */,
+				C0FFDE341E194D8D0019EDDE /* MissionCategoryAddController.swift */,
 			);
 			path = Mission;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				C05F0D6C1DFED89000FAF8FC /* check.png in Resources */,
 				C00692951E0FD68B008D881B /* MissionCategoryTableViewController.storyboard in Resources */,
 				C02D71991DF6CA410025E9E1 /* RegisterViewController.storyboard in Resources */,
+				C0FFDE331E194CF20019EDDE /* MissionCategoryAddController.storyboard in Resources */,
 				C00032991E01AFE70024E1D2 /* enemy.png in Resources */,
 				C02BE93D1DD2CE4200367E4A /* LaunchScreen.storyboard in Resources */,
 				C0CCF5D41DF86A650076DEA8 /* MissionDetailController.storyboard in Resources */,
@@ -347,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0FFDE351E194D8D0019EDDE /* MissionCategoryAddController.swift in Sources */,
 				C0211B971E16418A007C16F7 /* MissionCategoryTableViewCell.swift in Sources */,
 				C02BE9351DD2CE4200367E4A /* RegisterController.swift in Sources */,
 				C02BE9331DD2CE4200367E4A /* AppDelegate.swift in Sources */,
