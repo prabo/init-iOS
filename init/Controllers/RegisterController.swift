@@ -41,7 +41,7 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         }
     }
     func nextStoryboad () {
-        let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
+        let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
         guard let nextVC = storyboard.instantiateInitialViewController() else {
             print("Failed to instantiate view controller")
             return
@@ -58,8 +58,10 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         PraboAPI.shareInstance.createUser(username: username, password: password)
             .subscribe(onNext: { (result) in
                 if let error = result.error {
+                    // TODO: Alert 分離したい
                     let alert = UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
                     return
                 }
                 guard let session = result.data else {

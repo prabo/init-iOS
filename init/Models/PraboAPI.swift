@@ -6,7 +6,7 @@ class PraboAPI {
     static let shareInstance = PraboAPI()
     static let base_url = "https://init-api.elzup.com/v1"
     
-    public func request(router: RouterPath, parameters: [String: AnyObject] = [:])
+    public func request(router: RouterPath, parameters: [String: Any] = [:])
         -> Observable<JSON> {
             return Observable.create { observer -> Disposable in
                 let headers: HTTPHeaders = [
@@ -50,12 +50,12 @@ extension PraboAPI {
 
     func createUser(username: String, password: String) -> Observable<ResultModel<SessionModel>> {
         let params = [
-            username: username,
-            password: password,
+            "username": username,
+            "password": password,
         ]
         
         return Observable.create { observer -> Disposable in
-            self.request(router: Router.User.Post, parameters: params as [String : AnyObject])
+            self.request(router: Router.User.Post, parameters: params)
                 .subscribe(
                     onNext: { json in
                         observer.onNext(ResultModel<SessionModel>(json: json))
