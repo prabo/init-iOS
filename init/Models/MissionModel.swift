@@ -38,4 +38,19 @@ final class MissionModel: JsonInitializable {
             MissionModel(json: $0)
         }
     }
+
+    func generateParam() -> MissionParam {
+        return MissionParam(title: self.title, description: self.description, categoryID: self.categoryID)
+    }
+}
+
+final class MissionParam {
+    var title: String
+    var description: String
+    var categoryID: Int
+    required init(title: String, description: String, categoryID: Int) {
+        self.title = title
+        self.description = description
+        self.categoryID = categoryID
+    }
 }
