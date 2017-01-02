@@ -69,7 +69,7 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
             title: titleTextField.text!,
             description: descriptionTextView.text!,
             categoryID: self.categoryID)
-        PraboAPI.shareInstance.createMission(param: param)
+        PraboAPI.sharedInstance.createMission(param: param)
             .subscribe(onNext: { (result: ResultModel<MissionModel>) in
                 if let error = result.error {
                     // TODO: Alert 分離したい

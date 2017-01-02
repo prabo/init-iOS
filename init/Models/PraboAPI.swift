@@ -3,7 +3,7 @@ import RxSwift
 import SwiftyJSON
 
 class PraboAPI {
-    static let shareInstance = PraboAPI()
+    static let sharedInstance = PraboAPI()
     static let base_url = "https://init-api.elzup.com/v1"
     
     public func request(router: RouterPath, parameters: [String: Any] = [:])

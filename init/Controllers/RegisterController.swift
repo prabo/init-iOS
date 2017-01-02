@@ -55,7 +55,7 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         }
         // TODO: Random key
         let password = "hogehoge"
-        PraboAPI.shareInstance.createUser(username: username, password: password)
+        PraboAPI.sharedInstance.createUser(username: username, password: password)
             .subscribe(onNext: { (result) in
                 if let error = result.error {
                     // TODO: Alert 分離したい
