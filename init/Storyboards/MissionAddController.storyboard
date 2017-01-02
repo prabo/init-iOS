@@ -57,6 +57,15 @@
                                     <outlet property="delegate" destination="lOD-b7-5H3" id="wvc-VN-NMI"/>
                                 </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFt-zq-w58">
+                                <rect key="frame" x="299" y="488" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="add"/>
+                                <connections>
+                                    <action selector="categoryAddButton:" destination="lOD-b7-5H3" eventType="touchUpInside" id="RoO-oM-xjs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -65,6 +74,8 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="categoryAddTextField" destination="HBo-4r-GqH" id="gSb-bN-Aq8"/>
+                        <outlet property="categoryAddView" destination="B6h-pi-Hhv" id="9A3-pV-IoO"/>
                         <outlet property="categoryPickerView" destination="07G-H3-GZV" id="BFm-kA-hBm"/>
                         <outlet property="descriptionTextView" destination="Vq8-ik-XUW" id="EvW-JU-MJI"/>
                         <outlet property="titleTextField" destination="enX-Ue-tuj" id="Nyj-Yo-VwN"/>
@@ -76,6 +87,35 @@
                         <action selector="tapScreenWithSender:" destination="lOD-b7-5H3" id="Xny-XM-bKW"/>
                     </connections>
                 </tapGestureRecognizer>
+                <view contentMode="scaleToFill" id="B6h-pi-Hhv">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="170"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHb-Fc-81H">
+                            <rect key="frame" x="16" y="20" width="34" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBo-4r-GqH">
+                            <rect key="frame" x="16" y="70" width="208" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxT-UY-AY0">
+                            <rect key="frame" x="163" y="120" width="61" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Register"/>
+                            <connections>
+                                <action selector="categoryAddRegisterButton:" destination="lOD-b7-5H3" eventType="touchUpInside" id="XcN-KV-XjK"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="-15.199999999999999" y="226.23688155922042"/>
         </scene>
