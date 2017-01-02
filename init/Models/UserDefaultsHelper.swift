@@ -20,22 +20,22 @@ final class UserDefaultsHelper {
         // Token saved without [nil, ""]
         return getToken() != ""
     }
-    
+
     static func getToken() -> String {
         return UserDefaults.standard.string(forKey: Key.accessToken) ?? ""
     }
-    
+
     static func removeToken() {
         UserDefaults.standard.removeObject(forKey: Key.accessToken)
     }
-    
+
     static func getLoginUser() -> UserModel {
         let userDefaults = UserDefaults.standard
         let id = userDefaults.integer(forKey: Key.id)
-        let usernmae = userDefaults.string(forKey: Key.userName) ?? ""
-        return UserModel(id: id, username: usernmae)
+        let username = userDefaults.string(forKey: Key.userName) ?? ""
+        return UserModel(id: id, username: username)
     }
-    
+
     static func saveUser(session: SessionModel, password: String) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(session.id, forKey: Key.id)

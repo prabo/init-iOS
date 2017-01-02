@@ -8,4 +8,3 @@ final class ErrorModel {
         self.message = json["error"].stringValue
     }
 }
-

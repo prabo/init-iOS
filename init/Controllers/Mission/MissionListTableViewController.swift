@@ -11,9 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionListTableViewController: UITableViewController {
-    var category :Category?
+    var category: CategoryModel?
     var missions: [MissionModel] = []
-    var categoryMissions :[MissionModel] = []
+    var categoryMissions: [MissionModel] = []
     var incompletedMissions: [MissionModel] = []
 
     var showOnlyIncompleted = false
@@ -57,7 +57,7 @@ final class MissionListTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         getMissionLists()
         createCategoryMissionsArray()
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,24 +65,17 @@ final class MissionListTableViewController: UITableViewController {
     }
 
     func getMissionLists() {
-
-        let headers: HTTPHeaders = [
-            "Authorization":UserDefaultsHelper.getToken(),
-            "Accept": "application/json"
-        ]
-
-        Alamofire.request("https://init-api.elzup.com/v1/missions", headers:headers)
-            .responseJSON { response in
-                guard let object = response.result.value else {
-                    return
-                }
-                let json = JSON(object)
-                self.missions.removeAll()
-                json.forEach { (_, json) in
-                    self.missions.append(MissionModel(json: json))
-                }
-                self.tableView.reloadData()
-        }
+        // TODO: Category Filter
+        // TODO: インジケーター
+        let _ = PraboAPI.sharedInstance.getMissions()
+                .subscribe(onNext: { (result: ResultsModel<MissionModel>) in
+                    // TODO: Error 処理
+                    guard let missions: [MissionModel] = result.data else {
+                        return
+                    }
+                    self.missions = missions
+                    self.tableView.reloadData()
+                })
     }
 
     func toggleFilter() {
@@ -90,14 +83,14 @@ final class MissionListTableViewController: UITableViewController {
         showOnlyIncompleted = showOnlyIncompleted ? false : true
         tableView.reloadData()
     }
-    
-    func createCategoryMissionsArray(){
+
+    func createCategoryMissionsArray() {
         guard let c = category else {
             return
         }
         categoryMissions = []
         missions.forEach({
-            if $0.categoryID == c.categoryID {
+            if $0.id == c.id {
                 categoryMissions.append($0)
             }
         })
