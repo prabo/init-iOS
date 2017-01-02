@@ -72,22 +72,24 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
         PraboAPI.sharedInstance.createMission(param: param)
             .subscribe(onNext: { (result: ResultModel<MissionModel>) in
                 if let error = result.error {
-                    // TODO: Alert 分離したい
-                    let alert = UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default))
-                    self.present(alert, animated: true, completion: nil)
+                    self.OKAlert(title: "登録エラー", message: error.message)
                     return
                 }
                 guard let mission: MissionModel = result.data else {
                     return
                 }
-                navigationController.popViewController(animated: true)
-                let alert = UIAlertController(title: "完了", message: "\(mission.title)」を作成しました！", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(alert, animated: true, completion: nil)
+                self.OKAlert(title: "完了", message: "「\(mission.title)」を作成しました！") {_ in
+                    navigationController.popViewController(animated: true)
+                }
             })
     }
-    
+
+    func OKAlert(title: String, message: String, handler: @escaping (UIAlertAction) -> Void = {_ in }) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: handler))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     //表示列
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
