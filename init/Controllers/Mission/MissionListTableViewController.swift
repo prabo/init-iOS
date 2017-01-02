@@ -11,11 +11,11 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionListTableViewController: UITableViewController {
-    
     var category :Category?
-    var missions: [Mission] = []
-    var categoryMissions :[Mission] = []
-    var incompletedMissions: [Mission] = []
+    var missions: [MissionModel] = []
+    var categoryMissions :[MissionModel] = []
+    var incompletedMissions: [MissionModel] = []
+
     var showOnlyIncompleted = false
 
     @IBAction func addButton(_ sender: UIButton) {
@@ -33,6 +33,19 @@ final class MissionListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if !UserDefaultsHelper.isLogin() {
+            // to login
+            let storyboard = UIStoryboard(name: "RegisterViewController", bundle: nil)
+            guard let nextVC = storyboard.instantiateInitialViewController() else {
+                print("Failed to instantiate view controller")
+                return
+            }
+            nextVC.modalTransitionStyle = .flipHorizontal
+            self.present(nextVC, animated: true, completion: nil)
+            return
+        }
+
         let userDefaults = UserDefaults.init()
         let username = userDefaults.string(forKey: "username")!
         self.navigationItem.title = username
@@ -66,7 +79,7 @@ final class MissionListTableViewController: UITableViewController {
                 let json = JSON(object)
                 self.missions.removeAll()
                 json.forEach { (_, json) in
-                    self.missions.append(Mission(json: json))
+                    self.missions.append(MissionModel(json: json))
                 }
                 self.tableView.reloadData()
         }
@@ -125,14 +138,7 @@ extension MissionListTableViewController {
         missionCell.checkImage.image = UIImage(named: "check.png")
         missionCell.ownerImage.image = UIImage(named: "enemy.png")
         missionCell.checkImage.isHidden = !mission.isCompleted
-        let ownerIdValue = mission.authorId
-        let userId = UserDefaults.standard.string(forKey: "id")
-        if  ownerIdValue == userId {
-            missionCell.ownerImage.isHidden = false
-        }
-        if  ownerIdValue != userId {
-            missionCell.ownerImage.isHidden = true
-        }
+        missionCell.ownerImage.isHidden = mission.author.id == UserDefaultsHelper.getLoginUser().id
         return missionCell
     }
 
