@@ -28,6 +28,11 @@ final class MissionCategoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userDefaults = UserDefaults.init()
+        let username = userDefaults.string(forKey: "username")!
+        self.navigationItem.title = username
+        
         getCategoryLists()
     }
 
