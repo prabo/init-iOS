@@ -35,6 +35,7 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
                     }
                     self.categoryArray = categories
                     self.selectedCategory = categories[0]
+                    self.categoryPickerView.reloadAllComponents()
                 })
     }
 
