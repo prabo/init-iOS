@@ -23,7 +23,6 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
 
     @IBAction func deleteButton(_ sender: UIButton) {
         deleteMission()
-        _ = navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)
     }
 
     override func viewDidLoad() {
@@ -48,7 +47,7 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
+    
     func changeMission() {
         guard let m = mission else {
             return
@@ -81,22 +80,33 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
                     }.show()
             })
     }
+
+    // ２つ前の画面に戻る
+    func popTwo() {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
+    }
     
     func deleteMission() {
         guard let m = mission else {
-            return print("mission is nill")
+            return
         }
-        let headers: HTTPHeaders = [
-            "Authorization":UserDefaultsHelper.getToken(),
-            "Accept": "application/json"
-        ]
-        let str = m.id.description
-        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str,
-                          method: .delete, headers:headers)
-            .responseJSON { response in
-        }
+        let _ = PraboAPI.sharedInstance.deleteMission(mission: m)
+            .subscribe(onNext: { (result: ResultModel<MissionModel>) in
+                if let error = result.error {
+                    UIAlertController(title: "削除エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let mission: MissionModel = result.data else {
+                    return
+                }
+                UIAlertController(title: "完了", message: "ミッション「\(mission.title)」を削除しました", preferredStyle: .alert)
+                    .addAction(title: "OK") { action in
+                        self.popTwo()
+                    }.show()
+            })
     }
-
+    
     func handleChange() {
         changeMission()
     }
