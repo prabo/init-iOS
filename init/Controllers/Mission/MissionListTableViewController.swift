@@ -65,26 +65,19 @@ final class MissionListTableViewController: UITableViewController {
     }
 
     func getMissionLists() {
-
-        let headers: HTTPHeaders = [
-            "Authorization":UserDefaultsHelper.getToken(),
-            "Accept": "application/json"
-        ]
-
-        Alamofire.request("https://init-api.elzup.com/v1/missions", headers:headers)
-            .responseJSON { response in
-                guard let object = response.result.value else {
+        // TODO: Category Filter
+        // TODO: インジケーター
+        let _ = PraboAPI.sharedInstance.getMissions()
+            .subscribe(onNext: { (result: ResultsModel<MissionModel>) in
+                // TODO: Error 処理
+                guard let missions: [MissionModel] = result.data else {
                     return
                 }
-                let json = JSON(object)
-                self.missions.removeAll()
-                json.forEach { (_, json) in
-                    self.missions.append(MissionModel(json: json))
-                }
+                self.missions = missions
                 self.tableView.reloadData()
-        }
+            })
     }
-
+    
     func toggleFilter() {
         createIncompletedMissionsArray()
         showOnlyIncompleted = showOnlyIncompleted ? false : true
