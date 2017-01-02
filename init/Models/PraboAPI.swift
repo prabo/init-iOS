@@ -1,5 +1,6 @@
 import Alamofire
-import RxSwift import SwiftyJSON
+import RxSwift
+import SwiftyJSON
 
 class PraboAPI {
     static let sharedInstance = PraboAPI()
