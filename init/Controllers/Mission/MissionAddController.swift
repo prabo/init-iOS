@@ -12,14 +12,25 @@ import SwiftyJSON
 
 final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var mission: MissionModel?
+    var isShowView = true
+    var categoryArray: [CategoryModel] = []
+    var selectedCategory: CategoryModel?
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
 
     @IBOutlet weak var categoryPickerView: UIPickerView!
 
-    var categoryArray: [CategoryModel] = []
-    var selectedCategory: CategoryModel?
+    //category Add
+    @IBOutlet var categoryAddView: UIView!
+    @IBAction func categoryAddButton(_ sender: UIButton) {
+        isShowView ? showView() : hideView()
+        isShowView = !isShowView
+    }
+    //extra View
+    @IBOutlet weak var categoryAddTextField: UITextField!
+    @IBAction func categoryAddRegisterButton(_ sender: UIButton) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +48,8 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
                     self.selectedCategory = categories[0]
                     self.categoryPickerView.reloadAllComponents()
                 })
+        self.categoryAddView.layer.borderColor = UIColor.red.cgColor
+        self.categoryAddView.layer.borderWidth = 10
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -101,5 +114,36 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
     private func addRegisterButtonToNavigationBar() {
         let button: UIBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(handleRegisterButton))
         navigationItem.rightBarButtonItem = button
+    }
+    
+    private func hideView() {
+        
+        UIView.animate(withDuration: 0.5, animations: {[weak self] () -> Void in
+            
+            if let weakSelf = self {
+                weakSelf.categoryAddView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5);
+                weakSelf.categoryAddView.alpha = 0;
+            }
+            
+            }, completion: {[weak self] (complated) -> Void in
+                
+                if let weakSelf = self {
+                    weakSelf.view.subviews.last?.removeFromSuperview()
+                }
+        })
+        
+    }
+    
+    private func showView() {
+        categoryAddView.center = self.view.center
+        self.view.addSubview(categoryAddView)
+        
+        UIView.animate(withDuration: 0.5, animations: {[weak self] () -> Void in
+            
+            if let weakSelf = self {
+                weakSelf.categoryAddView.alpha = 1
+                weakSelf.categoryAddView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+            }
+        })
     }
 }
