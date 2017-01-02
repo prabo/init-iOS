@@ -23,7 +23,6 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
 
     @IBAction func deleteButton(_ sender: UIButton) {
         deleteMission()
-        _ = navigationController?.popToViewController(navigationController!.viewControllers[1], animated: true)
     }
 
     override func viewDidLoad() {
@@ -48,56 +47,68 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
+    
     func changeMission() {
         guard let m = mission else {
-            return print("mission is nill")
+            return
         }
-        let parameters: Parameters = [
-            "title":titleTextField.text!,
-            "description":descriptionTextView.text!
-        ]
-        let headers: HTTPHeaders = [
-            "Authorization":UserDefaultsHelper.getToken(),
-            "Accept": "application/json"
-        ]
-        let str = m.id.description
-        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str,
-                          method: .put, parameters:parameters, headers:headers)
-            .responseJSON { response in
-                guard let object = response.result.value else {
-                    return
-                }
-                let json = JSON(object)
-                m.title = json["title"].stringValue
-                m.description = json["description"].stringValue
+        // TODO: この Unwrap どうにかしたい
+        guard let navigationController = navigationController else {
+            return
         }
-    }
-
-    func deleteMission() {
-        guard let m = mission else {
-            return print("mission is nill")
-        }
-        let headers: HTTPHeaders = [
-            "Authorization":UserDefaultsHelper.getToken(),
-            "Accept": "application/json"
-        ]
-        let str = m.id.description
-        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str,
-                          method: .delete, headers:headers)
-            .responseJSON { response in
-        }
-    }
-
-    func handleChange() {
-        changeMission()
         let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
         let missionDetailController = storyboard.instantiateInitialViewController()
         guard let secondViewController = missionDetailController as? MissionDetailController else {
             return
         }
-        secondViewController.mission = self.mission
-        _ = self.navigationController?.popViewController(animated: true)
+        m.title = titleTextField.text!
+        m.description = descriptionTextView.text!
+        let _ = PraboAPI.sharedInstance.updateMission(mission: m)
+            .subscribe(onNext: { (result: ResultModel<MissionModel>) in
+                if let error = result.error {
+                    UIAlertController(title: "編集エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let mission: MissionModel = result.data else {
+                    return
+                }
+                // NOTE: 前画面の情報更新しておく
+                secondViewController.mission = mission
+                UIAlertController(title: "完了", message: "ミッションを編集しました", preferredStyle: .alert)
+                    .addAction(title: "OK") { action in
+                        navigationController.popViewController(animated: true)
+                    }.show()
+            })
+    }
+
+    // ２つ前の画面に戻る
+    func popTwo() {
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+        self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
+    }
+    
+    func deleteMission() {
+        guard let m = mission else {
+            return
+        }
+        let _ = PraboAPI.sharedInstance.deleteMission(mission: m)
+            .subscribe(onNext: { (result: ResultModel<MissionModel>) in
+                if let error = result.error {
+                    UIAlertController(title: "削除エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let mission: MissionModel = result.data else {
+                    return
+                }
+                UIAlertController(title: "完了", message: "ミッション「\(mission.title)」を削除しました", preferredStyle: .alert)
+                    .addAction(title: "OK") { action in
+                        self.popTwo()
+                    }.show()
+            })
+    }
+    
+    func handleChange() {
+        changeMission()
     }
 
     private func addChangeButtonToNavigationBar() {

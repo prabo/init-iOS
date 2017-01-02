@@ -38,4 +38,26 @@ final class MissionModel: JsonInitializable {
             MissionModel(json: $0)
         }
     }
+
+    func generateParam() -> MissionParam {
+        return MissionParam(title: self.title, description: self.description, categoryID: self.categoryID)
+    }
+}
+
+final class MissionParam: APIParamsConvertible  {
+    var title: String
+    var description: String
+    var categoryID: String
+    public var APIParams: Dictionary<String, Any>
+
+    required init(title: String, description: String, categoryID: String) {
+        self.title = title
+        self.description = description
+        self.categoryID = categoryID
+        self.APIParams = [
+                "title": title,
+                "description": description,
+                "category_id": categoryID
+        ]
+    }
 }
