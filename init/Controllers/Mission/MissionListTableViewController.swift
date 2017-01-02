@@ -90,7 +90,7 @@ final class MissionListTableViewController: UITableViewController {
         }
         categoryMissions = []
         missions.forEach({
-            if $0.categoryID == c.categoryID {
+            if $0.id == c.id {
                 categoryMissions.append($0)
             }
         })

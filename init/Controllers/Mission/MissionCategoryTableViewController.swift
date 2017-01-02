@@ -78,7 +78,7 @@ extension MissionCategoryTableViewController {
         guard let categoryCell = cell as? MissionCategoryTableViewCell else {
             return cell
         }
-        categoryCell.categoryLabel.text = categorys[indexPath.row].categoryName
+        categoryCell.categoryLabel.text = categorys[indexPath.row].name
         return categoryCell
     }
 

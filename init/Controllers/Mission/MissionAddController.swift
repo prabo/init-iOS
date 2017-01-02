@@ -19,7 +19,7 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var categoryPickerView: UIPickerView!
 
     var categoryArray: [CategoryModel] = []
-    var categoryID: String = ""
+    var selectCateogry: CategoryModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
                     }
                     print(self.categoryArray)
                     self.categoryPickerView.reloadAllComponents()
-                    self.categoryID = self.categoryArray[0].categoryID
+                    self.selectCateogry = self.categoryArray[0]
                 }
     }
 
@@ -61,14 +61,14 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
     }
 
     func handleRegisterButton() {
-        // TODO: この Unwrap どうにかしたい
-        guard let navigationController = navigationController else {
+        guard let navigationController = navigationController,
+              let category = self.selectCateogry else {
             return
         }
         let param = MissionParam(
                 title: titleTextField.text!,
                 description: descriptionTextView.text!,
-                categoryID: self.categoryID)
+                categoryId: category.id)
         let _ = PraboAPI.sharedInstance.createMission(param: param)
                 .subscribe(onNext: { (result: ResultModel<MissionModel>) in
                     if let error = result.error {
@@ -97,12 +97,12 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
 
     //表示内容
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryArray[row].categoryName
+        return categoryArray[row].name
     }
 
     //選択時
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryID = categoryArray[row].categoryID
+        selectCateogry = categoryArray[row]
     }
 
     private func addRegisterButtonToNavigationBar() {

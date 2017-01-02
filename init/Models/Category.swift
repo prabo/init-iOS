@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class CategoryModel {
+class CategoryModel: JsonInitializable {
     var id: Int
     var name: String
 
