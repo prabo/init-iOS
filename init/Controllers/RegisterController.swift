@@ -58,10 +58,7 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         PraboAPI.sharedInstance.createUser(username: username, password: password)
             .subscribe(onNext: { (result) in
                 if let error = result.error {
-                    // TODO: Alert 分離したい
-                    let alert = UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default))
-                    self.present(alert, animated: true, completion: nil)
+                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).show()
                     return
                 }
                 guard let session = result.data else {

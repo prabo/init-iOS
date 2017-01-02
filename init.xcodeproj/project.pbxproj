@@ -15,6 +15,7 @@
 		45022D0D1E191A7100D6D970 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45022D0C1E191A7100D6D970 /* DictionaryExtension.swift */; };
 		45022D0F1E1943F400D6D970 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45022D0E1E1943F400D6D970 /* UserModel.swift */; };
 		458134B31E1A3FDE008ABF94 /* APIParamsConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458134B21E1A3FDE008ABF94 /* APIParamsConvertible.swift */; };
+		458134B51E1A4765008ABF94 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458134B41E1A4765008ABF94 /* UIAlertControllerExtension.swift */; };
 		C00032971E019AFE0024E1D2 /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00032961E019AFE0024E1D2 /* SessionModel.swift */; };
 		C00032991E01AFE70024E1D2 /* enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = C00032981E01AFE70024E1D2 /* enemy.png */; };
 		C00692931E0FD67D008D881B /* MissionCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00692921E0FD67D008D881B /* MissionCategoryTableViewController.swift */; };
@@ -52,6 +53,7 @@
 		45022D0C1E191A7100D6D970 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		45022D0E1E1943F400D6D970 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		458134B21E1A3FDE008ABF94 /* APIParamsConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIParamsConvertible.swift; sourceTree = "<group>"; };
+		458134B41E1A4765008ABF94 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		76DAEF626C3BEA6EF4C6EEBD /* Pods-init.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-init.debug.xcconfig"; path = "Pods/Target Support Files/Pods-init/Pods-init.debug.xcconfig"; sourceTree = "<group>"; };
 		B6EA76EEF2876C52EDB80EC2 /* Pods-init.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-init.release.xcconfig"; path = "Pods/Target Support Files/Pods-init/Pods-init.release.xcconfig"; sourceTree = "<group>"; };
 		C00032961E019AFE0024E1D2 /* SessionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				45022D0C1E191A7100D6D970 /* DictionaryExtension.swift */,
+				458134B41E1A4765008ABF94 /* UIAlertControllerExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				C0D457231DD2FEEB00B33924 /* MissionEditController.swift in Sources */,
 				C0D457211DD2FE4100B33924 /* MissionAddController.swift in Sources */,
 				C00032971E019AFE0024E1D2 /* SessionModel.swift in Sources */,
+				458134B51E1A4765008ABF94 /* UIAlertControllerExtension.swift in Sources */,
 				30DEFB799C8486F9E0AC42AD /* Router.swift in Sources */,
 				30DEF5C3EDD764A797014801 /* ResultModel.swift in Sources */,
 				30DEF5CB16D6A908BED4CCCB /* ErrorModel.swift in Sources */,

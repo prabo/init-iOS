@@ -69,27 +69,22 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
             title: titleTextField.text!,
             description: descriptionTextView.text!,
             categoryID: self.categoryID)
-        PraboAPI.sharedInstance.createMission(param: param)
+        let _ = PraboAPI.sharedInstance.createMission(param: param)
             .subscribe(onNext: { (result: ResultModel<MissionModel>) in
                 if let error = result.error {
-                    self.OKAlert(title: "登録エラー", message: error.message)
+                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
                     return
                 }
                 guard let mission: MissionModel = result.data else {
                     return
                 }
-                self.OKAlert(title: "完了", message: "「\(mission.title)」を作成しました！") {_ in
-                    navigationController.popViewController(animated: true)
-                }
+                UIAlertController(title: "完了", message: "「\(mission.title)」を作成しました！", preferredStyle: .alert)
+                    .addAction(title: "OK") { action in
+                        navigationController.popViewController(animated: true)
+                    }.show()
             })
     }
-
-    func OKAlert(title: String, message: String, handler: @escaping (UIAlertAction) -> Void = {_ in }) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: handler))
-        self.present(alert, animated: true, completion: nil)
-    }
-
+    
     //表示列
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
