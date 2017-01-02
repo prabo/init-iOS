@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class MissionDetailController: UIViewController {
 
-    var mission: Mission?
+    var mission: MissionModel?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     

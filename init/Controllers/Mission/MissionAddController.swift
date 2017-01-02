@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
-    var mission: Mission?
+    var mission: MissionModel?
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!

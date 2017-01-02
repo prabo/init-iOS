@@ -40,36 +40,6 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
             return
         }
     }
-    func postLoginID(parameters: Parameters) {
-        Alamofire.request("https://init-api.elzup.com/v1/users", method:.post, parameters:parameters)
-            .responseJSON { response in
-                guard let object = response.result.value else {
-                    return
-                }
-                let json = JSON(object)
-                if json["error"].exists() {
-                    let message = json["error"].stringValue
-                    let alert = UIAlertController(title: "登録エラー", message: message, preferredStyle: .alert)
-
-                    let okAction = UIAlertAction(title: "OK", style: .default) { action in
-                        print("Action OK!!")
-                    }
-                    alert.addAction(okAction)
-                    self.present(alert, animated: true, completion: nil)
-                    return
-                }
-                let loginInfomation = [
-                    "id": String(describing: json["id"].intValue),
-                    "username": json["username"].stringValue,
-                    "password": parameters["password"] as! String,
-                    "token_type": json["token_type"].stringValue,
-                    "access_token": json["access_token"].stringValue
-                ]
-                UserDefaultsHelper.saveUser(info: loginInfomation)
-                self.nextStoryboad()
-                return
-        }
-    }
     func nextStoryboad () {
         let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
         guard let nextVC = storyboard.instantiateInitialViewController() else {
@@ -83,11 +53,23 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         guard let username = nameTextField.text else {
             return
         }
-        let parameters: Parameters = [
-            "username":  username,
-            "password": "hogehoge"
-        ]
-        postLoginID(parameters:parameters)
+        // TODO: Random key
+        let password = "hogehoge"
+        PraboAPI.shareInstance.createUser(username: username, password: password)
+            .subscribe(onNext: { (result) in
+                if let error = result.error {
+                    // TODO: Alert 分離したい
+                    let alert = UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+                guard let session = result.data else {
+                    return
+                }
+                UserDefaultsHelper.saveUser(session: session, password: password)
+                self.nextStoryboad()
+            })
     }
-
+    
 }

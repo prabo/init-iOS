@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class MissionEditController: UIViewController, UITextFieldDelegate {
 
-    var mission: Mission?
+    var mission: MissionModel?
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
