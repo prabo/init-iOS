@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionListTableViewController: UITableViewController {
-    var category: Category?
+    var category: CategoryModel?
     var missions: [MissionModel] = []
     var categoryMissions: [MissionModel] = []
     var incompletedMissions: [MissionModel] = []

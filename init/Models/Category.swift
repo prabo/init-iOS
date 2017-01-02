@@ -9,12 +9,34 @@
 import UIKit
 import SwiftyJSON
 
-class Category {
-    var categoryID: String
-    var categoryName: String
+class CategoryModel {
+    var id: Int
+    var name: String
 
     required init(json: JSON) {
-        self.categoryID = json["id"].stringValue
-        self.categoryName = json["name"].stringValue
+        self.id = json["id"].intValue
+        self.name = json["name"].stringValue
+    }
+
+    static func collection(json: JSON) -> [CategoryModel] {
+        return json.arrayValue.map {
+            CategoryModel(json: $0)
+        }
+    }
+
+    func generateParam() -> CategoryParam {
+        return CategoryParam(name: self.name)
+    }
+}
+
+final class CategoryParam: APIParamsConvertible {
+    var name: String
+    public var APIParams: [String: Any]
+
+    required init(name: String) {
+        self.name = name
+        self.APIParams = [
+                "name": name
+        ]
     }
 }

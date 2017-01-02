@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class MissionCategoryTableViewController: UITableViewController {
 
-    var categorys: [Category] = []
+    var categorys: [CategoryModel] = []
 
     @IBAction func addButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "MissionCategoryAddController", bundle: nil)
@@ -55,7 +55,7 @@ final class MissionCategoryTableViewController: UITableViewController {
                     let json = JSON(object)
                     self.categorys.removeAll()
                     json.forEach { (_, json) in
-                        self.categorys.append(Category(json: json))
+                        self.categorys.append(CategoryModel(json: json))
                     }
                     self.tableView.reloadData()
                 }

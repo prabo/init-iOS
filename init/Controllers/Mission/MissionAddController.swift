@@ -18,7 +18,7 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
 
     @IBOutlet weak var categoryPickerView: UIPickerView!
 
-    var categoryArray: [Category] = []
+    var categoryArray: [CategoryModel] = []
     var categoryID: String = ""
 
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
                     }
                     let json = JSON(object)
                     json.forEach { (_, json) in
-                        self.categoryArray.append(Category(json: json))
+                        self.categoryArray.append(CategoryModel(json: json))
                     }
                     print(self.categoryArray)
                     self.categoryPickerView.reloadAllComponents()
