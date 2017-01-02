@@ -10,36 +10,23 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-final class RegisterController: UIViewController, UITextFieldDelegate {
+final class RegisterController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if UserDefaultsHelper.isLogin {
-            // to login
-            let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
-            guard let nextVC = storyboard.instantiateInitialViewController() else {
-                print("Failed to instantiate view controller")
-                return
-            }
-            nextVC.modalTransitionStyle = .flipHorizontal
-            self.present(nextVC, animated: true, completion: nil)
-            return
-        }
     }
+    
     func nextStoryboad () {
         let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
         guard let nextVC = storyboard.instantiateInitialViewController() else {
@@ -47,8 +34,9 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
             return
         }
         nextVC.modalTransitionStyle = .flipHorizontal
-        self.present(nextVC, animated: true, completion: nil)
+        present(nextVC, animated: true)
     }
+    
     @IBAction func registerButton(_ sender: UIButton) {
         guard let username = nameTextField.text else {
             return
@@ -72,4 +60,11 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
             })
     }
     
+}
+
+extension RegisterController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
