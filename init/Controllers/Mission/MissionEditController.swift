@@ -51,29 +51,37 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
 
     func changeMission() {
         guard let m = mission else {
-            return print("mission is nill")
+            return
         }
-        let parameters: Parameters = [
-            "title":titleTextField.text!,
-            "description":descriptionTextView.text!
-        ]
-        let headers: HTTPHeaders = [
-            "Authorization":UserDefaultsHelper.getToken(),
-            "Accept": "application/json"
-        ]
-        let str = m.id.description
-        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str,
-                          method: .put, parameters:parameters, headers:headers)
-            .responseJSON { response in
-                guard let object = response.result.value else {
+        // TODO: この Unwrap どうにかしたい
+        guard let navigationController = navigationController else {
+            return
+        }
+        let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
+        let missionDetailController = storyboard.instantiateInitialViewController()
+        guard let secondViewController = missionDetailController as? MissionDetailController else {
+            return
+        }
+        m.title = titleTextField.text!
+        m.description = descriptionTextView.text!
+        let _ = PraboAPI.sharedInstance.updateMission(mission: m)
+            .subscribe(onNext: { (result: ResultModel<MissionModel>) in
+                if let error = result.error {
+                    UIAlertController(title: "編集エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
                     return
                 }
-                let json = JSON(object)
-                m.title = json["title"].stringValue
-                m.description = json["description"].stringValue
-        }
+                guard let mission: MissionModel = result.data else {
+                    return
+                }
+                // NOTE: 前画面の情報更新しておく
+                secondViewController.mission = mission
+                UIAlertController(title: "完了", message: "ミッションを編集しました", preferredStyle: .alert)
+                    .addAction(title: "OK") { action in
+                        navigationController.popViewController(animated: true)
+                    }.show()
+            })
     }
-
+    
     func deleteMission() {
         guard let m = mission else {
             return print("mission is nill")
@@ -91,13 +99,6 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
 
     func handleChange() {
         changeMission()
-        let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
-        let missionDetailController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionDetailController as? MissionDetailController else {
-            return
-        }
-        secondViewController.mission = self.mission
-        _ = self.navigationController?.popViewController(animated: true)
     }
 
     private func addChangeButtonToNavigationBar() {
