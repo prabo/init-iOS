@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class MissionCategoryTableViewController: UITableViewController {
 
-    var categorys: [Category] = []
+    var categories: [CategoryModel] = []
 
     @IBAction func addButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "MissionCategoryAddController", bundle: nil)
@@ -42,23 +42,15 @@ final class MissionCategoryTableViewController: UITableViewController {
 
     func getCategoryLists() {
 
-        let headers: HTTPHeaders = [
-                "Authorization": UserDefaultsHelper.getToken(),
-                "Accept": "application/json"
-        ]
-
-        Alamofire.request("https://init-api.elzup.com/v1/categories", headers: headers)
-                .responseJSON { response in
-                    guard let object = response.result.value else {
+        let _ = PraboAPI.sharedInstance.getCategories()
+                .subscribe(onNext: { (result: ResultsModel<CategoryModel>) in
+                    // TODO: Error
+                    guard let categories: [CategoryModel] = result.data else {
                         return
                     }
-                    let json = JSON(object)
-                    self.categorys.removeAll()
-                    json.forEach { (_, json) in
-                        self.categorys.append(Category(json: json))
-                    }
+                    self.categories = categories
                     self.tableView.reloadData()
-                }
+                })
     }
 }
 
@@ -70,7 +62,7 @@ extension MissionCategoryTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categorys.count
+        return categories.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +70,7 @@ extension MissionCategoryTableViewController {
         guard let categoryCell = cell as? MissionCategoryTableViewCell else {
             return cell
         }
-        categoryCell.categoryLabel.text = categorys[indexPath.row].categoryName
+        categoryCell.categoryLabel.text = categories[indexPath.row].name
         return categoryCell
     }
 
@@ -88,7 +80,7 @@ extension MissionCategoryTableViewController {
         guard let secondViewController = missionListController as? MissionListTableViewController else {
             return
         }
-        let category = categorys[indexPath.row]
+        let category = categories[indexPath.row]
         secondViewController.category = category
         navigationController?.pushViewController(secondViewController, animated: true)
     }

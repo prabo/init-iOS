@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionListTableViewController: UITableViewController {
-    var category: Category?
+    var category: CategoryModel?
     var missions: [MissionModel] = []
     var categoryMissions: [MissionModel] = []
     var incompletedMissions: [MissionModel] = []
@@ -90,7 +90,7 @@ final class MissionListTableViewController: UITableViewController {
         }
         categoryMissions = []
         missions.forEach({
-            if $0.categoryID == c.categoryID {
+            if $0.id == c.id {
                 categoryMissions.append($0)
             }
         })

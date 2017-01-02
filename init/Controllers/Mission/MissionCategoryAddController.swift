@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import SwiftyJSON
 
 final class MissionCategoryAddController: UIViewController {
@@ -36,27 +35,25 @@ final class MissionCategoryAddController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func registerCategory() {
-        let parameters: Parameters = [
-                "name": titleTextField.text!
-        ]
-        let headers: HTTPHeaders = [
-                "Authorization": UserDefaultsHelper.getToken(),
-                "Accept": "application/json"
-        ]
-
-        Alamofire.request("https://init-api.elzup.com/v1/categories", method: .post, parameters: parameters, headers: headers)
-                .responseJSON { _ in
-                }
-    }
-
     func handleRegisterButton() {
-        registerCategory()
-
         guard let navigationController = navigationController else {
             return
         }
-        navigationController.popViewController(animated: true)
+        let params = CategoryParam(name: titleTextField.text!)
+        let _ = PraboAPI.sharedInstance.createCategory(param: params)
+                .subscribe(onNext: { (result: ResultModel<CategoryModel>) in
+                    if let error = result.error {
+                        UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                        return
+                    }
+                    guard let category: CategoryModel = result.data else {
+                        return
+                    }
+                    UIAlertController(title: "完了", message: "「\(category.name)」を作成しました！", preferredStyle: .alert)
+                            .addAction(title: "OK") { _ in
+                                navigationController.popViewController(animated: true)
+                            }.show()
+                })
     }
 
     private func addRegisterButtonToNavigationBar() {

@@ -76,4 +76,35 @@ extension Router {
         }
     }
 
+    enum Category: RouterPath {
+
+        case Get(Int)
+        case GetAll
+        case Post
+        case Put(Int)
+        case Delete(Int)
+
+        var method: HTTPMethod {
+            switch self {
+            case .Get, .GetAll: return .get
+            case .Post: return .post
+            case .Put: return .put
+            case .Delete: return .delete
+            }
+        }
+
+        var path: String {
+            switch self {
+            case .Get(let id), .Put(let id), .Delete(let id):
+                return "/categories/\(id)"
+            case .Post, .GetAll:
+                return "/categories"
+            }
+        }
+
+        var url: String {
+            return Router.base_url + path
+        }
+    }
+
 }

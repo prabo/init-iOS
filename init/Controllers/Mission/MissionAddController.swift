@@ -18,8 +18,8 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
 
     @IBOutlet weak var categoryPickerView: UIPickerView!
 
-    var categoryArray: [Category] = []
-    var categoryID: String = ""
+    var categoryArray: [CategoryModel] = []
+    var selectedCategory: CategoryModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,23 +27,15 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
         // Do any additional setup after loading the view, typically from a nib.
         addRegisterButtonToNavigationBar()
 
-        let headers: HTTPHeaders = [
-                "Authorization": UserDefaultsHelper.getToken(),
-                "Accept": "application/json"
-        ]
-        Alamofire.request("https://init-api.elzup.com/v1/categories", headers: headers)
-                .responseJSON { response in
-                    guard let object = response.result.value else {
+        let _ = PraboAPI.sharedInstance.getCategories()
+                .subscribe(onNext: { (result: ResultsModel<CategoryModel>) in
+                    // TODO: Error
+                    guard let categories: [CategoryModel] = result.data else {
                         return
                     }
-                    let json = JSON(object)
-                    json.forEach { (_, json) in
-                        self.categoryArray.append(Category(json: json))
-                    }
-                    print(self.categoryArray)
-                    self.categoryPickerView.reloadAllComponents()
-                    self.categoryID = self.categoryArray[0].categoryID
-                }
+                    self.categoryArray = categories
+                    self.selectedCategory = categories[0]
+                })
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -61,14 +53,14 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
     }
 
     func handleRegisterButton() {
-        // TODO: この Unwrap どうにかしたい
-        guard let navigationController = navigationController else {
+        guard let navigationController = navigationController,
+              let category = self.selectedCategory else {
             return
         }
         let param = MissionParam(
                 title: titleTextField.text!,
                 description: descriptionTextView.text!,
-                categoryID: self.categoryID)
+                categoryId: category.id)
         let _ = PraboAPI.sharedInstance.createMission(param: param)
                 .subscribe(onNext: { (result: ResultModel<MissionModel>) in
                     if let error = result.error {
@@ -97,12 +89,12 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
 
     //表示内容
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryArray[row].categoryName
+        return categoryArray[row].name
     }
 
     //選択時
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        categoryID = categoryArray[row].categoryID
+        selectedCategory = categoryArray[row]
     }
 
     private func addRegisterButtonToNavigationBar() {

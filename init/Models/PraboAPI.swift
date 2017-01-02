@@ -36,6 +36,7 @@ class PraboAPI {
 }
 
 extension PraboAPI {
+    // User
     func getUser(userId: Int) -> Observable<ResultModel<UserModel>> {
         return Observable.create { observer -> Disposable in
             self.request(router: Router.User.Get(userId))
@@ -65,6 +66,7 @@ extension PraboAPI {
         }
     }
 
+    // Mission
     func getMission(id: Int) -> Observable<ResultModel<MissionModel>> {
         return Observable.create { observer -> Disposable in
             self.request(router: Router.Mission.Get(id))
@@ -119,4 +121,58 @@ extension PraboAPI {
         }
     }
 
+    // Category
+    func getCategory(id: Int) -> Observable<ResultModel<CategoryModel>> {
+        return Observable.create { observer -> Disposable in
+            self.request(router: Router.Category.Get(id))
+                    .subscribe(
+                            onNext: { json in
+                                observer.onNext(ResultModel<CategoryModel>(json: json))
+                            }
+                    )
+            return Disposables.create()
+        }
+    }
+
+    func getCategories() -> Observable<ResultsModel<CategoryModel>> {
+        return Observable.create { observer -> Disposable in
+            self.request(router: Router.Category.GetAll)
+                    .subscribe(
+                            onNext: { json in
+                                observer.onNext(ResultsModel<CategoryModel>(json: json))
+                            }
+                    )
+            return Disposables.create()
+        }
+    }
+
+    func updateCategory(category: CategoryModel) -> Observable<ResultModel<CategoryModel>> {
+        return Observable.create { observer -> Disposable in
+            self.request(router: Router.Category.Put(category.id), parameters: category.generateParam().APIParams)
+                    .subscribe(onNext: { json in
+                        observer.onNext(ResultModel<CategoryModel>(json: json))
+                    })
+            return Disposables.create()
+        }
+    }
+
+    func deleteCategory(category: CategoryModel) -> Observable<ResultModel<CategoryModel>> {
+        return Observable.create { observer -> Disposable in
+            self.request(router: Router.Category.Delete(category.id))
+                    .subscribe(onNext: { json in
+                        observer.onNext(ResultModel<CategoryModel>(json: json))
+                    })
+            return Disposables.create()
+        }
+    }
+
+    func createCategory(param: CategoryParam) -> Observable<ResultModel<CategoryModel>> {
+        return Observable.create { observer -> Disposable in
+            self.request(router: Router.Category.Post, parameters: param.APIParams)
+                    .subscribe(onNext: { json in
+                        observer.onNext(ResultModel<CategoryModel>(json: json))
+                    })
+            return Disposables.create()
+        }
+    }
 }
