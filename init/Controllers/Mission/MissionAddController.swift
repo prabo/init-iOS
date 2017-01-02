@@ -30,24 +30,7 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
     //extra View
     @IBOutlet weak var categoryAddTextField: UITextField!
     @IBAction func categoryAddRegisterButton(_ sender: UIButton) {
-        let params = CategoryParam(name: titleTextField.text!)
-        let _ = PraboAPI.sharedInstance.createCategory(param: params)
-            .subscribe(onNext: { (result: ResultModel<CategoryModel>) in
-                if let error = result.error {
-                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                    return
-                }
-                guard let category: CategoryModel = result.data else {
-                    return
-                }
-                UIAlertController(title: "完了", message: "「\(category.name)」を作成しました！", preferredStyle: .alert)
-                    .addAction(title: "OK") { _ in
-                        self.hideView()
-                        self.isShowView = !self.isShowView
-                        //↓これをどこに入れれば良いかわからないです(>_<)
-                        //self.categoryPickerView.reloadAllComponents()
-                    }.show()
-            })
+        addCategory()
     }
 
     override func viewDidLoad() {
@@ -161,6 +144,26 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
                     weakSelf.view.subviews.last?.removeFromSuperview()
                 }
         })
-        
+    }
+    
+    private func addCategory(){
+        let params = CategoryParam(name: categoryAddTextField.text!)
+        let _ = PraboAPI.sharedInstance.createCategory(param: params)
+            .subscribe(onNext: { (result: ResultModel<CategoryModel>) in
+                if let error = result.error {
+                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let category: CategoryModel = result.data else {
+                    return
+                }
+                UIAlertController(title: "完了", message: "「\(category.name)」を作成しました！", preferredStyle: .alert)
+                    .addAction(title: "OK") { _ in
+                        self.hideView()
+                        self.isShowView = !self.isShowView
+                        //↓これをどこに入れれば良いかわからないです(>_<)
+                        //self.categoryPickerView.reloadAllComponents()
+                    }.show()
+            })
     }
 }
