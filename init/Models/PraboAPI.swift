@@ -134,7 +134,7 @@ extension PraboAPI {
         }
     }
 
-    func getCategorys() -> Observable<ResultsModel<CategoryModel>> {
+    func getCategories() -> Observable<ResultsModel<CategoryModel>> {
         return Observable.create { observer -> Disposable in
             self.request(router: Router.Category.GetAll)
                     .subscribe(

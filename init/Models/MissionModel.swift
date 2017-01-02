@@ -42,7 +42,7 @@ final class MissionModel: JsonInitializable {
     }
 
     func generateParam() -> MissionParam {
-        return MissionParam(title: self.title, description: self.description, categoryID: self.categoryID)
+        return MissionParam(title: self.title, description: self.description, categoryId: Int(self.categoryID)!)
     }
 }
 

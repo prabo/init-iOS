@@ -19,7 +19,7 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var categoryPickerView: UIPickerView!
 
     var categoryArray: [CategoryModel] = []
-    var selectCateogry: CategoryModel?
+    var selectedCategory: CategoryModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,23 +27,15 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
         // Do any additional setup after loading the view, typically from a nib.
         addRegisterButtonToNavigationBar()
 
-        let headers: HTTPHeaders = [
-                "Authorization": UserDefaultsHelper.getToken(),
-                "Accept": "application/json"
-        ]
-        Alamofire.request("https://init-api.elzup.com/v1/categories", headers: headers)
-                .responseJSON { response in
-                    guard let object = response.result.value else {
+        let _ = PraboAPI.sharedInstance.getCategories()
+                .subscribe(onNext: { (result: ResultsModel<CategoryModel>) in
+                    // TODO: Error
+                    guard let categories: [CategoryModel] = result.data else {
                         return
                     }
-                    let json = JSON(object)
-                    json.forEach { (_, json) in
-                        self.categoryArray.append(CategoryModel(json: json))
-                    }
-                    print(self.categoryArray)
-                    self.categoryPickerView.reloadAllComponents()
-                    self.selectCateogry = self.categoryArray[0]
-                }
+                    self.categoryArray = categories
+                    self.selectedCategory = categories[0]
+                })
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -62,7 +54,7 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
 
     func handleRegisterButton() {
         guard let navigationController = navigationController,
-              let category = self.selectCateogry else {
+              let category = self.selectedCategory else {
             return
         }
         let param = MissionParam(
@@ -102,7 +94,7 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
 
     //選択時
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectCateogry = categoryArray[row]
+        selectedCategory = categoryArray[row]
     }
 
     private func addRegisterButtonToNavigationBar() {
