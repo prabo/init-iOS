@@ -33,10 +33,8 @@ final class MissionListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let userDefaults = UserDefaults.init()
-        let username = userDefaults.string(forKey: "username")!
-        self.navigationItem.title = username
-
+        self.navigationItem.title = category?.name
+        
         let filterButton: UIBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(toggleFilter))
         navigationItem.rightBarButtonItem = filterButton
     }
