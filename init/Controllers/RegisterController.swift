@@ -16,7 +16,6 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -31,17 +30,6 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if UserDefaultsHelper.isLogin() {
-            // to login
-            let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
-            guard let nextVC = storyboard.instantiateInitialViewController() else {
-                print("Failed to instantiate view controller")
-                return
-            }
-            nextVC.modalTransitionStyle = .flipHorizontal
-            self.present(nextVC, animated: true, completion: nil)
-            return
-        }
     }
 
     func nextStoryboad() {
@@ -51,7 +39,7 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
             return
         }
         nextVC.modalTransitionStyle = .flipHorizontal
-        self.present(nextVC, animated: true, completion: nil)
+        present(nextVC, animated: true)
     }
 
     @IBAction func registerButton(_ sender: UIButton) {

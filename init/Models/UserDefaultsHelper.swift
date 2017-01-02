@@ -9,36 +9,39 @@
 import UIKit
 
 final class UserDefaultsHelper {
-    static let ACCESS_TOKEN_KEY = "access_token"
-    static func isLogin() -> Bool {
+    private struct Key {
+        static let accessToken = "access_token"
+        static let id = "id"
+        static let userName = "username"
+        static let password = "password"
+    }
+    
+    static var isLogin: Bool {
         // Token saved without [nil, ""]
         return getToken() != ""
     }
 
     static func getToken() -> String {
-        let ud = UserDefaults.init()
-        return ud.string(forKey: self.ACCESS_TOKEN_KEY) ?? ""
+        return UserDefaults.standard.string(forKey: Key.accessToken) ?? ""
     }
 
     static func removeToken() {
-        let ud = UserDefaults.init()
-        ud.removeObject(forKey: self.ACCESS_TOKEN_KEY)
+        UserDefaults.standard.removeObject(forKey: Key.accessToken)
     }
 
     static func getLoginUser() -> UserModel {
-        let ud = UserDefaults.init()
-        let id = ud.integer(forKey: "id")
-        let usernmae = ud.string(forKey: "usernmae") ?? ""
-        return UserModel(id: id, username: usernmae)
+        let userDefaults = UserDefaults.standard
+        let id = userDefaults.integer(forKey: Key.id)
+        let username = userDefaults.string(forKey: Key.userName) ?? ""
+        return UserModel(id: id, username: username)
     }
 
     static func saveUser(session: SessionModel, password: String) {
-        let userDefaults = UserDefaults.init()
-        userDefaults.set(session.id, forKey: "id")
-        userDefaults.set(session.username, forKey: "username")
-        userDefaults.set(password, forKey: "password")
-        userDefaults.set(session.accessToken, forKey: "access_token")
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(session.id, forKey: Key.id)
+        userDefaults.set(session.username, forKey: Key.userName)
+        userDefaults.set(password, forKey: Key.password)
+        userDefaults.set(session.accessToken, forKey: Key.accessToken)
         userDefaults.synchronize()
     }
-
 }

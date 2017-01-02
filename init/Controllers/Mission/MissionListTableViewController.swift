@@ -34,7 +34,7 @@ final class MissionListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if !UserDefaultsHelper.isLogin() {
+        if !UserDefaultsHelper.isLogin {
             // to login
             let storyboard = UIStoryboard(name: "RegisterViewController", bundle: nil)
             guard let nextVC = storyboard.instantiateInitialViewController() else {
