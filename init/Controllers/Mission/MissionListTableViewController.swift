@@ -138,7 +138,7 @@ extension MissionListTableViewController {
         missionCell.checkImage.image = UIImage(named: "check.png")
         missionCell.ownerImage.image = UIImage(named: "enemy.png")
         missionCell.checkImage.isHidden = !mission.isCompleted
-        missionCell.ownerImage.isHidden = !(mission.author.id == UserDefaultsHelper.getLoginUser().id)
+        missionCell.ownerImage.isHidden = (mission.author.id != UserDefaultsHelper.getLoginUser().id)
         return missionCell
     }
 
