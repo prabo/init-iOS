@@ -28,7 +28,7 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if UserDefaultsHelper.isLogin() {
+        if UserDefaultsHelper.isLogin {
             // to login
             let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
             guard let nextVC = storyboard.instantiateInitialViewController() else {
