@@ -275,7 +275,7 @@
 				TargetAttributes = {
 					C02BE92E1DD2CE4200367E4A = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = Z793E54W8T;
+						DevelopmentTeam = P44FH6EFF8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -531,7 +531,7 @@
 			baseConfigurationReference = 76DAEF626C3BEA6EF4C6EEBD /* Pods-init.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z793E54W8T;
+				DEVELOPMENT_TEAM = P44FH6EFF8;
 				INFOPLIST_FILE = init/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cps.im.dendai.ac.jp.init;
@@ -545,7 +545,7 @@
 			baseConfigurationReference = B6EA76EEF2876C52EDB80EC2 /* Pods-init.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z793E54W8T;
+				DEVELOPMENT_TEAM = P44FH6EFF8;
 				INFOPLIST_FILE = init/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cps.im.dendai.ac.jp.init;
