@@ -43,8 +43,7 @@ final class MissionListTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         getMissionLists()
-        //Filterを押している時にCompleteやnotCompleteを押しても反映させたい
-        //createIncompletedMissionsArray()
+        showOnlyIncompleted = false
     }
 
     override func didReceiveMemoryWarning() {
