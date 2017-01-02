@@ -116,8 +116,20 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
         navigationItem.rightBarButtonItem = button
     }
     
-    private func hideView() {
+    private func showView() {
+        categoryAddView.center = self.view.center
+        self.view.addSubview(categoryAddView)
         
+        UIView.animate(withDuration: 0.5, animations: {[weak self] () -> Void in
+            
+            if let weakSelf = self {
+                weakSelf.categoryAddView.alpha = 1
+                weakSelf.categoryAddView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+            }
+        })
+    }
+    
+    private func hideView() {
         UIView.animate(withDuration: 0.5, animations: {[weak self] () -> Void in
             
             if let weakSelf = self {
@@ -132,18 +144,5 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
                 }
         })
         
-    }
-    
-    private func showView() {
-        categoryAddView.center = self.view.center
-        self.view.addSubview(categoryAddView)
-        
-        UIView.animate(withDuration: 0.5, animations: {[weak self] () -> Void in
-            
-            if let weakSelf = self {
-                weakSelf.categoryAddView.alpha = 1
-                weakSelf.categoryAddView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
-            }
-        })
     }
 }
