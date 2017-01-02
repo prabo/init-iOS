@@ -13,7 +13,6 @@ import SwiftyJSON
 final class MissionListTableViewController: UITableViewController {
     var category: CategoryModel?
     var missions: [MissionModel] = []
-    var categoryMissions: [MissionModel] = []
     var incompletedMissions: [MissionModel] = []
 
     var showOnlyIncompleted = false
@@ -44,8 +43,7 @@ final class MissionListTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         getMissionLists()
-        createCategoryMissionsArray()
-
+        createIncompletedMissionsArray()
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,18 +70,6 @@ final class MissionListTableViewController: UITableViewController {
         createIncompletedMissionsArray()
         showOnlyIncompleted = showOnlyIncompleted ? false : true
         tableView.reloadData()
-    }
-
-    func createCategoryMissionsArray() {
-        guard let c = category else {
-            return
-        }
-        categoryMissions = []
-        missions.forEach({
-            if $0.id == c.id {
-                categoryMissions.append($0)
-            }
-        })
     }
 
     private func createIncompletedMissionsArray() {
