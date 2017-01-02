@@ -15,8 +15,7 @@ final class MissionModel: JsonInitializable {
     var description: String
     var isCompleted: Bool
     //category
-    var categoryID: String
-    var categoryName: String
+    var category: CategoryModel
     //author
     var author: UserModel
     var completedUsers: [UserModel]?
@@ -26,8 +25,7 @@ final class MissionModel: JsonInitializable {
         self.title = json["title"].stringValue
         self.description = json["description"].stringValue
         self.isCompleted = json["is_completed"].boolValue
-        self.categoryID = json["category"]["id"].stringValue
-        self.categoryName = json["category"]["name"].stringValue
+        self.category = CategoryModel(json: json["category"])
         self.author = UserModel(json: json["author"])
         if json["completed_users"].exists() {
             self.completedUsers = UserModel.collection(json: json["completed_users"])
@@ -42,7 +40,7 @@ final class MissionModel: JsonInitializable {
     }
 
     func generateParam() -> MissionParam {
-        return MissionParam(title: self.title, description: self.description, categoryId: Int(self.categoryID)!)
+        return MissionParam(title: self.title, description: self.description, categoryId: self.category.id)
     }
 }
 
