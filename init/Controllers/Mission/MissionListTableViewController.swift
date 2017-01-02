@@ -65,12 +65,14 @@ final class MissionListTableViewController: UITableViewController {
     }
 
     func getMissionLists() {
-        // TODO: Category Filter
-        // TODO: インジケーター
-        let _ = PraboAPI.sharedInstance.getMissions()
-                .subscribe(onNext: { (result: ResultsModel<MissionModel>) in
+        guard let c = self.category else {
+            return
+        }
+        let _ = PraboAPI.sharedInstance.getCategory(id: c.id)
+                .subscribe(onNext: { (result: ResultModel<CategoryModel>) in
                     // TODO: Error 処理
-                    guard let missions: [MissionModel] = result.data else {
+                    guard let category: CategoryModel = result.data,
+                        let missions = category.missions else {
                         return
                     }
                     self.missions = missions

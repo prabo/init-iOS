@@ -12,10 +12,14 @@ import SwiftyJSON
 class CategoryModel: JsonInitializable {
     var id: Int
     var name: String
+    var missions: [MissionModel]?
 
     required init(json: JSON) {
         self.id = json["id"].intValue
         self.name = json["name"].stringValue
+        if json["missions"].exists() {
+            self.missions = MissionModel.collection(json: json["missions"])
+        }
     }
 
     static func collection(json: JSON) -> [CategoryModel] {

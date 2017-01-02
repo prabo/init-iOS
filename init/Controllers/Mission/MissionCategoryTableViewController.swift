@@ -20,8 +20,7 @@ final class MissionCategoryTableViewController: UITableViewController {
         guard let secondViewController = missionCategoryAddController as? MissionCategoryAddController else {
             return
         }
-        navigationController?.pushViewController(secondViewController, animated: true)
-    }
+        navigationController?.pushViewController(secondViewController, animated: true) }
 
     @IBAction func reroadButton(_ sender: UIButton) {
         getCategoryLists()

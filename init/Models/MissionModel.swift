@@ -30,7 +30,6 @@ final class MissionModel: JsonInitializable {
         if json["completed_users"].exists() {
             self.completedUsers = UserModel.collection(json: json["completed_users"])
         }
-        // TODO: Category
     }
 
     static func collection(json: JSON) -> [MissionModel] {
