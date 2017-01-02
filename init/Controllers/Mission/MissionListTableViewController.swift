@@ -34,18 +34,6 @@ final class MissionListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if !UserDefaultsHelper.isLogin {
-            // to login
-            let storyboard = UIStoryboard(name: "RegisterViewController", bundle: nil)
-            guard let nextVC = storyboard.instantiateInitialViewController() else {
-                print("Failed to instantiate view controller")
-                return
-            }
-            nextVC.modalTransitionStyle = .flipHorizontal
-            self.present(nextVC, animated: true, completion: nil)
-            return
-        }
-
         let userDefaults = UserDefaults.init()
         let username = userDefaults.string(forKey: "username")!
         self.navigationItem.title = username
