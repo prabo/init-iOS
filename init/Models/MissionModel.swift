@@ -5,6 +5,7 @@
 //  Created by Atsuo on 2016/12/09.
 //  Copyright © 2016年 Atsuo. All rights reserved.
 //
+
 import SwiftyJSON
 import Foundation
 
@@ -44,11 +45,11 @@ final class MissionModel: JsonInitializable {
     }
 }
 
-final class MissionParam: APIParamsConvertible  {
+final class MissionParam: APIParamsConvertible {
     var title: String
     var description: String
     var categoryID: String
-    public var APIParams: Dictionary<String, Any>
+    public var APIParams: [String: Any]
 
     required init(title: String, description: String, categoryID: String) {
         self.title = title

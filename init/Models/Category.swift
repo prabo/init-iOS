@@ -12,7 +12,7 @@ import SwiftyJSON
 class Category {
     var categoryID: String
     var categoryName: String
-    
+
     required init(json: JSON) {
         self.categoryID = json["id"].stringValue
         self.categoryName = json["name"].stringValue

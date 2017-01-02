@@ -4,6 +4,7 @@ disabled_rules:
 - force_try
 - type_name
 - force_cast
+- todo
 included:
 - init 
 excluded:

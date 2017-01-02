@@ -1,7 +1,6 @@
 import Foundation
 import Alamofire
 
-
 class Router {
     static let base_url = "https://init-api.elzup.com/v1"
 }
@@ -25,7 +24,7 @@ extension Router {
             case .Post: return .post
             }
         }
-        
+
         var path: String {
             switch self {
             case .Get(let userId):
@@ -52,7 +51,7 @@ extension Router {
 
         var method: HTTPMethod {
             switch self {
-            case .Get, .GetAll : return .get
+            case .Get, .GetAll: return .get
             case .Post, .PutComplete, .PutUncomplete: return .post
             case .Put: return .put
             case .Delete: return .delete
@@ -76,4 +75,5 @@ extension Router {
             return Router.base_url + path
         }
     }
+
 }

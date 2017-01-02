@@ -6,5 +6,6 @@ target 'init' do
   pod 'Alamofire', '~> 4.0'
   pod 'AlamofireObjectMapper', '~> 4.0'
   pod 'SwiftyJSON'
+  pod 'SwiftLint'
   pod 'RxSwift'
 end
