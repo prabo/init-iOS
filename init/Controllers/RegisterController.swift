@@ -18,14 +18,17 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         nameTextField.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if UserDefaultsHelper.isLogin() {
@@ -40,7 +43,8 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
             return
         }
     }
-    func nextStoryboad () {
+
+    func nextStoryboad() {
         let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
         guard let nextVC = storyboard.instantiateInitialViewController() else {
             print("Failed to instantiate view controller")
@@ -49,6 +53,7 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         nextVC.modalTransitionStyle = .flipHorizontal
         self.present(nextVC, animated: true, completion: nil)
     }
+
     @IBAction func registerButton(_ sender: UIButton) {
         guard let username = nameTextField.text else {
             return
@@ -56,17 +61,17 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         // TODO: Random key
         let password = "hogehoge"
         PraboAPI.sharedInstance.createUser(username: username, password: password)
-            .subscribe(onNext: { (result) in
-                if let error = result.error {
-                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).show()
-                    return
-                }
-                guard let session = result.data else {
-                    return
-                }
-                UserDefaultsHelper.saveUser(session: session, password: password)
-                self.nextStoryboad()
-            })
+                .subscribe(onNext: { (result) in
+                    if let error = result.error {
+                        UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).show()
+                        return
+                    }
+                    guard let session = result.data else {
+                        return
+                    }
+                    UserDefaultsHelper.saveUser(session: session, password: password)
+                    self.nextStoryboad()
+                })
     }
-    
+
 }

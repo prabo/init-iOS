@@ -15,7 +15,7 @@ final class MissionDetailController: UIViewController {
     var mission: MissionModel?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+
     @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
     }
 
@@ -26,6 +26,7 @@ final class MissionDetailController: UIViewController {
 
         addEditButtonToNavigationBar()
     }
+
     override func viewDidAppear(_ animated: Bool) {
         loadMission()
     }
@@ -34,6 +35,7 @@ final class MissionDetailController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     func loadMission() {
         guard let m = mission else {
             return
@@ -48,38 +50,40 @@ final class MissionDetailController: UIViewController {
         }
 
         let headers: HTTPHeaders = [
-            "Authorization":UserDefaultsHelper.getToken(),
-            "Accept": "application/json"
+                "Authorization": UserDefaultsHelper.getToken(),
+                "Accept": "application/json"
         ]
         let str = m.id.description
 
-        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str+"/complete", method:.post, headers:headers)
-            .responseJSON { response in
-        }
+        Alamofire.request("https://init-api.elzup.com/v1/missions/" + str + "/complete", method: .post, headers: headers)
+                .responseJSON { _ in
+                }
     }
+
     func notComplete() {
         guard let m = mission else {
             return
         }
 
         let headers: HTTPHeaders = [
-            "Authorization":UserDefaultsHelper.getToken(),
-            "Accept": "application/json"
+                "Authorization": UserDefaultsHelper.getToken(),
+                "Accept": "application/json"
         ]
         let str = m.id.description
 
-        Alamofire.request("https://init-api.elzup.com/v1/missions/"+str+"/uncomplete", method:.post, headers:headers)
-            .responseJSON { response in
-        }
+        Alamofire.request("https://init-api.elzup.com/v1/missions/" + str + "/uncomplete", method: .post, headers: headers)
+                .responseJSON { _ in
+                }
     }
 
     @IBAction func completeButton(_ sender: UIButton) {
         complete()
-        _=self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
+
     @IBAction func notCompleteButton(_ sender: UIButton) {
         notComplete()
-        _=self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     func handleEditButton() {

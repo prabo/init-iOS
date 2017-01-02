@@ -5,7 +5,7 @@ protocol JsonInitializable {
     init(json: JSON)
 }
 
-class ResultModel<T: JsonInitializable> {
+class ResultModel<T:JsonInitializable> {
     var data: T?
     var error: ErrorModel?
     required init(json: JSON) {
@@ -21,9 +21,9 @@ class ResultModel<T: JsonInitializable> {
     }
 }
 
-
 // TODO: 統一したい
-class ResultsModel<T: JsonInitializable> {
+
+class ResultsModel<T:JsonInitializable> {
     var data: [T]?
     var error: ErrorModel?
     required init(json: JSON) {
@@ -31,7 +31,9 @@ class ResultsModel<T: JsonInitializable> {
             self.error = ErrorModel(json: json)
             return
         }
-        self.data = json.arrayValue.map { T(json: $0) }
+        self.data = json.arrayValue.map {
+            T(json: $0)
+        }
     }
 
     func isErorr() -> Bool {

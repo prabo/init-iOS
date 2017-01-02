@@ -12,9 +12,8 @@ import SwiftyJSON
 
 final class MissionCategoryTableViewController: UITableViewController {
 
-    var categorys : [Category] = []
+    var categorys: [Category] = []
 
-    
     @IBAction func addButton(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "MissionCategoryAddController", bundle: nil)
         let missionCategoryAddController = storyboard.instantiateInitialViewController()
@@ -23,6 +22,7 @@ final class MissionCategoryTableViewController: UITableViewController {
         }
         navigationController?.pushViewController(secondViewController, animated: true)
     }
+
     @IBAction func reroadButton(_ sender: UIButton) {
         getCategoryLists()
     }
@@ -35,30 +35,30 @@ final class MissionCategoryTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         getCategoryLists()
     }
-    
+
     func getCategoryLists() {
-        
+
         let headers: HTTPHeaders = [
-            "Authorization":UserDefaultsHelper.getToken(),
-            "Accept": "application/json"
+                "Authorization": UserDefaultsHelper.getToken(),
+                "Accept": "application/json"
         ]
-        
-        Alamofire.request("https://init-api.elzup.com/v1/categories", headers:headers)
-            .responseJSON { response in
-                guard let object = response.result.value else {
-                    return
+
+        Alamofire.request("https://init-api.elzup.com/v1/categories", headers: headers)
+                .responseJSON { response in
+                    guard let object = response.result.value else {
+                        return
+                    }
+                    let json = JSON(object)
+                    self.categorys.removeAll()
+                    json.forEach { (_, json) in
+                        self.categorys.append(Category(json: json))
+                    }
+                    self.tableView.reloadData()
                 }
-                let json = JSON(object)
-                self.categorys.removeAll()
-                json.forEach { (_, json) in
-                self.categorys.append(Category(json: json))
-                }
-                self.tableView.reloadData()
-        }
     }
 }
 
@@ -68,11 +68,11 @@ extension MissionCategoryTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categorys.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
         guard let categoryCell = cell as? MissionCategoryTableViewCell else {
@@ -81,7 +81,7 @@ extension MissionCategoryTableViewController {
         categoryCell.categoryLabel.text = categorys[indexPath.row].categoryName
         return categoryCell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
         let missionListController = storyboard.instantiateInitialViewController()

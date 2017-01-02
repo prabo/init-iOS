@@ -11,9 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionListTableViewController: UITableViewController {
-    var category :Category?
+    var category: Category?
     var missions: [MissionModel] = []
-    var categoryMissions :[MissionModel] = []
+    var categoryMissions: [MissionModel] = []
     var incompletedMissions: [MissionModel] = []
 
     var showOnlyIncompleted = false
@@ -57,7 +57,7 @@ final class MissionListTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         getMissionLists()
         createCategoryMissionsArray()
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,23 +68,23 @@ final class MissionListTableViewController: UITableViewController {
         // TODO: Category Filter
         // TODO: インジケーター
         let _ = PraboAPI.sharedInstance.getMissions()
-            .subscribe(onNext: { (result: ResultsModel<MissionModel>) in
-                // TODO: Error 処理
-                guard let missions: [MissionModel] = result.data else {
-                    return
-                }
-                self.missions = missions
-                self.tableView.reloadData()
-            })
+                .subscribe(onNext: { (result: ResultsModel<MissionModel>) in
+                    // TODO: Error 処理
+                    guard let missions: [MissionModel] = result.data else {
+                        return
+                    }
+                    self.missions = missions
+                    self.tableView.reloadData()
+                })
     }
-    
+
     func toggleFilter() {
         createIncompletedMissionsArray()
         showOnlyIncompleted = showOnlyIncompleted ? false : true
         tableView.reloadData()
     }
-    
-    func createCategoryMissionsArray(){
+
+    func createCategoryMissionsArray() {
         guard let c = category else {
             return
         }
