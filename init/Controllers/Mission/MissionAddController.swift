@@ -30,7 +30,9 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
     //extra View
     @IBOutlet weak var categoryAddTextField: UITextField!
     @IBAction func categoryAddRegisterButton(_ sender: UIButton) {
-        addCategory()
+        if (categoryAddTextField.text != "") {
+            addCategory()
+        }
     }
 
     override func viewDidLoad() {
