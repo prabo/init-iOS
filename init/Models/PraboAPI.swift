@@ -64,4 +64,15 @@ extension PraboAPI {
             return Disposables.create()
         }
     }
+
+    func createMission(param: MissionParam) -> Observable<ResultModel<MissionModel>> {
+        return Observable.create { observer -> Disposable in
+            self.request(router: Router.Mission.Post, parameters: param.APIParams)
+                    .subscribe(onNext: { json in
+                        observer.onNext(ResultModel<MissionModel>(json: json))
+                    })
+            return Disposables.create()
+        }
+    }
+
 }

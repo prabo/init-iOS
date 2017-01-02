@@ -44,13 +44,20 @@ final class MissionModel: JsonInitializable {
     }
 }
 
-final class MissionParam {
+final class MissionParam: APIParamsConvertible  {
     var title: String
     var description: String
-    var categoryID: Int
-    required init(title: String, description: String, categoryID: Int) {
+    var categoryID: String
+    public var APIParams: Dictionary<String, Any>
+
+    required init(title: String, description: String, categoryID: String) {
         self.title = title
         self.description = description
         self.categoryID = categoryID
+        self.APIParams = [
+                "title": title,
+                "description": description,
+                "category_id": categoryID
+        ]
     }
 }

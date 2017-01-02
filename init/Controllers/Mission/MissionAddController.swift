@@ -60,29 +60,32 @@ final class MissionAddController: UIViewController,UIPickerViewDelegate, UIPicke
         // Dispose of any resources that can be recreated.
     }
 
-    func registerMission() {
-        let parameters: Parameters = [
-           "title": titleTextField.text!,
-           "description": descriptionTextView.text!,
-           "category_id": self.categoryID
-        ]
-        let headers: HTTPHeaders = [
-            "Authorization": UserDefaultsHelper.getToken(),
-            "Accept": "application/json"
-        ]
-
-        Alamofire.request("https://init-api.elzup.com/v1/missions", method: .post, parameters:parameters, headers:headers)
-            .responseJSON { response in
-        }
-    }
-
     func handleRegisterButton() {
-        registerMission()
-
+        // TODO: この Unwrap どうにかしたい
         guard let navigationController = navigationController else {
             return
         }
-        navigationController.popViewController(animated: true)
+        let param = MissionParam(
+            title: titleTextField.text!,
+            description: descriptionTextView.text!,
+            categoryID: self.categoryID)
+        PraboAPI.shareInstance.createMission(param: param)
+            .subscribe(onNext: { (result: ResultModel<MissionModel>) in
+                if let error = result.error {
+                    // TODO: Alert 分離したい
+                    let alert = UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                    return
+                }
+                guard let mission: MissionModel = result.data else {
+                    return
+                }
+                navigationController.popViewController(animated: true)
+                let alert = UIAlertController(title: "完了", message: "\(mission.title)」を作成しました！", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            })
     }
     
     //表示列
