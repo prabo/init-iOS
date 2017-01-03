@@ -34,7 +34,7 @@ final class MissionListTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.navigationItem.title = category?.name
-        
+
         let filterButton: UIBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(toggleFilter))
         navigationItem.rightBarButtonItem = filterButton
     }
@@ -56,7 +56,7 @@ final class MissionListTableViewController: UITableViewController {
                 .subscribe(onNext: { (result: ResultModel<CategoryModel>) in
                     // TODO: Error 処理
                     guard let category: CategoryModel = result.data,
-                        let missions = category.missions else {
+                          let missions = category.missions else {
                         return
                     }
                     self.missions = missions

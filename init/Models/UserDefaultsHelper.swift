@@ -9,13 +9,14 @@
 import UIKit
 
 final class UserDefaultsHelper {
+
     private struct Key {
         static let accessToken = "access_token"
         static let id = "id"
         static let userName = "username"
         static let password = "password"
     }
-    
+
     static var isLogin: Bool {
         // Token saved without [nil, ""]
         return getToken() != ""
