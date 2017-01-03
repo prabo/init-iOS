@@ -158,12 +158,12 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
                     guard let category: CategoryModel = result.data else {
                         return
                     }
+                    self.categoryArray.append(category)
+                    self.categoryPickerView.reloadAllComponents()
                     UIAlertController(title: "完了", message: "「\(category.name)」を作成しました！", preferredStyle: .alert)
                             .addAction(title: "OK") { _ in
                                 self.hideView()
                                 self.isShowView = !self.isShowView
-                                // ↓これをどこに入れれば良いかわからないです(>_<)
-                                // self.categoryPickerView.reloadAllComponents()
                             }.show()
                 })
     }
