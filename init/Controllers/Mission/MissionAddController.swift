@@ -18,7 +18,6 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
-
     @IBOutlet weak var categoryPickerView: UIPickerView!
 
     //category Add
@@ -30,7 +29,7 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
     //extra View
     @IBOutlet weak var categoryAddTextField: UITextField!
     @IBAction func categoryAddRegisterButton(_ sender: UIButton) {
-        if (categoryAddTextField.text != "") {
+        if categoryAddTextField.text != "" {
             addCategory()
         }
     }
@@ -118,54 +117,54 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
         let button: UIBarButtonItem = UIBarButtonItem(title: "Register", style: .plain, target: self, action: #selector(handleRegisterButton))
         navigationItem.rightBarButtonItem = button
     }
-    
+
     private func showView() {
         categoryAddView.center = self.view.center
         self.view.addSubview(categoryAddView)
-        
-        UIView.animate(withDuration: 0.5, animations: {[weak self] () -> Void in
-            
+
+        UIView.animate(withDuration: 0.5, animations: { [weak self] () -> Void in
+
             if let weakSelf = self {
                 weakSelf.categoryAddView.alpha = 1
-                weakSelf.categoryAddView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5);
+                weakSelf.categoryAddView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
             }
         })
     }
-    
+
     private func hideView() {
-        UIView.animate(withDuration: 0.5, animations: {[weak self] () -> Void in
-            
+        UIView.animate(withDuration: 0.5, animations: { [weak self] () -> Void in
+
             if let weakSelf = self {
-                weakSelf.categoryAddView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5);
-                weakSelf.categoryAddView.alpha = 0;
+                weakSelf.categoryAddView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                weakSelf.categoryAddView.alpha = 0
             }
-            
-            }, completion: {[weak self] (complated) -> Void in
-                
-                if let weakSelf = self {
-                    weakSelf.view.subviews.last?.removeFromSuperview()
-                }
+
+        }, completion: { [weak self] _ -> Void in
+
+            if let weakSelf = self {
+                weakSelf.view.subviews.last?.removeFromSuperview()
+            }
         })
     }
-    
-    private func addCategory(){
+
+    private func addCategory() {
         let params = CategoryParam(name: categoryAddTextField.text!)
         let _ = PraboAPI.sharedInstance.createCategory(param: params)
-            .subscribe(onNext: { (result: ResultModel<CategoryModel>) in
-                if let error = result.error {
-                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                    return
-                }
-                guard let category: CategoryModel = result.data else {
-                    return
-                }
-                UIAlertController(title: "完了", message: "「\(category.name)」を作成しました！", preferredStyle: .alert)
-                    .addAction(title: "OK") { _ in
-                        self.hideView()
-                        self.isShowView = !self.isShowView
-                        //↓これをどこに入れれば良いかわからないです(>_<)
-                        //self.categoryPickerView.reloadAllComponents()
-                    }.show()
-            })
+                .subscribe(onNext: { (result: ResultModel<CategoryModel>) in
+                    if let error = result.error {
+                        UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                        return
+                    }
+                    guard let category: CategoryModel = result.data else {
+                        return
+                    }
+                    UIAlertController(title: "完了", message: "「\(category.name)」を作成しました！", preferredStyle: .alert)
+                            .addAction(title: "OK") { _ in
+                                self.hideView()
+                                self.isShowView = !self.isShowView
+                                // ↓これをどこに入れれば良いかわからないです(>_<)
+                                // self.categoryPickerView.reloadAllComponents()
+                            }.show()
+                })
     }
 }
