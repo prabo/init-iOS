@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tpN-0e-Ey0">
-                                <rect key="frame" x="15" y="15" width="345" height="252.5"/>
+                                <rect key="frame" x="15" y="79" width="345" height="252.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ミッションタイトル" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cP9-kx-ItZ">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="29"/>
@@ -86,7 +86,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tpN-0e-Ey0" firstAttribute="top" secondItem="uGg-57-nJD" secondAttribute="top" constant="15" id="5Ex-xf-wlQ"/>
+                            <constraint firstItem="tpN-0e-Ey0" firstAttribute="top" secondItem="uGg-57-nJD" secondAttribute="top" constant="79" id="2Gm-UG-uEs"/>
                             <constraint firstAttribute="trailing" secondItem="tpN-0e-Ey0" secondAttribute="trailing" constant="15" id="DiK-Jy-Fmk"/>
                             <constraint firstItem="tpN-0e-Ey0" firstAttribute="leading" secondItem="uGg-57-nJD" secondAttribute="leading" constant="15" id="Frb-O7-7JT"/>
                         </constraints>
