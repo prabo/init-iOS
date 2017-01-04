@@ -29,7 +29,6 @@ final class MissionDetailController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        loadMission()
     }
 
     override func didReceiveMemoryWarning() {
