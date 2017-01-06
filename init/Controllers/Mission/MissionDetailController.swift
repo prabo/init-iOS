@@ -48,42 +48,42 @@ final class MissionDetailController: UIViewController {
         guard let m = mission else {
             return
         }
-
-        let headers: HTTPHeaders = [
-                "Authorization": UserDefaultsHelper.getToken(),
-                "Accept": "application/json"
-        ]
-        let str = m.id.description
-
-        Alamofire.request("https://init-api.elzup.com/v1/missions/" + str + "/complete", method: .post, headers: headers)
-                .responseJSON { _ in
-                }
+        let _ = PraboAPI.sharedInstance.completeMission(mission: m)
+                .subscribe(onNext: { (result: ResultModel<CompleteModel>) in
+                    if let error = result.error {
+                        UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                        return
+                    }
+                    UIAlertController(title: "完了", message: "ミッション達成おめでとう！", preferredStyle: .alert)
+                            .addAction(title: "OK") { _ in
+                                _ = self.navigationController?.popViewController(animated: true)
+                            }.show()
+                })
     }
 
     func notComplete() {
         guard let m = mission else {
             return
         }
-
-        let headers: HTTPHeaders = [
-                "Authorization": UserDefaultsHelper.getToken(),
-                "Accept": "application/json"
-        ]
-        let str = m.id.description
-
-        Alamofire.request("https://init-api.elzup.com/v1/missions/" + str + "/uncomplete", method: .post, headers: headers)
-                .responseJSON { _ in
-                }
+        let _ = PraboAPI.sharedInstance.uncompleteMission(mission: m)
+                .subscribe(onNext: { (result: ResultModel<CompleteModel>) in
+                    if let error = result.error {
+                        UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                        return
+                    }
+                    UIAlertController(title: "完了", message: "未達成に戻しました", preferredStyle: .alert)
+                            .addAction(title: "OK") { _ in
+                                _ = self.navigationController?.popViewController(animated: true)
+                            }.show()
+                })
     }
 
     @IBAction func completeButton(_ sender: UIButton) {
         complete()
-        _ = self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func notCompleteButton(_ sender: UIButton) {
         notComplete()
-        _ = self.navigationController?.popViewController(animated: true)
     }
 
     func handleEditButton() {
