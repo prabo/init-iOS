@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		183FC8571C51C6ACCC0EB551 /* Pods_init.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 116D3D2399A2EF71E71E6499 /* Pods_init.framework */; };
+		30DEF56CB4BBCC0480BE58DF /* CompleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEF0E21C035F26A96007C7 /* CompleteModel.swift */; };
 		30DEF5C3EDD764A797014801 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEFCAFC4C3096EB4DCD2C2 /* ResultModel.swift */; };
 		30DEF5CB16D6A908BED4CCCB /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEFB5374EDDC578ED44246 /* ErrorModel.swift */; };
 		30DEFB799C8486F9E0AC42AD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DEF932BC2F6B07CDC29334 /* Router.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		116D3D2399A2EF71E71E6499 /* Pods_init.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_init.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30DEF0E21C035F26A96007C7 /* CompleteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteModel.swift; sourceTree = "<group>"; };
 		30DEF932BC2F6B07CDC29334 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		30DEFB5374EDDC578ED44246 /* ErrorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		30DEFCAFC4C3096EB4DCD2C2 /* ResultModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				C00032961E019AFE0024E1D2 /* SessionModel.swift */,
 				C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */,
 				45022D0E1E1943F400D6D970 /* UserModel.swift */,
+				30DEF0E21C035F26A96007C7 /* CompleteModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				30DEFB799C8486F9E0AC42AD /* Router.swift in Sources */,
 				30DEF5C3EDD764A797014801 /* ResultModel.swift in Sources */,
 				30DEF5CB16D6A908BED4CCCB /* ErrorModel.swift in Sources */,
+				30DEF56CB4BBCC0480BE58DF /* CompleteModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
