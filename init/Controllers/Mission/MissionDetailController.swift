@@ -15,6 +15,7 @@ final class MissionDetailController: UIViewController {
     var mission: MissionModel?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var ownerNameLabel: UILabel!
 
     @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
     }
@@ -28,7 +29,6 @@ final class MissionDetailController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        loadMission()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +42,17 @@ final class MissionDetailController: UIViewController {
         }
         titleLabel.text = m.title
         descriptionLabel.text = m.description
+        // Loading Placeholder
+        ownerNameLabel.text = "..."
+        let _ = PraboAPI.sharedInstance.getMission(id: m.id)
+                .subscribe(onNext: { (result: ResultModel<MissionModel>) in
+                    // TODO: Error 処理
+                    guard let mission: MissionModel = result.data else {
+                        return
+                    }
+                    self.mission = mission
+                    self.ownerNameLabel.text = "@" + mission.author.username
+                })
     }
 
     func complete() {
