@@ -121,6 +121,26 @@ extension PraboAPI {
         }
     }
 
+    func completeMission(mission: MissionModel) -> Observable<ResultModel<CompleteModel>> {
+        return Observable.create { observer -> Disposable in
+            self.request(router: Router.Mission.PutComplete(mission.id))
+                    .subscribe(onNext: { json in
+                        observer.onNext(ResultModel<CompleteModel>(json: json))
+                    })
+            return Disposables.create()
+        }
+    }
+
+    func uncompleteMission(mission: MissionModel) -> Observable<ResultModel<CompleteModel>> {
+        return Observable.create { observer -> Disposable in
+            self.request(router: Router.Mission.PutUncomplete(mission.id))
+                    .subscribe(onNext: { json in
+                        observer.onNext(ResultModel<CompleteModel>(json: json))
+                    })
+            return Disposables.create()
+        }
+    }
+
     // Category
     func getCategory(id: Int) -> Observable<ResultModel<CategoryModel>> {
         return Observable.create { observer -> Disposable in

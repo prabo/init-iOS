@@ -51,7 +51,7 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         PraboAPI.sharedInstance.createUser(username: username, password: password)
                 .subscribe(onNext: { (result) in
                     if let error = result.error {
-                        UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).show()
+                        UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
                         return
                     }
                     guard let session = result.data else {
