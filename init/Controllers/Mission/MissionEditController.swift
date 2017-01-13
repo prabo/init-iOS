@@ -65,8 +65,6 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
                 guard let mission: Mission = result.data else {
                     return
                 }
-                let vc = Storyboard.MissionDetail.instantiate(MissionDetailController.self)
-                vc.mission = mission
                 UIAlertController(title: "完了", message: "ミッションを編集しました", preferredStyle: .alert)
                     .addAction(title: "OK") { _ in
                         navigationController.popViewController(animated: true)
