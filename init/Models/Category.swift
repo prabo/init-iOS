@@ -40,7 +40,7 @@ final class CategoryParam: APIParamsConvertible {
     required init(name: String) {
         self.name = name
         self.APIParams = [
-                "name": name
+            "name": name
         ]
     }
 }

@@ -45,17 +45,17 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         // TODO: Random key
         let password = "hogehoge"
         PraboAPI.sharedInstance.createUser(username: username, password: password)
-                .subscribe(onNext: { (result) in
-                    if let error = result.error {
-                        UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    guard let session = result.data else {
-                        return
-                    }
-                    UserDefaultsHelper.saveUser(session: session, password: password)
-                    self.nextStoryboad()
-                })
+            .subscribe(onNext: { (result) in
+                if let error = result.error {
+                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let session = result.data else {
+                    return
+                }
+                UserDefaultsHelper.saveUser(session: session, password: password)
+                self.nextStoryboad()
+            })
     }
 
 }

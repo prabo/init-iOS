@@ -54,9 +54,9 @@ final class MissionParam: APIParamsConvertible {
         self.description = description
         self.categoryId = categoryId
         self.APIParams = [
-                "title": title,
-                "description": description,
-                "category_id": categoryId
+            "title": title,
+            "description": description,
+            "category_id": categoryId
         ]
     }
 }
