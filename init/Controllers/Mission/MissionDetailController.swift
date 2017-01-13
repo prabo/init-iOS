@@ -98,13 +98,9 @@ final class MissionDetailController: UIViewController {
     }
 
     func handleEditButton() {
-        let storyboard = UIStoryboard(name: "MissionEditController", bundle: nil)
-        let missionEditController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionEditController as? MissionEditController else {
-            return
-        }
-        secondViewController.mission = self.mission
-        navigationController?.pushViewController(secondViewController, animated: true)
+        let vc = Storyboard.MissionEditController.instantiate(MissionEditController.self)
+        vc.mission = self.mission
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     private func addEditButtonToNavigationBar() {

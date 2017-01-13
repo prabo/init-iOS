@@ -56,13 +56,6 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
         guard let navigationController = navigationController else {
             return
         }
-        let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
-        let missionDetailController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionDetailController as? MissionDetailController else {
-            return
-        }
-        m.title = titleTextField.text!
-        m.description = descriptionTextView.text!
         let _ = PraboAPI.sharedInstance.updateMission(mission: m)
                 .subscribe(onNext: { (result: ResultModel<MissionModel>) in
                     if let error = result.error {
@@ -72,8 +65,8 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
                     guard let mission: MissionModel = result.data else {
                         return
                     }
-                    // NOTE: 前画面の情報更新しておく
-                    secondViewController.mission = mission
+                    let vc = Storyboard.MissionDetailController.instantiate(MissionDetailController.self)
+                    vc.mission = mission
                     UIAlertController(title: "完了", message: "ミッションを編集しました", preferredStyle: .alert)
                             .addAction(title: "OK") { _ in
                                 navigationController.popViewController(animated: true)

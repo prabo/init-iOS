@@ -15,12 +15,9 @@ final class MissionCategoryTableViewController: UITableViewController {
     var categories: [CategoryModel] = []
 
     @IBAction func addButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "MissionCategoryAddController", bundle: nil)
-        let missionCategoryAddController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionCategoryAddController as? MissionCategoryAddController else {
-            return
-        }
-        navigationController?.pushViewController(secondViewController, animated: true)
+        navigationController?.pushViewController(
+            Storyboard.MissionCategoryAddController.instantiate(MissionCategoryAddController.self),
+            animated: true)
     }
 
     @IBAction func reroadButton(_ sender: UIButton) {
@@ -80,13 +77,9 @@ extension MissionCategoryTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
-        let missionListController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionListController as? MissionListTableViewController else {
-            return
-        }
+        let vc = Storyboard.MissionListTableViewController.instantiate(MissionListTableViewController.self)
         let category = categories[indexPath.row]
-        secondViewController.category = category
-        navigationController?.pushViewController(secondViewController, animated: true)
+        vc.category = category
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

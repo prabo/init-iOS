@@ -33,13 +33,11 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
     }
 
     func nextStoryboad() {
-        let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
-        guard let nextVC = storyboard.instantiateInitialViewController() else {
-            print("Failed to instantiate view controller")
-            return
-        }
-        nextVC.modalTransitionStyle = .flipHorizontal
-        present(nextVC, animated: true)
+        let vc = Storyboard.MissionCategoryTableViewController.instantiate(
+            MissionCategoryTableViewController.self
+        )
+        vc.modalTransitionStyle = .flipHorizontal
+        present(vc, animated: true)
     }
 
     @IBAction func registerButton(_ sender: UIButton) {

@@ -18,12 +18,9 @@ final class MissionListTableViewController: UITableViewController {
     var showOnlyIncompleted = false
 
     @IBAction func addButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "MissionAddController", bundle: nil)
-        let missionAddController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionAddController as? MissionAddController else {
-            return
-        }
-        navigationController?.pushViewController(secondViewController, animated: true)
+        navigationController?.pushViewController(
+                Storyboard.MissionAddController.instantiate(MissionAddController.self),
+                animated: true)
     }
 
     @IBAction func reloadButton(_ sender: UIButton) {
@@ -110,16 +107,12 @@ extension MissionListTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
-        let missionDetailController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionDetailController as? MissionDetailController else {
-            return
-        }
+        let vc = Storyboard.MissionDetailController.instantiate(MissionDetailController.self)
         let array = showOnlyIncompleted ? incompletedMissions : missions
         let mission = array[indexPath.row]
-        secondViewController.title = "詳細"
-        secondViewController.mission = mission
-        navigationController?.pushViewController(secondViewController, animated: true)
+        vc.title = "詳細"
+        vc.mission = mission
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }
