@@ -5,12 +5,12 @@ protocol JsonInitializable {
     init(json: JSON)
 }
 
-class ResultModel<T:JsonInitializable> {
+class Result<T:JsonInitializable> {
     var data: T?
-    var error: ErrorModel?
+    var error: Error?
     required init(json: JSON) {
         if json["error"].exists() {
-            self.error = ErrorModel(json: json)
+            self.error = Error(json: json)
             return
         }
         self.data = T(json: json)
@@ -25,10 +25,10 @@ class ResultModel<T:JsonInitializable> {
 
 class ResultsModel<T:JsonInitializable> {
     var data: [T]?
-    var error: ErrorModel?
+    var error: Error?
     required init(json: JSON) {
         if json["error"].exists() {
-            self.error = ErrorModel(json: json)
+            self.error = Error(json: json)
             return
         }
         self.data = json.arrayValue.map {

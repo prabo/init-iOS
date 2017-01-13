@@ -11,9 +11,9 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionListController: UITableViewController {
-    var category: CategoryModel?
-    var missions: [MissionModel] = []
-    var incompletedMissions: [MissionModel] = []
+    var category: Category?
+    var missions: [Mission] = []
+    var incompletedMissions: [Mission] = []
 
     var showOnlyIncompleted = false
 
@@ -50,9 +50,9 @@ final class MissionListController: UITableViewController {
             return
         }
         let _ = PraboAPI.sharedInstance.getCategory(id: c.id)
-                .subscribe(onNext: { (result: ResultModel<CategoryModel>) in
+                .subscribe(onNext: { (result: Result<Category>) in
                     // TODO: Error 処理
-                    guard let category: CategoryModel = result.data,
+                    guard let category: Category = result.data,
                           let missions = category.missions else {
                         return
                     }
