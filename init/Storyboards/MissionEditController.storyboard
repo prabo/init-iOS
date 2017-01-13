@@ -12,7 +12,7 @@
         <!--Edit-->
         <scene sceneID="qup-6q-Lcl">
             <objects>
-                <viewController storyboardIdentifier="Edit" id="Ob8-xJ-nN2" customClass="MissionEditController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ob8-xJ-nN2" customClass="MissionEditController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EaV-pK-bUl"/>
                         <viewControllerLayoutGuide type="bottom" id="vsj-yk-hho"/>
