@@ -45,14 +45,14 @@ final class MissionDetailController: UIViewController {
         // Loading Placeholder
         ownerNameLabel.text = "..."
         let _ = PraboAPI.sharedInstance.getMission(id: m.id)
-                .subscribe(onNext: { (result: Result<Mission>) in
-                    // TODO: Error 処理
-                    guard let mission: Mission = result.data else {
-                        return
-                    }
-                    self.mission = mission
-                    self.ownerNameLabel.text = "@" + mission.author.username
-                })
+            .subscribe(onNext: { (result: Result<Mission>) in
+                // TODO: Error 処理
+                guard let mission: Mission = result.data else {
+                    return
+                }
+                self.mission = mission
+                self.ownerNameLabel.text = "@" + mission.author.username
+            })
     }
 
     func complete() {
@@ -60,16 +60,16 @@ final class MissionDetailController: UIViewController {
             return
         }
         let _ = PraboAPI.sharedInstance.completeMission(mission: m)
-                .subscribe(onNext: { (result: Result<Complete>) in
-                    if let error = result.error {
-                        UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    UIAlertController(title: "完了", message: "ミッション達成おめでとう！", preferredStyle: .alert)
-                            .addAction(title: "OK") { _ in
-                                _ = self.navigationController?.popViewController(animated: true)
-                            }.show()
-                })
+            .subscribe(onNext: { (result: Result<Complete>) in
+                if let error = result.error {
+                    UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                UIAlertController(title: "完了", message: "ミッション達成おめでとう！", preferredStyle: .alert)
+                    .addAction(title: "OK") { _ in
+                        _ = self.navigationController?.popViewController(animated: true)
+                    }.show()
+            })
     }
 
     func notComplete() {
@@ -77,16 +77,16 @@ final class MissionDetailController: UIViewController {
             return
         }
         let _ = PraboAPI.sharedInstance.uncompleteMission(mission: m)
-                .subscribe(onNext: { (result: Result<Complete>) in
-                    if let error = result.error {
-                        UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    UIAlertController(title: "完了", message: "未達成に戻しました", preferredStyle: .alert)
-                            .addAction(title: "OK") { _ in
-                                _ = self.navigationController?.popViewController(animated: true)
-                            }.show()
-                })
+            .subscribe(onNext: { (result: Result<Complete>) in
+                if let error = result.error {
+                    UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                UIAlertController(title: "完了", message: "未達成に戻しました", preferredStyle: .alert)
+                    .addAction(title: "OK") { _ in
+                        _ = self.navigationController?.popViewController(animated: true)
+                    }.show()
+            })
     }
 
     @IBAction func completeButton(_ sender: UIButton) {

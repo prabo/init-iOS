@@ -19,8 +19,8 @@ final class MissionListController: UITableViewController {
 
     @IBAction func addButton(_ sender: UIButton) {
         navigationController?.pushViewController(
-                Storyboard.MissionAdd.instantiate(MissionAddController.self),
-                animated: true)
+            Storyboard.MissionAdd.instantiate(MissionAddController.self),
+            animated: true)
     }
 
     @IBAction func reloadButton(_ sender: UIButton) {
@@ -50,15 +50,15 @@ final class MissionListController: UITableViewController {
             return
         }
         let _ = PraboAPI.sharedInstance.getCategory(id: c.id)
-                .subscribe(onNext: { (result: Result<Category>) in
-                    // TODO: Error 処理
-                    guard let category: Category = result.data,
-                          let missions = category.missions else {
-                        return
-                    }
-                    self.missions = missions
-                    self.tableView.reloadData()
-                })
+            .subscribe(onNext: { (result: Result<Category>) in
+                // TODO: Error 処理
+                guard let category: Category = result.data,
+                      let missions = category.missions else {
+                    return
+                }
+                self.missions = missions
+                self.tableView.reloadData()
+            })
     }
 
     func toggleFilter() {

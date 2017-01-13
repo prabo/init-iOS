@@ -45,14 +45,14 @@ final class CategoryListController: UITableViewController {
     func getCategoryLists() {
 
         let _ = PraboAPI.sharedInstance.getCategories()
-                .subscribe(onNext: { (result: ResultsModel<Category>) in
-                    // TODO: Error
-                    guard let categories: [Category] = result.data else {
-                        return
-                    }
-                    self.categories = categories
-                    self.tableView.reloadData()
-                })
+            .subscribe(onNext: { (result: ResultsModel<Category>) in
+                // TODO: Error
+                guard let categories: [Category] = result.data else {
+                    return
+                }
+                self.categories = categories
+                self.tableView.reloadData()
+            })
     }
 }
 
