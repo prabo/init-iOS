@@ -1,5 +1,5 @@
 //
-//  MissionCategoryTableViewController.swift
+//  CategoryListController.swift
 //  init
 //
 //  Created by Atsuo Yonehara on 2016/12/25.
@@ -10,13 +10,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-final class MissionCategoryTableViewController: UITableViewController {
+final class CategoryListController: UITableViewController {
 
     var categories: [CategoryModel] = []
 
     @IBAction func addButton(_ sender: UIButton) {
         navigationController?.pushViewController(
-            Storyboard.MissionCategoryAddController.instantiate(MissionCategoryAddController.self),
+            Storyboard.MissionCategoryAddController.instantiate(CategoryAddController.self),
             animated: true)
     }
 
@@ -58,7 +58,7 @@ final class MissionCategoryTableViewController: UITableViewController {
 
 // MARK: UITableViewDataSource method
 
-extension MissionCategoryTableViewController {
+extension CategoryListController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -77,7 +77,7 @@ extension MissionCategoryTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = Storyboard.MissionListTableViewController.instantiate(MissionListTableViewController.self)
+        let vc = Storyboard.MissionListTableViewController.instantiate(MissionListController.self)
         let category = categories[indexPath.row]
         vc.category = category
         navigationController?.pushViewController(vc, animated: true)

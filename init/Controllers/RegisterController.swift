@@ -34,7 +34,7 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
 
     func nextStoryboad() {
         let vc = Storyboard.MissionCategoryTableViewController.instantiate(
-            MissionCategoryTableViewController.self
+            CategoryListController.self
         )
         vc.modalTransitionStyle = .flipHorizontal
         present(vc, animated: true)

@@ -1,5 +1,5 @@
 //
-//  MissionCategoryAddController.swift
+//  CategoryAddController.swift
 //  init
 //
 //  Created by Atsuo Yonehara on 2017/01/01.
@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-final class MissionCategoryAddController: UIViewController {
+final class CategoryAddController: UIViewController {
     var mission: MissionModel?
 
     @IBOutlet weak var titleTextField: UITextField!

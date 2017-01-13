@@ -12,7 +12,7 @@
         <!--Mission Category Add Controller-->
         <scene sceneID="Y79-Zv-Wxq">
             <objects>
-                <viewController id="E1o-77-i6f" customClass="MissionCategoryAddController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="E1o-77-i6f" customClass="CategoryAddController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dRE-ev-6n1"/>
                         <viewControllerLayoutGuide type="bottom" id="Aoq-rA-MvV"/>
