@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class MissionEditController: UIViewController, UITextFieldDelegate {
 
-    var mission: MissionModel?
+    var mission: Mission?
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -57,12 +57,12 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
             return
         }
         let _ = PraboAPI.sharedInstance.updateMission(mission: m)
-                .subscribe(onNext: { (result: ResultModel<MissionModel>) in
+                .subscribe(onNext: { (result: Result<Mission>) in
                     if let error = result.error {
                         UIAlertController(title: "編集エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
                         return
                     }
-                    guard let mission: MissionModel = result.data else {
+                    guard let mission: Mission = result.data else {
                         return
                     }
                     let vc = Storyboard.MissionDetail.instantiate(MissionDetailController.self)
@@ -85,12 +85,12 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
             return
         }
         let _ = PraboAPI.sharedInstance.deleteMission(mission: m)
-                .subscribe(onNext: { (result: ResultModel<MissionModel>) in
+                .subscribe(onNext: { (result: Result<Mission>) in
                     if let error = result.error {
                         UIAlertController(title: "削除エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
                         return
                     }
-                    guard let mission: MissionModel = result.data else {
+                    guard let mission: Mission = result.data else {
                         return
                     }
                     UIAlertController(title: "完了", message: "ミッション「\(mission.title)」を削除しました", preferredStyle: .alert)

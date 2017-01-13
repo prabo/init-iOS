@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class MissionDetailController: UIViewController {
 
-    var mission: MissionModel?
+    var mission: Mission?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var ownerNameLabel: UILabel!
@@ -45,9 +45,9 @@ final class MissionDetailController: UIViewController {
         // Loading Placeholder
         ownerNameLabel.text = "..."
         let _ = PraboAPI.sharedInstance.getMission(id: m.id)
-                .subscribe(onNext: { (result: ResultModel<MissionModel>) in
+                .subscribe(onNext: { (result: Result<Mission>) in
                     // TODO: Error 処理
-                    guard let mission: MissionModel = result.data else {
+                    guard let mission: Mission = result.data else {
                         return
                     }
                     self.mission = mission
@@ -60,7 +60,7 @@ final class MissionDetailController: UIViewController {
             return
         }
         let _ = PraboAPI.sharedInstance.completeMission(mission: m)
-                .subscribe(onNext: { (result: ResultModel<CompleteModel>) in
+                .subscribe(onNext: { (result: Result<Complete>) in
                     if let error = result.error {
                         UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
                         return
@@ -77,7 +77,7 @@ final class MissionDetailController: UIViewController {
             return
         }
         let _ = PraboAPI.sharedInstance.uncompleteMission(mission: m)
-                .subscribe(onNext: { (result: ResultModel<CompleteModel>) in
+                .subscribe(onNext: { (result: Result<Complete>) in
                     if let error = result.error {
                         UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
                         return

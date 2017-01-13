@@ -30,14 +30,14 @@ final class UserDefaultsHelper {
         UserDefaults.standard.removeObject(forKey: Key.accessToken)
     }
 
-    static func getLoginUser() -> UserModel {
+    static func getLoginUser() -> User {
         let userDefaults = UserDefaults.standard
         let id = userDefaults.integer(forKey: Key.id)
         let username = userDefaults.string(forKey: Key.userName) ?? ""
-        return UserModel(id: id, username: username)
+        return User(id: id, username: username)
     }
 
-    static func saveUser(session: SessionModel, password: String) {
+    static func saveUser(session: Session, password: String) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(session.id, forKey: Key.id)
         userDefaults.set(session.username, forKey: Key.userName)

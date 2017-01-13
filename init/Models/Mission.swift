@@ -9,32 +9,32 @@
 import SwiftyJSON
 import Foundation
 
-final class MissionModel: JsonInitializable {
+final class Mission: JsonInitializable {
     var id: Int
     var title: String
     var description: String
     var isCompleted: Bool
     //category
-    var category: CategoryModel
+    var category: Category
     //author
-    var author: UserModel
-    var completedUsers: [UserModel]?
+    var author: User
+    var completedUsers: [User]?
 
     required init(json: JSON) {
         self.id = json["id"].intValue
         self.title = json["title"].stringValue
         self.description = json["description"].stringValue
         self.isCompleted = json["is_completed"].boolValue
-        self.category = CategoryModel(json: json["category"])
-        self.author = UserModel(json: json["author"])
+        self.category = Category(json: json["category"])
+        self.author = User(json: json["author"])
         if json["completed_users"].exists() {
-            self.completedUsers = UserModel.collection(json: json["completed_users"])
+            self.completedUsers = User.collection(json: json["completed_users"])
         }
     }
 
-    static func collection(json: JSON) -> [MissionModel] {
+    static func collection(json: JSON) -> [Mission] {
         return json.arrayValue.map {
-            MissionModel(json: $0)
+            Mission(json: $0)
         }
     }
 

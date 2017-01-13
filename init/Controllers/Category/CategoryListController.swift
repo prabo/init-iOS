@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class CategoryListController: UITableViewController {
 
-    var categories: [CategoryModel] = []
+    var categories: [Category] = []
 
     @IBAction func addButton(_ sender: UIButton) {
         navigationController?.pushViewController(
@@ -45,9 +45,9 @@ final class CategoryListController: UITableViewController {
     func getCategoryLists() {
 
         let _ = PraboAPI.sharedInstance.getCategories()
-                .subscribe(onNext: { (result: ResultsModel<CategoryModel>) in
+                .subscribe(onNext: { (result: ResultsModel<Category>) in
                     // TODO: Error
-                    guard let categories: [CategoryModel] = result.data else {
+                    guard let categories: [Category] = result.data else {
                         return
                     }
                     self.categories = categories
