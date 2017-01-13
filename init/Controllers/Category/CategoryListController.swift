@@ -16,7 +16,7 @@ final class CategoryListController: UITableViewController {
 
     @IBAction func addButton(_ sender: UIButton) {
         navigationController?.pushViewController(
-            Storyboard.MissionCategoryAddController.instantiate(CategoryAddController.self),
+            Storyboard.MissionAdd.instantiate(CategoryAddController.self),
             animated: true)
     }
 
@@ -77,7 +77,7 @@ extension CategoryListController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = Storyboard.MissionListTableViewController.instantiate(MissionListController.self)
+        let vc = Storyboard.MissionList.instantiate(MissionListController.self)
         let category = categories[indexPath.row]
         vc.category = category
         navigationController?.pushViewController(vc, animated: true)

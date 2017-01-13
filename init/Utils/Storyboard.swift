@@ -1,13 +1,13 @@
 import UIKit
 
 public enum Storyboard: String {
-    case MissionAddController
-    case MissionCategoryAddController
-    case MissionCategoryTableViewController
-    case MissionDetailController
-    case MissionEditController
-    case MissionListTableViewController
-    case RegisterViewController
+    case MissionList
+    case MissionDetail
+    case MissionAdd
+    case MissionEdit
+    case CategoryList
+    case CategoryAdd
+    case Register
 
     public func instantiate<VC: UIViewController>(_ viewController: VC.Type) -> VC {
         let viewControlelr = UIStoryboard(name: self.rawValue, bundle: nil).instantiateInitialViewController()

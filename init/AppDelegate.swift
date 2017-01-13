@@ -15,8 +15,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
         let startStoryboard = UserDefaultsHelper.isLogin
-            ? Storyboard.MissionCategoryTableViewController.instantiate(UIViewController.self)
-            : Storyboard.RegisterViewController.instantiate(UIViewController.self)
+            ? Storyboard.CategoryList.instantiate(UIViewController.self)
+            : Storyboard.Register.instantiate(UIViewController.self)
         window?.rootViewController = startStoryboard
     }
 }

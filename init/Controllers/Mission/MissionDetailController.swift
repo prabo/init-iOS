@@ -98,7 +98,7 @@ final class MissionDetailController: UIViewController {
     }
 
     func handleEditButton() {
-        let vc = Storyboard.MissionEditController.instantiate(MissionEditController.self)
+        let vc = Storyboard.MissionEdit.instantiate(MissionEditController.self)
         vc.mission = self.mission
         navigationController?.pushViewController(vc, animated: true)
     }
