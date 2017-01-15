@@ -11,10 +11,10 @@ import Alamofire
 import SwiftyJSON
 
 final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    var mission: MissionModel?
+    var mission: Mission?
     var isShowView = true
-    var categoryArray: [CategoryModel] = []
-    var selectedCategory: CategoryModel?
+    var categoryArray: [Category] = []
+    var selectedCategory: Category?
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -41,15 +41,15 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
         addRegisterButtonToNavigationBar()
 
         let _ = PraboAPI.sharedInstance.getCategories()
-                .subscribe(onNext: { (result: ResultsModel<CategoryModel>) in
-                    // TODO: Error
-                    guard let categories: [CategoryModel] = result.data else {
-                        return
-                    }
-                    self.categoryArray = categories
-                    self.selectedCategory = categories[0]
-                    self.categoryPickerView.reloadAllComponents()
-                })
+            .subscribe(onNext: { (result: ResultsModel<Category>) in
+                // TODO: Error
+                guard let categories: [Category] = result.data else {
+                    return
+                }
+                self.categoryArray = categories
+                self.selectedCategory = categories[0]
+                self.categoryPickerView.reloadAllComponents()
+            })
         self.categoryAddView.layer.borderColor = UIColor.red.cgColor
         self.categoryAddView.layer.borderWidth = 10
     }
@@ -74,23 +74,23 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
             return
         }
         let param = MissionParam(
-                title: titleTextField.text!,
-                description: descriptionTextView.text!,
-                categoryId: category.id)
+            title: titleTextField.text!,
+            description: descriptionTextView.text!,
+            categoryId: category.id)
         let _ = PraboAPI.sharedInstance.createMission(param: param)
-                .subscribe(onNext: { (result: ResultModel<MissionModel>) in
-                    if let error = result.error {
-                        UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    guard let mission: MissionModel = result.data else {
-                        return
-                    }
-                    UIAlertController(title: "完了", message: "「\(mission.title)」を作成しました！", preferredStyle: .alert)
-                            .addAction(title: "OK") { _ in
-                                navigationController.popViewController(animated: true)
-                            }.show()
-                })
+            .subscribe(onNext: { (result: Result<Mission>) in
+                if let error = result.error {
+                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let mission: Mission = result.data else {
+                    return
+                }
+                UIAlertController(title: "完了", message: "「\(mission.title)」を作成しました！", preferredStyle: .alert)
+                    .addAction(title: "OK") { _ in
+                        navigationController.popViewController(animated: true)
+                    }.show()
+            })
     }
 
     //表示列
@@ -150,21 +150,21 @@ final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPick
     private func addCategory() {
         let params = CategoryParam(name: categoryAddTextField.text!)
         let _ = PraboAPI.sharedInstance.createCategory(param: params)
-                .subscribe(onNext: { (result: ResultModel<CategoryModel>) in
-                    if let error = result.error {
-                        UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    guard let category: CategoryModel = result.data else {
-                        return
-                    }
-                    self.categoryArray.append(category)
-                    self.categoryPickerView.reloadAllComponents()
-                    UIAlertController(title: "完了", message: "「\(category.name)」を作成しました！", preferredStyle: .alert)
-                            .addAction(title: "OK") { _ in
-                                self.hideView()
-                                self.isShowView = !self.isShowView
-                            }.show()
-                })
+            .subscribe(onNext: { (result: Result<Category>) in
+                if let error = result.error {
+                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let category: Category = result.data else {
+                    return
+                }
+                self.categoryArray.append(category)
+                self.categoryPickerView.reloadAllComponents()
+                UIAlertController(title: "完了", message: "「\(category.name)」を作成しました！", preferredStyle: .alert)
+                    .addAction(title: "OK") { _ in
+                        self.hideView()
+                        self.isShowView = !self.isShowView
+                    }.show()
+            })
     }
 }

@@ -12,7 +12,7 @@
         <!--Mission Add Controller-->
         <scene sceneID="ZEO-ev-1Qr">
             <objects>
-                <viewController storyboardIdentifier="Add" id="lOD-b7-5H3" customClass="MissionAddController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lOD-b7-5H3" customClass="MissionAddController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TRD-fV-4M0"/>
                         <viewControllerLayoutGuide type="bottom" id="bbT-p0-Cdf"/>

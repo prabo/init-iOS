@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class MissionEditController: UIViewController, UITextFieldDelegate {
 
-    var mission: MissionModel?
+    var mission: Mission?
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -56,29 +56,20 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
         guard let navigationController = navigationController else {
             return
         }
-        let storyboard = UIStoryboard(name: "MissionDetailController", bundle: nil)
-        let missionDetailController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionDetailController as? MissionDetailController else {
-            return
-        }
-        m.title = titleTextField.text!
-        m.description = descriptionTextView.text!
         let _ = PraboAPI.sharedInstance.updateMission(mission: m)
-                .subscribe(onNext: { (result: ResultModel<MissionModel>) in
-                    if let error = result.error {
-                        UIAlertController(title: "編集エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    guard let mission: MissionModel = result.data else {
-                        return
-                    }
-                    // NOTE: 前画面の情報更新しておく
-                    secondViewController.mission = mission
-                    UIAlertController(title: "完了", message: "ミッションを編集しました", preferredStyle: .alert)
-                            .addAction(title: "OK") { _ in
-                                navigationController.popViewController(animated: true)
-                            }.show()
-                })
+            .subscribe(onNext: { (result: Result<Mission>) in
+                if let error = result.error {
+                    UIAlertController(title: "編集エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let mission: Mission = result.data else {
+                    return
+                }
+                UIAlertController(title: "完了", message: "ミッションを編集しました", preferredStyle: .alert)
+                    .addAction(title: "OK") { _ in
+                        navigationController.popViewController(animated: true)
+                    }.show()
+            })
     }
 
     // ２つ前の画面に戻る
@@ -92,19 +83,19 @@ final class MissionEditController: UIViewController, UITextFieldDelegate {
             return
         }
         let _ = PraboAPI.sharedInstance.deleteMission(mission: m)
-                .subscribe(onNext: { (result: ResultModel<MissionModel>) in
-                    if let error = result.error {
-                        UIAlertController(title: "削除エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    guard let mission: MissionModel = result.data else {
-                        return
-                    }
-                    UIAlertController(title: "完了", message: "ミッション「\(mission.title)」を削除しました", preferredStyle: .alert)
-                            .addAction(title: "OK") { _ in
-                                self.popTwo()
-                            }.show()
-                })
+            .subscribe(onNext: { (result: Result<Mission>) in
+                if let error = result.error {
+                    UIAlertController(title: "削除エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let mission: Mission = result.data else {
+                    return
+                }
+                UIAlertController(title: "完了", message: "ミッション「\(mission.title)」を削除しました", preferredStyle: .alert)
+                    .addAction(title: "OK") { _ in
+                        self.popTwo()
+                    }.show()
+            })
     }
 
     func handleChange() {

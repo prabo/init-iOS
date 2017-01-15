@@ -1,5 +1,5 @@
 //
-//  MissionCategoryAddController.swift
+//  CategoryAddController.swift
 //  init
 //
 //  Created by Atsuo Yonehara on 2017/01/01.
@@ -9,8 +9,8 @@
 import UIKit
 import SwiftyJSON
 
-final class MissionCategoryAddController: UIViewController {
-    var mission: MissionModel?
+final class CategoryAddController: UIViewController {
+    var mission: Mission?
 
     @IBOutlet weak var titleTextField: UITextField!
 
@@ -41,19 +41,19 @@ final class MissionCategoryAddController: UIViewController {
         }
         let params = CategoryParam(name: titleTextField.text!)
         let _ = PraboAPI.sharedInstance.createCategory(param: params)
-                .subscribe(onNext: { (result: ResultModel<CategoryModel>) in
-                    if let error = result.error {
-                        UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    guard let category: CategoryModel = result.data else {
-                        return
-                    }
-                    UIAlertController(title: "完了", message: "「\(category.name)」を作成しました！", preferredStyle: .alert)
-                            .addAction(title: "OK") { _ in
-                                navigationController.popViewController(animated: true)
-                            }.show()
-                })
+            .subscribe(onNext: { (result: Result<Category>) in
+                if let error = result.error {
+                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let category: Category = result.data else {
+                    return
+                }
+                UIAlertController(title: "完了", message: "「\(category.name)」を作成しました！", preferredStyle: .alert)
+                    .addAction(title: "OK") { _ in
+                        navigationController.popViewController(animated: true)
+                    }.show()
+            })
     }
 
     private func addRegisterButtonToNavigationBar() {

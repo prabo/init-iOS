@@ -33,13 +33,9 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
     }
 
     func nextStoryboad() {
-        let storyboard = UIStoryboard(name: "MissionCategoryTableViewController", bundle: nil)
-        guard let nextVC = storyboard.instantiateInitialViewController() else {
-            print("Failed to instantiate view controller")
-            return
-        }
-        nextVC.modalTransitionStyle = .flipHorizontal
-        present(nextVC, animated: true)
+        let vc = Storyboard.CategoryList.instantiate(UIViewController.self)
+        vc.modalTransitionStyle = .flipHorizontal
+        present(vc, animated: true)
     }
 
     @IBAction func registerButton(_ sender: UIButton) {
@@ -49,17 +45,17 @@ final class RegisterController: UIViewController, UITextFieldDelegate {
         // TODO: Random key
         let password = "hogehoge"
         PraboAPI.sharedInstance.createUser(username: username, password: password)
-                .subscribe(onNext: { (result) in
-                    if let error = result.error {
-                        UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    guard let session = result.data else {
-                        return
-                    }
-                    UserDefaultsHelper.saveUser(session: session, password: password)
-                    self.nextStoryboad()
-                })
+            .subscribe(onNext: { (result) in
+                if let error = result.error {
+                    UIAlertController(title: "登録エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                guard let session = result.data else {
+                    return
+                }
+                UserDefaultsHelper.saveUser(session: session, password: password)
+                self.nextStoryboad()
+            })
     }
 
 }

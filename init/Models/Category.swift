@@ -9,22 +9,22 @@
 import UIKit
 import SwiftyJSON
 
-class CategoryModel: JsonInitializable {
+class Category: JsonInitializable {
     var id: Int
     var name: String
-    var missions: [MissionModel]?
+    var missions: [Mission]?
 
     required init(json: JSON) {
         self.id = json["id"].intValue
         self.name = json["name"].stringValue
         if json["missions"].exists() {
-            self.missions = MissionModel.collection(json: json["missions"])
+            self.missions = Mission.collection(json: json["missions"])
         }
     }
 
-    static func collection(json: JSON) -> [CategoryModel] {
+    static func collection(json: JSON) -> [Category] {
         return json.arrayValue.map {
-            CategoryModel(json: $0)
+            Category(json: $0)
         }
     }
 
@@ -40,7 +40,7 @@ final class CategoryParam: APIParamsConvertible {
     required init(name: String) {
         self.name = name
         self.APIParams = [
-                "name": name
+            "name": name
         ]
     }
 }

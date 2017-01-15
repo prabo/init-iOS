@@ -1,5 +1,5 @@
 //
-//  MissionCategoryTableViewController.swift
+//  CategoryListController.swift
 //  init
 //
 //  Created by Atsuo Yonehara on 2016/12/25.
@@ -10,17 +10,14 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-final class MissionCategoryTableViewController: UITableViewController {
+final class CategoryListController: UITableViewController {
 
-    var categories: [CategoryModel] = []
+    var categories: [Category] = []
 
     @IBAction func addButton(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "MissionCategoryAddController", bundle: nil)
-        let missionCategoryAddController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionCategoryAddController as? MissionCategoryAddController else {
-            return
-        }
-        navigationController?.pushViewController(secondViewController, animated: true)
+        navigationController?.pushViewController(
+            Storyboard.MissionAdd.instantiate(CategoryAddController.self),
+            animated: true)
     }
 
     @IBAction func reroadButton(_ sender: UIButton) {
@@ -48,20 +45,20 @@ final class MissionCategoryTableViewController: UITableViewController {
     func getCategoryLists() {
 
         let _ = PraboAPI.sharedInstance.getCategories()
-                .subscribe(onNext: { (result: ResultsModel<CategoryModel>) in
-                    // TODO: Error
-                    guard let categories: [CategoryModel] = result.data else {
-                        return
-                    }
-                    self.categories = categories
-                    self.tableView.reloadData()
-                })
+            .subscribe(onNext: { (result: ResultsModel<Category>) in
+                // TODO: Error
+                guard let categories: [Category] = result.data else {
+                    return
+                }
+                self.categories = categories
+                self.tableView.reloadData()
+            })
     }
 }
 
 // MARK: UITableViewDataSource method
 
-extension MissionCategoryTableViewController {
+extension CategoryListController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -80,13 +77,9 @@ extension MissionCategoryTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "MissionListTableViewController", bundle: nil)
-        let missionListController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionListController as? MissionListTableViewController else {
-            return
-        }
+        let vc = Storyboard.MissionList.instantiate(MissionListController.self)
         let category = categories[indexPath.row]
-        secondViewController.category = category
-        navigationController?.pushViewController(secondViewController, animated: true)
+        vc.category = category
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

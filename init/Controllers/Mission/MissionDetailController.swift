@@ -12,7 +12,7 @@ import SwiftyJSON
 
 final class MissionDetailController: UIViewController {
 
-    var mission: MissionModel?
+    var mission: Mission?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var ownerNameLabel: UILabel!
@@ -45,14 +45,14 @@ final class MissionDetailController: UIViewController {
         // Loading Placeholder
         ownerNameLabel.text = "..."
         let _ = PraboAPI.sharedInstance.getMission(id: m.id)
-                .subscribe(onNext: { (result: ResultModel<MissionModel>) in
-                    // TODO: Error 処理
-                    guard let mission: MissionModel = result.data else {
-                        return
-                    }
-                    self.mission = mission
-                    self.ownerNameLabel.text = "@" + mission.author.username
-                })
+            .subscribe(onNext: { (result: Result<Mission>) in
+                // TODO: Error 処理
+                guard let mission: Mission = result.data else {
+                    return
+                }
+                self.mission = mission
+                self.ownerNameLabel.text = "@" + mission.author.username
+            })
     }
 
     func complete() {
@@ -60,16 +60,16 @@ final class MissionDetailController: UIViewController {
             return
         }
         let _ = PraboAPI.sharedInstance.completeMission(mission: m)
-                .subscribe(onNext: { (result: ResultModel<CompleteModel>) in
-                    if let error = result.error {
-                        UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    UIAlertController(title: "完了", message: "ミッション達成おめでとう！", preferredStyle: .alert)
-                            .addAction(title: "OK") { _ in
-                                _ = self.navigationController?.popViewController(animated: true)
-                            }.show()
-                })
+            .subscribe(onNext: { (result: Result<Complete>) in
+                if let error = result.error {
+                    UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                UIAlertController(title: "完了", message: "ミッション達成おめでとう！", preferredStyle: .alert)
+                    .addAction(title: "OK") { _ in
+                        _ = self.navigationController?.popViewController(animated: true)
+                    }.show()
+            })
     }
 
     func notComplete() {
@@ -77,16 +77,16 @@ final class MissionDetailController: UIViewController {
             return
         }
         let _ = PraboAPI.sharedInstance.uncompleteMission(mission: m)
-                .subscribe(onNext: { (result: ResultModel<CompleteModel>) in
-                    if let error = result.error {
-                        UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
-                        return
-                    }
-                    UIAlertController(title: "完了", message: "未達成に戻しました", preferredStyle: .alert)
-                            .addAction(title: "OK") { _ in
-                                _ = self.navigationController?.popViewController(animated: true)
-                            }.show()
-                })
+            .subscribe(onNext: { (result: Result<Complete>) in
+                if let error = result.error {
+                    UIAlertController(title: "エラー", message: error.message, preferredStyle: .alert).addAction(title: "OK").show()
+                    return
+                }
+                UIAlertController(title: "完了", message: "未達成に戻しました", preferredStyle: .alert)
+                    .addAction(title: "OK") { _ in
+                        _ = self.navigationController?.popViewController(animated: true)
+                    }.show()
+            })
     }
 
     @IBAction func completeButton(_ sender: UIButton) {
@@ -98,13 +98,9 @@ final class MissionDetailController: UIViewController {
     }
 
     func handleEditButton() {
-        let storyboard = UIStoryboard(name: "MissionEditController", bundle: nil)
-        let missionEditController = storyboard.instantiateInitialViewController()
-        guard let secondViewController = missionEditController as? MissionEditController else {
-            return
-        }
-        secondViewController.mission = self.mission
-        navigationController?.pushViewController(secondViewController, animated: true)
+        let vc = Storyboard.MissionEdit.instantiate(MissionEditController.self)
+        vc.mission = self.mission
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     private func addEditButtonToNavigationBar() {

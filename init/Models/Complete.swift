@@ -1,12 +1,12 @@
 import Foundation
 import SwiftyJSON
 
-class CompleteModel: JsonInitializable {
+class Complete: JsonInitializable {
 
     var id: Int
     var createdAt: Date
-    var mission: MissionModel
-    var user: UserModel
+    var mission: Mission
+    var user: User
 
     required init(json: JSON) {
         self.id = json["id"].intValue
@@ -18,13 +18,13 @@ class CompleteModel: JsonInitializable {
             // NOTE: bad
             self.createdAt = Date()
         }
-        self.mission = MissionModel(json: json["mission"])
-        self.user = UserModel(json: json["user"])
+        self.mission = Mission(json: json["mission"])
+        self.user = User(json: json["user"])
     }
 
-    static func collection(json: JSON) -> [CompleteModel] {
+    static func collection(json: JSON) -> [Complete] {
         return json.arrayValue.map {
-            CompleteModel(json: $0)
+            Complete(json: $0)
         }
     }
 }
