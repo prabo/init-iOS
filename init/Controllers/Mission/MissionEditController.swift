@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-final class MissionEditController: UIViewController, UITextFieldDelegate {
+class MissionEditController: UIViewController, UITextFieldDelegate {
 
     var mission: Mission?
 

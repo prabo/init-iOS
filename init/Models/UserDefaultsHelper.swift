@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class UserDefaultsHelper {
+class UserDefaultsHelper {
 
     private struct Key {
         static let accessToken = "access_token"

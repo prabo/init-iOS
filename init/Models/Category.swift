@@ -33,7 +33,7 @@ class Category: JsonInitializable {
     }
 }
 
-final class CategoryParam: APIParamsConvertible {
+class CategoryParam: APIParamsConvertible {
     var name: String
     public var APIParams: [String: Any]
 

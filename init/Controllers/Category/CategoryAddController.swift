@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-final class CategoryAddController: UIViewController {
+class CategoryAddController: UIViewController {
     var mission: Mission?
 
     @IBOutlet weak var titleTextField: UITextField!

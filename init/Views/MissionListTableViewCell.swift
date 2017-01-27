@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MissionListTableViewCell: UITableViewCell {
+class MissionListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var checkImage: UIImageView!
     @IBOutlet weak var ownerImage: UIImageView!

@@ -9,7 +9,7 @@
 import SwiftyJSON
 import Foundation
 
-final class Mission: JsonInitializable {
+class Mission: JsonInitializable {
     var id: Int
     var title: String
     var description: String
@@ -43,7 +43,7 @@ final class Mission: JsonInitializable {
     }
 }
 
-final class MissionParam: APIParamsConvertible {
+class MissionParam: APIParamsConvertible {
     var title: String
     var description: String
     var categoryId: Int

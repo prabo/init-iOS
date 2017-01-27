@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-final class RegisterController: UIViewController, UITextFieldDelegate {
+class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nameTextField: UITextField!
 
     override func viewDidLoad() {

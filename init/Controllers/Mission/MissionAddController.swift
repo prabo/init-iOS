@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-final class MissionAddController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class MissionAddController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var mission: Mission?
     var isShowView = true
     var categoryArray: [Category] = []

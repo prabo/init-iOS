@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-final class CategoryListController: UITableViewController {
+class CategoryListController: UITableViewController {
 
     var categories: [Category] = []
 

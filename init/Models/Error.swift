@@ -1,7 +1,7 @@
 import Foundation
 import SwiftyJSON
 
-final class Error {
+class Error {
     var message = ""
 
     required init(json: JSON) {

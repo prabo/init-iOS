@@ -1,7 +1,7 @@
 import Foundation
 import SwiftyJSON
 
-final class User: JsonInitializable {
+class User: JsonInitializable {
     var id: Int = -1
     var username: String = ""
     var createdMissions: [Mission] = []
