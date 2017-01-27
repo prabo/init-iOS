@@ -16,7 +16,7 @@ class CategoryListController: UITableViewController {
 
     @IBAction func addButton(_ sender: UIButton) {
         navigationController?.pushViewController(
-            Storyboard.MissionAdd.instantiate(CategoryAddController.self),
+            Storyboard.CategoryAdd.instantiate(CategoryAddController.self),
             animated: true)
     }
 
