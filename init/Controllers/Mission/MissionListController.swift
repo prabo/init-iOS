@@ -99,8 +99,8 @@ extension MissionListController {
         missionCell.missionNameLabel.text = array[indexPath.row].title
         missionCell.checkImage.contentMode = .scaleAspectFit
         missionCell.ownerImage.contentMode = .scaleAspectFit
-        missionCell.checkImage.image = UIImage(named: "check.png")
-        missionCell.ownerImage.image = UIImage(named: "enemy.png")
+        missionCell.checkImage.image = UIImage(named: "check")
+        missionCell.ownerImage.image = UIImage(named: "enemy")
         missionCell.checkImage.isHidden = !mission.isCompleted
         missionCell.ownerImage.isHidden = (mission.author.id != UserDefaultsHelper.getLoginUser().id)
         return missionCell
