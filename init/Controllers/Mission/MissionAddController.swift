@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class MissionAddController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var mission: Mission?
-    var isShowView = true
+    var isShowView = false
     var categoryArray: [Category] = []
     var selectedCategory: Category?
 
@@ -23,8 +23,7 @@ class MissionAddController: UIViewController, UIPickerViewDelegate, UIPickerView
     //category Add
     @IBOutlet var categoryAddView: UIView!
     @IBAction func categoryAddButton(_ sender: UIButton) {
-        isShowView ? showView() : hideView()
-        isShowView = !isShowView
+        isShowView ? hideView() : showView()
     }
     //extra View
     @IBOutlet weak var categoryAddTextField: UITextField!
@@ -50,8 +49,8 @@ class MissionAddController: UIViewController, UIPickerViewDelegate, UIPickerView
                 self.selectedCategory = categories[0]
                 self.categoryPickerView.reloadAllComponents()
             })
-        self.categoryAddView.layer.borderColor = UIColor.red.cgColor
-        self.categoryAddView.layer.borderWidth = 10
+        self.categoryAddView.layer.borderColor = UIColor.gray.cgColor
+        self.categoryAddView.layer.borderWidth = 2
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -119,6 +118,7 @@ class MissionAddController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
 
     private func showView() {
+        isShowView = true
         categoryAddView.center = self.view.center
         self.view.addSubview(categoryAddView)
 
@@ -132,6 +132,7 @@ class MissionAddController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
 
     private func hideView() {
+        isShowView = false
         UIView.animate(withDuration: 0.5, animations: { [weak self] () -> Void in
 
             if let weakSelf = self {

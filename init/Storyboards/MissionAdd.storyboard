@@ -58,10 +58,10 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFt-zq-w58">
-                                <rect key="frame" x="299" y="488" width="60" height="30"/>
+                                <rect key="frame" x="179" y="451" width="180" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="add"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="カテゴリーを追加"/>
                                 <connections>
                                     <action selector="categoryAddButton:" destination="lOD-b7-5H3" eventType="touchUpInside" id="RoO-oM-xjs"/>
                                 </connections>
@@ -113,6 +113,10 @@
                                 <action selector="categoryAddRegisterButton:" destination="lOD-b7-5H3" eventType="touchUpInside" id="XcN-KV-XjK"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backButton" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-Fz-Qqf">
+                            <rect key="frame" x="200" y="20" width="24" height="24"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
@@ -120,4 +124,7 @@
             <point key="canvasLocation" x="-15.199999999999999" y="226.23688155922042"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backButton" width="256" height="256"/>
+    </resources>
 </document>
