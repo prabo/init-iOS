@@ -30,6 +30,7 @@
 		C02D71991DF6CA410025E9E1 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02D71981DF6CA410025E9E1 /* Register.storyboard */; };
 		C0B3D20D1DD489CB00A1FEB3 /* MissionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20C1DD489CB00A1FEB3 /* MissionListController.swift */; };
 		C0B3D2101DD48EAD00A1FEB3 /* MissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */; };
+		C0BFCCE11E3CC07000E5FB0F /* MissionDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFCCE01E3CC07000E5FB0F /* MissionDetailTableView.swift */; };
 		C0C1AE971DED3561001D261A /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */; };
 		C0CCF5D11DF866570076DEA8 /* MissionList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CCF5D01DF866570076DEA8 /* MissionList.storyboard */; };
 		C0CCF5D41DF86A650076DEA8 /* MissionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CCF5D31DF86A650076DEA8 /* MissionDetail.storyboard */; };
@@ -72,6 +73,7 @@
 		C02D71981DF6CA410025E9E1 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		C0B3D20C1DD489CB00A1FEB3 /* MissionListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListController.swift; sourceTree = "<group>"; };
 		C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
+		C0BFCCE01E3CC07000E5FB0F /* MissionDetailTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDetailTableView.swift; sourceTree = "<group>"; };
 		C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		C0CCF5D01DF866570076DEA8 /* MissionList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionList.storyboard; sourceTree = "<group>"; };
 		C0CCF5D31DF86A650076DEA8 /* MissionDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionDetail.storyboard; sourceTree = "<group>"; };
@@ -131,7 +133,6 @@
 				C0FFDE341E194D8D0019EDDE /* CategoryAddController.swift */,
 				C00692921E0FD67D008D881B /* CategoryListController.swift */,
 			);
-			name = Category;
 			path = Category;
 			sourceTree = "<group>";
 		};
@@ -219,6 +220,7 @@
 			children = (
 				C0211B961E16418A007C16F7 /* MissionCategoryTableViewCell.swift */,
 				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
+				C0BFCCE01E3CC07000E5FB0F /* MissionDetailTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -405,6 +407,7 @@
 				C0B3D20D1DD489CB00A1FEB3 /* MissionListController.swift in Sources */,
 				45022D0D1E191A7100D6D970 /* DictionaryExtension.swift in Sources */,
 				C00692931E0FD67D008D881B /* CategoryListController.swift in Sources */,
+				C0BFCCE11E3CC07000E5FB0F /* MissionDetailTableView.swift in Sources */,
 				C0FFDE2F1E1658890019EDDE /* Category.swift in Sources */,
 				458134B31E1A3FDE008ABF94 /* APIParamsConvertible.swift in Sources */,
 				45022D081E17EE9F00D6D970 /* PraboAPI.swift in Sources */,
