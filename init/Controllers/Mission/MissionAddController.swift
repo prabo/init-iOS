@@ -32,6 +32,9 @@ class MissionAddController: UIViewController, UIPickerViewDelegate, UIPickerView
             addCategory()
         }
     }
+    @IBAction func backButton(_ sender: UIButton) {
+        hideView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
