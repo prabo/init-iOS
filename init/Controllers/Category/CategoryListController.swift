@@ -73,6 +73,7 @@ extension CategoryListController {
             return cell
         }
         categoryCell.categoryLabel.text = categories[indexPath.row].name
+        categoryCell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return categoryCell
     }
 

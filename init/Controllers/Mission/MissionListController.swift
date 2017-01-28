@@ -97,6 +97,7 @@ extension MissionListController {
         let array = showOnlyIncompleted ? incompletedMissions : missions
         let mission = array[indexPath.row]
         missionCell.missionNameLabel.text = array[indexPath.row].title
+        missionCell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         missionCell.checkImage.contentMode = .scaleAspectFit
         missionCell.ownerImage.contentMode = .scaleAspectFit
         missionCell.checkImage.image = UIImage(named: "check")
