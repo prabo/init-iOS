@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tpN-0e-Ey0">
-                                <rect key="frame" x="15" y="79" width="345" height="252.5"/>
+                                <rect key="frame" x="15" y="79" width="345" height="273.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ミッションタイトル" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cP9-kx-ItZ">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="29"/>
@@ -66,7 +67,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXo-vB-Irl">
-                                        <rect key="frame" x="0.0" y="151.5" width="345" height="48"/>
+                                        <rect key="frame" x="0.0" y="151.5" width="345" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="NotComplete"/>
                                         <connections>
@@ -74,7 +75,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fc-Uw-804">
-                                        <rect key="frame" x="0.0" y="204.5" width="345" height="48"/>
+                                        <rect key="frame" x="0.0" y="225.5" width="345" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Complete"/>
                                         <connections>
@@ -83,12 +84,31 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dcW-bf-MyO">
+                                <rect key="frame" x="18" y="383" width="339" height="264"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="missionクリアユーザ一覧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEL-6w-O8C">
+                                        <rect key="frame" x="0.0" y="0.0" width="339" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TmE-zq-fFS">
+                                        <rect key="frame" x="0.0" y="24" width="339" height="240"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tpN-0e-Ey0" firstAttribute="top" secondItem="uGg-57-nJD" secondAttribute="top" constant="79" id="2Gm-UG-uEs"/>
+                            <constraint firstItem="dcW-bf-MyO" firstAttribute="leading" secondItem="uGg-57-nJD" secondAttribute="leadingMargin" constant="2" id="2Im-J3-jzV"/>
                             <constraint firstAttribute="trailing" secondItem="tpN-0e-Ey0" secondAttribute="trailing" constant="15" id="DiK-Jy-Fmk"/>
                             <constraint firstItem="tpN-0e-Ey0" firstAttribute="leading" secondItem="uGg-57-nJD" secondAttribute="leading" constant="15" id="Frb-O7-7JT"/>
+                            <constraint firstItem="4R6-9B-gq1" firstAttribute="top" secondItem="dcW-bf-MyO" secondAttribute="bottom" constant="20" id="HLL-Jl-L9L"/>
+                            <constraint firstItem="dcW-bf-MyO" firstAttribute="top" secondItem="tpN-0e-Ey0" secondAttribute="bottom" constant="30" id="ITK-vR-wFY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dcW-bf-MyO" secondAttribute="trailing" constant="2" id="dAQ-lK-OPC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zlB-Wx-PZv"/>
