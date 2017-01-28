@@ -97,13 +97,25 @@
                                         <rect key="frame" x="0.0" y="24" width="339" height="249"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FZa-qZ-Lbd" customClass="MissionDetailTableViewCell" customModule="init" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" id="FZa-qZ-Lbd" customClass="MissionDetailTableViewCell" customModule="init" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="339" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FZa-qZ-Lbd" id="XKk-wo-Gzp">
                                                     <rect key="frame" x="0.0" y="0.0" width="339" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="missionClearUserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iW-2G-uS4">
+                                                            <rect key="frame" x="8" y="11" width="180" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="missionClearUserName" destination="5iW-2G-uS4" id="b7T-BS-Nh4"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>

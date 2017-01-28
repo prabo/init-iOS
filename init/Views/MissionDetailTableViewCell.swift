@@ -10,6 +10,7 @@ import UIKit
 
 class MissionDetailTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var missionClearUserName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

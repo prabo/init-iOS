@@ -24,8 +24,6 @@ class MissionDetailController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        missionDetailTableView.delegate = self
-        missionDetailTableView.dataSource = self
         loadMission()
 
         addEditButtonToNavigationBar()
@@ -113,12 +111,21 @@ class MissionDetailController: UIViewController, UITableViewDataSource, UITableV
 }
 
 extension MissionDetailController {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "td")
-        return cell
-}
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath)
+        guard let userCell = cell as? MissionDetailTableViewCell else {
+            return cell
+        }
+        userCell.missionClearUserName.text = "atsuo"
+        return userCell
+    }
 }
