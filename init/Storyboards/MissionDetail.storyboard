@@ -96,6 +96,16 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TmE-zq-fFS" customClass="MissionDetailTableView" customModule="init" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24" width="339" height="249"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="FZa-qZ-Lbd" customClass="MissionDetailTableViewCell" customModule="init" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="339" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FZa-qZ-Lbd" id="XKk-wo-Gzp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="339" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
                                     </tableView>
                                 </subviews>
                             </stackView>
@@ -114,6 +124,7 @@
                     <navigationItem key="navigationItem" id="zlB-Wx-PZv"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="eCS-8N-i3Z" id="iWK-vO-gPD"/>
+                        <outlet property="missionDetailTableView" destination="TmE-zq-fFS" id="o4f-aM-nBR"/>
                         <outlet property="ownerNameLabel" destination="jrm-8C-wnm" id="MOo-x0-uSz"/>
                         <outlet property="titleLabel" destination="cP9-kx-ItZ" id="M1k-Ph-55v"/>
                     </connections>

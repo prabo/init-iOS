@@ -31,6 +31,7 @@
 		C0B3D20D1DD489CB00A1FEB3 /* MissionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20C1DD489CB00A1FEB3 /* MissionListController.swift */; };
 		C0B3D2101DD48EAD00A1FEB3 /* MissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */; };
 		C0BFCCE11E3CC07000E5FB0F /* MissionDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFCCE01E3CC07000E5FB0F /* MissionDetailTableView.swift */; };
+		C0BFCCE31E3CC61D00E5FB0F /* MissionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFCCE21E3CC61D00E5FB0F /* MissionDetailTableViewCell.swift */; };
 		C0C1AE971DED3561001D261A /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */; };
 		C0CCF5D11DF866570076DEA8 /* MissionList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CCF5D01DF866570076DEA8 /* MissionList.storyboard */; };
 		C0CCF5D41DF86A650076DEA8 /* MissionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CCF5D31DF86A650076DEA8 /* MissionDetail.storyboard */; };
@@ -74,6 +75,7 @@
 		C0B3D20C1DD489CB00A1FEB3 /* MissionListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListController.swift; sourceTree = "<group>"; };
 		C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionListTableViewCell.swift; sourceTree = "<group>"; };
 		C0BFCCE01E3CC07000E5FB0F /* MissionDetailTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDetailTableView.swift; sourceTree = "<group>"; };
+		C0BFCCE21E3CC61D00E5FB0F /* MissionDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionDetailTableViewCell.swift; sourceTree = "<group>"; };
 		C0C1AE961DED3561001D261A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		C0CCF5D01DF866570076DEA8 /* MissionList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionList.storyboard; sourceTree = "<group>"; };
 		C0CCF5D31DF86A650076DEA8 /* MissionDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MissionDetail.storyboard; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				C0211B961E16418A007C16F7 /* MissionCategoryTableViewCell.swift */,
 				C0B3D20F1DD48EAD00A1FEB3 /* MissionListTableViewCell.swift */,
 				C0BFCCE01E3CC07000E5FB0F /* MissionDetailTableView.swift */,
+				C0BFCCE21E3CC61D00E5FB0F /* MissionDetailTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				45022D081E17EE9F00D6D970 /* PraboAPI.swift in Sources */,
 				C0D457231DD2FEEB00B33924 /* MissionEditController.swift in Sources */,
 				C0D457211DD2FE4100B33924 /* MissionAddController.swift in Sources */,
+				C0BFCCE31E3CC61D00E5FB0F /* MissionDetailTableViewCell.swift in Sources */,
 				C00032971E019AFE0024E1D2 /* Session.swift in Sources */,
 				458134B51E1A4765008ABF94 /* UIAlertControllerExtension.swift in Sources */,
 				30DEFB799C8486F9E0AC42AD /* Router.swift in Sources */,

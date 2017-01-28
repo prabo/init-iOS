@@ -10,12 +10,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class MissionDetailController: UIViewController {
+class MissionDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var mission: Mission?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var ownerNameLabel: UILabel!
+    @IBOutlet weak var missionDetailTableView: MissionDetailTableView!
 
     @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
     }
@@ -23,6 +24,8 @@ class MissionDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        missionDetailTableView.delegate = self
+        missionDetailTableView.dataSource = self
         loadMission()
 
         addEditButtonToNavigationBar()
@@ -107,4 +110,15 @@ class MissionDetailController: UIViewController {
         let editButton: UIBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(handleEditButton))
         navigationItem.rightBarButtonItem = editButton
     }
+}
+
+extension MissionDetailController {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "td")
+        return cell
+}
 }
