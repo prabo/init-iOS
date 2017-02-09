@@ -17,7 +17,7 @@ class MissionDetailController: UITableViewController {
     var descriptionLabel: String!
     var ownerNameLabel: String!
     
-    let users = ["atsuo","hyuga","kp","elzup"]
+    var completedUsers = [User]()
     enum SectionName {
         case title
         case author
@@ -50,15 +50,19 @@ class MissionDetailController: UITableViewController {
         titleLabel = m.title
         descriptionLabel = m.description
         // Loading Placeholder
-        ownerNameLabel = "..."
+        ownerNameLabel = "@" + m.author.username
+        completed = m.isCompleted
         let _ = PraboAPI.sharedInstance.getMission(id: m.id)
             .subscribe(onNext: { (result: Result<Mission>) in
                 // TODO: Error 処理
                 guard let mission: Mission = result.data else {
                     return
                 }
-                self.mission = mission
-                self.ownerNameLabel = "@" + mission.author.username
+                guard let completedUsers = mission.completedUsers else {
+                    return
+                }
+                self.completedUsers = completedUsers
+                self.tableView.reloadData()
             })
     }
 
@@ -118,7 +122,7 @@ extension MissionDetailController {
         case SectionName.state.hashValue:
             return 2
         case SectionName.completedUsers.hashValue:
-            return users.count
+            return completedUsers.count
         default:
             return 0
         }
@@ -128,7 +132,7 @@ extension MissionDetailController {
         let cell = UITableViewCell (style: .default, reuseIdentifier: "")
         switch indexPath.section {
         case SectionName.title.hashValue:
-            cell.textLabel?.text = self.titleLabel
+            cell.textLabel?.text = self.descriptionLabel
             cell.selectionStyle = .none
         case SectionName.author.hashValue:
             cell.textLabel?.text = self.ownerNameLabel
@@ -149,7 +153,7 @@ extension MissionDetailController {
                 break
             }
         case SectionName.completedUsers.hashValue:
-            cell.textLabel?.text = users[indexPath.row]
+            cell.textLabel?.text = completedUsers[indexPath.row].username
             cell.selectionStyle = .none
             cell.imageView?.image = #imageLiteral(resourceName: "enemy")
         default:
@@ -165,7 +169,7 @@ extension MissionDetailController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case SectionName.title.hashValue:
-            return "ミッションタイトル"
+            return titleLabel
         case SectionName.author.hashValue:
             return "作成者"
         case SectionName.state.hashValue:
