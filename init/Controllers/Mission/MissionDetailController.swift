@@ -13,12 +13,19 @@ import SwiftyJSON
 class MissionDetailController: UITableViewController {
 
     var mission: Mission?
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var ownerNameLabel: UILabel!
-
-    @IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
+    var titleLabel: String!
+    var descriptionLabel: String!
+    var ownerNameLabel: String!
+    
+    let users = ["atsuo","hyuga","kp","elzup"]
+    enum SectionName {
+        case title
+        case author
+        case state
+        case completedUsers
     }
+    
+    var completed = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +47,10 @@ class MissionDetailController: UITableViewController {
         guard let m = mission else {
             return
         }
-        titleLabel.text = m.title
-        descriptionLabel.text = m.description
+        titleLabel = m.title
+        descriptionLabel = m.description
         // Loading Placeholder
-        ownerNameLabel.text = "..."
+        ownerNameLabel = "..."
         let _ = PraboAPI.sharedInstance.getMission(id: m.id)
             .subscribe(onNext: { (result: Result<Mission>) in
                 // TODO: Error 処理
@@ -51,7 +58,7 @@ class MissionDetailController: UITableViewController {
                     return
                 }
                 self.mission = mission
-                self.ownerNameLabel.text = "@" + mission.author.username
+                self.ownerNameLabel = "@" + mission.author.username
             })
     }
 
@@ -89,14 +96,6 @@ class MissionDetailController: UITableViewController {
             })
     }
 
-    @IBAction func completeButton(_ sender: UIButton) {
-        complete()
-    }
-
-    @IBAction func notCompleteButton(_ sender: UIButton) {
-        notComplete()
-    }
-
     func handleEditButton() {
         let vc = Storyboard.MissionEdit.instantiate(MissionEditController.self)
         vc.mission = self.mission
@@ -106,5 +105,92 @@ class MissionDetailController: UITableViewController {
     private func addEditButtonToNavigationBar() {
         let editButton: UIBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(handleEditButton))
         navigationItem.rightBarButtonItem = editButton
+    }
+}
+
+extension MissionDetailController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case SectionName.title.hashValue:
+            return 1
+        case SectionName.author.hashValue:
+            return 1
+        case SectionName.state.hashValue:
+            return 2
+        case SectionName.completedUsers.hashValue:
+            return users.count
+        default:
+            return 0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell (style: .default, reuseIdentifier: "")
+        switch indexPath.section {
+        case SectionName.title.hashValue:
+            cell.textLabel?.text = self.titleLabel
+            cell.selectionStyle = .none
+        case SectionName.author.hashValue:
+            cell.textLabel?.text = self.ownerNameLabel
+            cell.selectionStyle = .none
+        case SectionName.state.hashValue:
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = "notCompleted"
+                if !completed {
+                    cell.accessoryType = .checkmark
+                }
+            case 1:
+                cell.textLabel?.text = "completed"
+                if completed {
+                    cell.accessoryType = .checkmark
+                }
+            default:
+                break
+            }
+        case SectionName.completedUsers.hashValue:
+            cell.textLabel?.text = users[indexPath.row]
+            cell.selectionStyle = .none
+            cell.imageView?.image = #imageLiteral(resourceName: "enemy")
+        default:
+            break
+        }
+        return cell
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case SectionName.title.hashValue:
+            return "ミッションタイトル"
+        case SectionName.author.hashValue:
+            return "作成者"
+        case SectionName.state.hashValue:
+            return " "
+        case SectionName.completedUsers.hashValue:
+            return "ミッションクリアユーザー"
+        default:
+            return nil
+        }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section.hashValue == SectionName.state.hashValue else {
+            return
+        }
+        completed = !completed
+        
+        switch (indexPath.section, indexPath.row) {
+        case (2,0):
+            notComplete()
+        case (2,1):
+            complete()
+        default:
+            break
+        }
+        
+        tableView.reloadData()
     }
 }
