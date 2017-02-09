@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bhe-P6-mIM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2eV-Nd-Nx6">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Mission Detail Controller-->
+        <!--View Controller-->
         <scene sceneID="DcK-7p-ygZ">
             <objects>
-                <viewController storyboardIdentifier="Detail" id="bhe-P6-mIM" customClass="MissionDetailController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Detail" id="bhe-P6-mIM" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yf9-DB-h1Y"/>
                         <viewControllerLayoutGuide type="bottom" id="4R6-9B-gq1"/>
@@ -69,17 +69,11 @@
                                         <rect key="frame" x="0.0" y="151.5" width="345" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="NotComplete"/>
-                                        <connections>
-                                            <action selector="notCompleteButton:" destination="bhe-P6-mIM" eventType="touchUpInside" id="Ig2-VV-heO"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fc-Uw-804">
                                         <rect key="frame" x="0.0" y="204.5" width="345" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Complete"/>
-                                        <connections>
-                                            <action selector="completeButton:" destination="bhe-P6-mIM" eventType="touchUpInside" id="BiH-Sr-9Wx"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -92,20 +86,40 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zlB-Wx-PZv"/>
-                    <connections>
-                        <outlet property="descriptionLabel" destination="eCS-8N-i3Z" id="iWK-vO-gPD"/>
-                        <outlet property="ownerNameLabel" destination="jrm-8C-wnm" id="MOo-x0-uSz"/>
-                        <outlet property="titleLabel" destination="cP9-kx-ItZ" id="M1k-Ph-55v"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Mu-ZH-7N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="v0B-QS-3N3">
-                    <connections>
-                        <action selector="tapScreen:" destination="bhe-P6-mIM" id="IPU-wy-8Gy"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="v0B-QS-3N3"/>
             </objects>
             <point key="canvasLocation" x="1844" y="-503.29835082458777"/>
+        </scene>
+        <!--Mission Detail Controller-->
+        <scene sceneID="gjO-hh-lTw">
+            <objects>
+                <tableViewController id="2eV-Nd-Nx6" customClass="MissionDetailController" customModule="init" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qQs-bB-hpk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Rd2-u9-qFL">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rd2-u9-qFL" id="D1l-Xf-dcM">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2eV-Nd-Nx6" id="6Vh-Rm-fxn"/>
+                            <outlet property="delegate" destination="2eV-Nd-Nx6" id="V01-GX-ZfY"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="NSV-FN-obT"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MzS-Ke-dfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="-503"/>
         </scene>
     </scenes>
 </document>
