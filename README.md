@@ -2,6 +2,9 @@
 
 ## 機能
 ラボメンみんなでTODOをしていく
+* ユーザを登録
+<img src="https://github.com/prabo/init-iOS/blob/master/picture/regist.png" width="200px">
+
 * categoryのリスト
 <img src="https://github.com/prabo/init-iOS/blob/master/picture/category.png" width="200px">
 
